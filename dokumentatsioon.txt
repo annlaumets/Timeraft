@@ -1,0 +1,17 @@
+﻿Veebirakenduste rakendamine
+12.02.2015 - Idee valik toimus praktikumis: Valisime, et teha Trello sarnane asi, aga pigem personaalne ja 
+	õpingutele orienteeritud. Võimalik, et lisame teiste inimeste toetuse hiljem.
+	Lisaks mõtlesime, et õppides, tahaks näha ajakasutust, niiet võiks liita 
+	trello + toggl, mis on mõlemad pigem ettevõtetele(team management) suunatud. 
+	Tahaks pigem teha personaalsetele vajadustele suunatud toote. 
+13.02.2015 - Saime kokku kell 10, et arutada, mis plaanid on ja kuidas teha. 
+	Annika pani üles githubi. Tegime whiteboardil läbi kõik vaated, mida planeerime.
+	Hakkasime tegema balsamiq-s mockup vaateid. Blasmatiq ei näe väga hea/ilus välja.
+	Jagame ülesanded laiali ja läheme laiali hetkel. Proovin teha ka azure-s 
+	serveri üles, et saab varsti arendama hakata. 
+15.02.2015 - Annika ja Viktoria tegid vahepeal mockupi jaoks asju, mina testisin azure serverit. Kohe peaks
+	kõik valmis olema ja saame üles laadida. Pildid on valmis, aga mõtleme, et kas peaks tegema juttu
+	ka juurde. Teen igaksjuhuks mockupi jaoks mingi jutu, et paremini aru saada. Lugesin mockupide 
+	ja disaini kohta natuke, meeldis see artikkel - 
+	http://knowledge.hubspot.com/design-manager-user-guide/how-to-plan-your-sites-design
+	
