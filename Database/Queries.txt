@@ -1,0 +1,29 @@
+create table Users (ID int not null auto_increment unique,
+Name varchar(50) not null,
+Password varchar(50) not null unique,
+Email varchar(50) not null unique,
+Time_Created timestamp,
+primary key (Email));
+CREATE TABLE Board (
+    ID INT NOT NULL AUTO_INCREMENT UNIQUE,
+    Name VARCHAR(50) NOT NULL,
+    Description VARCHAR(1000),
+    Time_Created TIMESTAMP,
+    Owner_ID INT NOT NULL,
+    PRIMARY KEY (Owner_ID)
+);
+CREATE TABLE Task (
+    ID INT NOT NULL AUTO_INCREMENT UNIQUE,
+    Name VARCHAR(50) NOT NULL,
+    Description VARCHAR(1000),
+    Task_Type VARCHAR(50) NOT NULL,
+    Time_Created TIMESTAMP,
+    Task_Time TIME,
+    Board_ID INT NOT NULL,
+    PRIMARY KEY (Board_ID)
+);
+CREATE PROCEDURE `add_user`(IN name varchar(50), 
+IN password varchar(50), IN email varchar(50))
+BEGIN
+insert into Users(Name, Password, Email, Time_Created) values(name, password, email, current_timestamp());
+END
