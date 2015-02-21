@@ -10,19 +10,37 @@ function signIn() {
     document.getElementById("demo").innerHTML = "Sign in";
 }
 
-function div_show() {
-    document.getElementById("form").style.display= "block";
+function div_show_signin() {
+    document.getElementById("form_signin").style.display= "block";
 }
 
-function div_hide() {
-    document.getElementById("form").style.display = "none";
+function div_show_signup() {
+    document.getElementById("form_signup").style.display= "block";
 }
 
-function check_empty() {
-    if (document.getElementById('name').value == "" || document.getElementById('password').value == "") {
-        alert("Fill All Fields !");
+function div_hide_signin() {
+    document.getElementById("form_signin").style.display = "none";
+}
+
+function div_hide_signup() {
+    document.getElementById("form_signup").style.display = "none";
+}
+
+function check_empty_signin() {
+    if (document.getElementById('name_signin').value == "" || document.getElementById('password_signin').value == "") {
+        alert("Fill All Fields!");
     } else {
-        document.getElementById('form2').submit();
+        document.getElementById('form2_signin').submit();
+        alert("Form Submitted Successfully...");
+    }
+}
+
+function check_empty_signup() {
+    if (document.getElementById('name_signup').value == "" || document.getElementById('password_signup').value == "" ||
+        document.getElementById('email_signup').value == "") {
+        alert("Fill All Fields!");
+    } else {
+        document.getElementById('form2_signup').submit();
         alert("Form Submitted Successfully...");
     }
 }

@@ -1,61 +1,101 @@
 body{
-    margin-top:50px;}
+    margin-top: 50px;
+}
 
 div.header{
     width: 100%;
     height: 50px;
-    display:block;
+    display: block;
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     background-color: #88e297;
 }
-img.logo{
-    float:left;
+img.logo-main{
+    float: left;
     height: 50px;
 }
-nav{
-    float:right;
-    margin-right:10px;
+
+img.logo {
+    float: left;
+    margin-left: 250px;
+    height: 50px;
+}
+
+nav {
+    float: right;
+    margin-left: 10px;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
 }
 
 nav ul li{
-    list-style:none;
-    float:left;
-    margin-right: 10px;
+    text-align: right;
+    float: left;
+    margin: 10px;
+    width: 150px;
 }
 
-#form {
+nav ul li a {
+    text-decoration: none;
+    display: block;
+    color: aquamarine;
+    background-color: dimgrey;
+    padding: 5px 10px;
+}
+
+nav ul li a:hover {
+    background-color: black;
+    color: aqua;
+}
+
+nav ul li ul {
+    display: none;
+}
+
+nav ul li:hover ul {
+    display: block;
+}
+
+img.help {
+    height: 50px;
+    margin: 0px 10px 0px 0px;
+}
+
+#form_signin, #form_signup {
     opacity: 0.95;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    position:fixed;
+    position: fixed;
     display: none;
     overflow: auto;
-    background-color: black;
+    background-color: grey;
 }
 
-#popup {
-    position:absolute;
-    left:50%;
-    top:17%;
-    margin-left:-202px;
-    font-family:'Raleway',sans-serif;
+#popup_singin, #popup_singup {
+    position: absolute;
+    left: 50%;
+    top: 17%;
+    margin-left: -202px;
+    font-family: 'Raleway',sans-serif;
 }
 
 form {
-    max-width:300px;
-    min-width:250px;
-    padding:10px 50px;
-    border:2px solid gray;
-    border-radius:10px;
-    font-family:raleway;
-    background-color:#fff
+    max-width: 300px;
+    min-width: 250px;
+    padding: 10px 50px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    font-family: raleway;
+    background-color: #fff;
 }
 
-img#close {
+img#close_signin {
     height: 10%;
     position: absolute;
     right: 0px;
@@ -63,7 +103,15 @@ img#close {
     cursor: pointer;
 }
 
-#submit {
+img#close_signup {
+      height: 10%;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      cursor: pointer;
+}
+
+#submit_signin, #submit_signup {
     width: 100%;
     display: block;
 }

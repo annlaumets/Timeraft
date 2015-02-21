@@ -9,7 +9,7 @@
 
 <body>
 <div class="header">
-    <a href=#1><img class="logo" src="paasukelogo2.jpg"/></a>
+    <a href=#1><img class="logo-main" src="paasukelogo2.jpg"/></a>
     <nav>
         <ul>
             <a href=#2><li>Features</li></a>
@@ -23,20 +23,34 @@
     <a name=1></a><h1>Timeraft</h1>
         <img src="paasukelogo2.jpg" \>
 
-    <div id="form">
-        <div id="popup">
-            <form action="#" id="form2" method="post" name="form2">
-                <img id="close" src="paasukelogo2.jpg" onclick ="div_hide()">
+    <div id="form_signin">
+        <div id="popup_singin">
+            <form action="#" id="form2_signin" method="post" name="form2">
+                <img id="close_signin" src="paasukelogo2.jpg" onclick ="div_hide_signin()">
                 <h2>Sign in</h2>
                 <hr>
-                <input id="name" name="name" placeholder="Name" type="text">
-                <input id="password" name="password" placeholder="Password" type="text">
-                <a href="javascript:%20check_empty()" id="submit">Log in</a>
+                <input id="name_signin" name="name" placeholder="Name" type="text">
+                <input id="password_signin" name="password" placeholder="Password" type="password">
+                <a href="javascript:%20check_empty_signin()" id="submit_signin">Log in</a>
             </form>
         </div>
     </div>
-    <button onclick="div_show()">Sign in</button>
-    <button onclick="div_show()">Sign up</button>
+    <button onclick="div_show_signin()">Sign in</button>
+
+    <div id="form_signup">
+        <div id="popup_singup">
+            <form action="#" id="form2_signup" method="post" name="form2">
+                <img id="close_signup" src="paasukelogo2.jpg" onclick ="div_hide_signup()">
+                <h2>Sign up</h2>
+                <hr>
+                <input id="name_signup" name="name" placeholder="Name" type="text">
+                <input id="email_signup" name="email" placeholder="Email" type="email">
+                <input id="password_signup" name="password" placeholder="Password" type="password">
+                <a href="javascript:%20check_empty_signup()" id="submit_signup">Register</a>
+            </form>
+        </div>
+    </div>
+    <button onclick="div_show_signup()">Sign up</button>
 
 
 
