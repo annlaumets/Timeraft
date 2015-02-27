@@ -20,7 +20,6 @@ function div_show_signup() {
 
 function div_hide_signin() {
     document.getElementById("form_signin").style.display = "none";
-
 }
 
 function div_hide_signup() {
