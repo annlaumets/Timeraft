@@ -29,7 +29,7 @@
                 <img id="close_signin" src="paasukelogo2.jpg" onclick ="div_hide_signin()">
                 <h2>Sign in</h2>
                 <hr>
-                <input id="name_signin" name="name" placeholder="Name" type="text">
+                <input id="name_signin" name="email" placeholder="E-mail" type="email">
                 <input id="password_signin" name="password" placeholder="Password" type="password">
                 <input onclick="div_hide_signin()" name="submit" value="Log in" type="submit">
             </form>
@@ -39,14 +39,14 @@
 
     <div id="form_signup">
         <div id="popup_singup">
-            <form action="#" id="form2_signup" method="post" name="form2">
+            <form action="/include/signup.php" id="form2_signup" method="post" name="form2">
                 <img id="close_signup" src="paasukelogo2.jpg" onclick ="div_hide_signup()">
                 <h2>Sign up</h2>
                 <hr>
                 <input id="name_signup" name="name" placeholder="Name" type="text">
                 <input id="email_signup" name="email" placeholder="Email" type="email">
                 <input id="password_signup" name="password" placeholder="Password" type="password">
-                <input name="submit" value="Submit" type="submit">
+                <input onclick="div_hide_signup()" name="submit" value="Submit" type="submit">
             </form>
         </div>
     </div>
