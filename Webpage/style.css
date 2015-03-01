@@ -1,10 +1,10 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 body{
-    font-family: ariel;
+    font-family: 'Sanchez', serif;
     background: #f5f5f5;
 }
 
@@ -25,22 +25,24 @@ header{
 
 img.logo-main{
     float: left;
-    height: 59px;
-    width: 67px;
-    top: 0;
-    left: 0;
+    height: 25px;
+    width: auto;
+    top: 15px;
+    left: 25px;
     position: relative;
     padding-right: 80px;
 }
 
-div.logo {
-    background: url(images/paasukelogo2.jpg) 50% 0 no-repeat;
-    background-size: 67px 59px;
-    width: 67px;
-    height: 59px;
+img#mainpage-logo {
+    margin: 25px;
+}
+
+.logo {
+    height: 30px;
+    width: auto;
     position: absolute;
-    top: 0;
-    left: 45%;
+    top: 15px;
+    left: 40%;
 }
 
 nav li{
@@ -112,7 +114,7 @@ nav ul #account ul {
 }
 
 nav ul #account ul li {
-    padding: 0px 10px 0px 10px;
+    padding: 0 10px;
     width: 100px;
     text-align: center;
 }
@@ -157,13 +159,14 @@ p {
     background-color: grey;
 }
 
-#popup_singin, #popup_singup {
-    position: absolute;
+#popup_signin, #popup_signup {
+    position: fixed;
     left: 50%;
     top: 17%;
     margin-left: -202px;
-    font-family: 'Raleway',sans-serif;
     opacity: 1;
+    z-index: 10000;
+    display: none;
 }
 
 form {
@@ -172,23 +175,32 @@ form {
     padding: 10px 15px;
     border: 2px solid gray;
     border-radius: 10px;
-    font-family: raleway;
-    background-color: darkkhaki;
-    opacity: 1;
+    background-color: snow;
 }
 
-#timeraft img#close_signin, #timeraft img#close_signup {
-    height: 25%;
+#timeraft form img#close_signin, #timeraft img#close_signup {
+    height: 10%;
     position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 0;
+    top: 0;
     cursor: pointer;
-    padding-right: 0px;
+    padding-right: 0;
 }
 
 #submit_signin, #submit_signup {
-    width: 100%;
+    height: auto;
+    width: 35%;
     display: block;
+    margin: 10px auto;
+    align-items: center;
+}
+
+#popup_singin h2, #popup_singup h2 {
+    background-color:#FEFFED;
+    padding:20px 35px;
+    margin:-10px -50px;
+    text-align:center;
+    border-radius:10px 10px 0 0
 }
 
 #timeraft {
@@ -212,15 +224,56 @@ form {
 }
 
 #aboutus {
-    background-color: darkkhaki;
+    background-color: floralwhite;
     width: 100%;
     height: auto;
     position: static;
     padding-top: 60px;
     padding-bottom: 60px;
+    text-align: center;
 }
 
 #timeraft img, #timeraft h1, #features p, #features h1, #aboutus p, #aboutus h1 {
     padding-right: 25px;
     padding-left: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.nupud {
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.nupud .fb-login-button {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+form input {
+    margin: 5px;
+    padding: 2px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+#features ul {
+    text-align: center;
+    padding: 10px;
+}
+
+#features ul li, #aboutus ul li {
+    padding: 2px;
+}
+
+#timeraft h3 {
+    margin: 5px 250px 25px 250px;
+    padding: 0;
 }
