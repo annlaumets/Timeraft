@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="fblogin.js"></script>
     <title>Timeraft</title>
 </head>
 
 <body>
+<div id="fb-root"></div>
 <section>
     <header>
-        <a href=#1><img class="logo-main" src="paasukelogo2.jpg"/></a>
+        <a href=#1><img class="logo-main" src="images/paasukelogo2.jpg"/></a>
         <nav>
             <ul class="ul2">
-                <a href=#2>
-                    <li class="li2">Features</li>
-                </a>
-                <a href=#3>
-                    <li class="li2">About us</li>
-                </a>
+                <li class="li2"><a href=#2>Features</a></li>
+                <li class="li2"><a href=#3>About us</a></li>
             </ul>
         </nav>
     </header>
@@ -30,31 +27,32 @@
 
 
         <h1>Timeraft</h1>
-        <img src="paasukelogo2.jpg" \>
+        <img src="images/paasukelogo2.jpg" \>
 	<br>
 
         <div id="form_signin">
             <div id="popup_singin">
                 <form action="/include/login.php" id="form2_signin" method="post" name="form2">
-                    <img id="close_signin" src="close.png" onclick="div_hide_signin()">
+                    <img id="close_signin" src="images/close.png" onclick="div_hide_signin()">
 
                     <h2>Sign in</h2>
-                    <hr>
+                    <br>
                     <input id="name_signin" name="name" placeholder="Name" type="text">
                     <input id="password_signin" name="password" placeholder="Password" type="password">
                     <input onclick="div_hide_signin()" name="submit" value="Log in" type="submit" id="submit_signin">
+                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
                 </form>
             </div>
         </div>
-        <input type="image" onclick="div_show_signin()" src="signin.png"></input>
+        <input type="image" onclick="div_show_signin()" src="images/signin.png"/>
 
         <div id="form_signup">
             <div id="popup_singup">
                 <form action="/include/signup.php" id="form2_signup" method="post" name="form2">
-                    <img id="close_signup" src="close.png" onclick="div_hide_signup()">
+                    <img id="close_signup" src="images/close.png" onclick="div_hide_signup()">
 
                     <h2>Sign up</h2>
-                    <hr>
+                    <br>
                     <input id="name_signup" name="name" placeholder="Name" type="text">
                     <input id="email_signup" name="email" placeholder="Email" type="email">
                     <input id="password_signup" name="password" placeholder="Password" type="password">
@@ -62,7 +60,7 @@
                 </form>
             </div>
         </div>
-        <input type="image" src="signup.png" onclick="div_show_signup()"></input>
+        <input type="image" src="images/signup.png" onclick="div_show_signup()"/>
     </section>
 
 

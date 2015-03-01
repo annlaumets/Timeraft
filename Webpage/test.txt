@@ -1,0 +1,3 @@
+a href=javascript%20check_empty_signin() id=submit_signinLog ina
+
+<a href="javascript:%20check_empty_signup()" id="submit_signup">Register</a>
