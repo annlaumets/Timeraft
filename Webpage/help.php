@@ -1,11 +1,18 @@
+<?php
+
+include("include/session.php");
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="js/scripts.js"></script>
-    <title>Timeraft | Board</title>
+    <title>Timeraft | Help</title>
 </head>
+
 <body>
 <section>
     <header>
@@ -17,6 +24,7 @@
                         <li><a href="account.html">Profile</a></li>
                         <li><a href="settings.html">Settings</a></li>
                         <li><a href="stats.html">Statistics</a></li>
+                        <hr><li><a href="/include/logout.php">Log out</a></li>
                     </ul>
                 </li>
                 <li><a href="/Timeraft/help.html"><img class="help" src="images/Question_mark.png" \></a></li>
@@ -25,6 +33,8 @@
         <div class="logo"></div>
     </header>
 </section>
+
+<div class="main-body"></div>
 
 </body>
 </html>
