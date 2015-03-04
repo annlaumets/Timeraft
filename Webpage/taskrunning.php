@@ -1,3 +1,9 @@
+<?php
+
+include("include/session.php");
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -5,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> <!--Font-->
     <script type="text/javascript" src="js/scripts.js"></script>
-    <title>Timeraft | Statistics</title>
+    <title>Timeraft</title>
 </head>
 <body>
 <section>
@@ -28,6 +34,10 @@
         <img class="logo" src="images/timeraftlogo-white.png" \>
     </header>
 </section>
+
+<div class="main-body">
+
+</div>
 
 </body>
 </html>

@@ -34,6 +34,7 @@
         <h3>Timeraft gives you a perfect oppurtunity to start managing your daily tasks online with good statistical analysis tools.<br>
             <br>
             Stop using your fridge as a noteboard and join Timeraft community, you will not regret it.</h3>
+
         <div id="form_signin"></div>
         <div id="popup_signin">
             <form action="/include/login.php" id="form2_signin" method="post" name="form2">
@@ -41,9 +42,9 @@
 
                 <h2>SIGN IN</h2>
                 <br>
-                <input name="email" placeholder="Email" type="email" size="25">
-                <input name="password" placeholder="Password" type="password" size="25">
-                <input onclick="div_hide_signin()" name="submit"  type="image" src="images/login.png" id="submit_signin" align="center">
+                <input name="email" placeholder="Email" type="email" size="25" required>
+                <input name="password" placeholder="Password" type="password" size="25" required>
+                <input onsubmit="div_hide_signin()" name="submit"  type="image" src="images/login.png" id="submit_signin" align="center">
 
                 <div class="nupud">
                 <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false"
@@ -61,7 +62,7 @@
                 </div>
             </form>
         </div>
-        <input type="image" onclick="div_show_signin()" src="images/signin.png" />
+        <input type="image" onclick="div_hide_signin()" src="images/signin.png" />
 
         <div id="form_signup"></div>
         <div id="popup_signup">
@@ -70,10 +71,10 @@
 
                 <h2>SIGN UP</h2>
                 <br>
-                <input name="name" placeholder="Name" type="text" size="25">
-                <input name="email" placeholder="Email" type="email" size="25">
-                <input name="password" placeholder="Password" type="password" size="25">
-                <input onclick="div_hide_signup()" name="submit" type="image" src="images/register.png" id="submit_signup">
+                <input name="name" placeholder="Name" type="text" size="25" required>
+                <input name="email" placeholder="Email" type="email" size="25" required>
+                <input name="password" placeholder="Password" type="password" size="25" required>
+                <input onsubmit="div_hide_signup()" name="submit" type="image" src="images/register.png" id="submit_signup">
 
                 <div class="nupud">
                     <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false"

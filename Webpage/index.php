@@ -41,9 +41,9 @@
 
                 <h2>SIGN IN</h2>
                 <br>
-                <input name="email" placeholder="Email" type="email" size="25">
-                <input name="password" placeholder="Password" type="password" size="25">
-                <input onclick="div_hide_signin()" name="submit"  type="image" src="images/login.png" id="submit_signin" align="center">
+                <input name="email" placeholder="Email" type="email" size="25" required>
+                <input name="password" placeholder="Password" type="password" size="25" required>
+                <input onsubmit="div_hide_signin()" name="submit"  type="image" src="images/login.png" id="submit_signin" align="center">
 
                 <div class="nupud">
                     <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false"
@@ -70,10 +70,10 @@
 
                 <h2>SIGN UP</h2>
                 <br>
-                <input name="name" placeholder="Name" type="text" size="25">
-                <input name="email" placeholder="Email" type="email" size="25">
-                <input name="password" placeholder="Password" type="password" size="25">
-                <input onclick="div_hide_signup()" name="submit" type="image" src="images/register.png" id="submit_signup">
+                <input name="name" placeholder="Name" type="text" size="25" required>
+                <input name="email" placeholder="Email" type="email" size="25" required>
+                <input name="password" placeholder="Password" type="password" size="25" required>
+                <input onsubmit="div_hide_signup()" name="submit" type="image" src="images/register.png" id="submit_signup">
 
                 <div class="nupud">
                     <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false"

@@ -13,6 +13,7 @@ section {
     width: 100%;
     top: 0;
     background-color: #88e297;
+    z-index: 1;
 }
 
 header{
@@ -21,6 +22,7 @@ header{
     margin: 0 auto;
     position: relative;
     text-align: center;
+    z-index: 2;
 }
 
 img.logo-main{
@@ -109,14 +111,15 @@ nav ul #account a {
 nav ul #account ul {
     padding: 0;
     position: absolute;
-    left: 0;
+    right: 0;
     top: 55px;
+    background-color: #88e297;
 }
 
 nav ul #account ul li {
     padding: 0 10px;
     width: 100px;
-    text-align: center;
+    text-align: left;
 }
 
 nav ul #account ul li:hover {
@@ -140,6 +143,7 @@ img.help {
 div.main-body {
     margin-top: 60px;
     width: 100%;
+    height: 500px;
 }
 
 p {
@@ -276,4 +280,35 @@ h1, h2 {
 #timeraft h3 {
     margin: 5px 250px 25px 250px;
     padding: 0;
+}
+
+div.main-body .board {
+    width: 95%;
+    height: auto;
+    display: inline-block;
+    top: 60px;
+    left: 7%;
+    position: absolute;
+    margin-right: auto;
+
+}
+
+div.main-body .list {
+    width: 25%;
+    margin: 30px 25px;
+    position: initial;
+    float: left;
+    background-color: lavender;
+    text-align: center;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.list hr {
+    width: 75%;
+    margin: 3px auto;
+    border: 0;
+    color: #5fd873;
+    background-color: #5fd873;
+    height: 1px;
 }
