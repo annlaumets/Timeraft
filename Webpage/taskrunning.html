@@ -4,33 +4,62 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> <!--Font-->
-    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/timer.js"></script>
+    <script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript"></script>
     <title>Timeraft</title>
 </head>
+
 <body>
-<section>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/mainboard.php">BOARDS</a></li>
-                <li id="account">USERNAME
-                    <ul>
-                        <li><a href="/account.php">PROFILE</a></li>
-                        <li><a href="/settings.php">SETTINGS</a></li>
-                        <li><a href="/stats.php">STATISTICS</a></li>
-                        <hr>
-                        <li><a href="/include/logout.php">LOG OUT</a></li>
-                    </ul>
-                </li>
-                <li><a href="/help.php"><img class="help" src="images/help.png" \></a></li>
-            </ul>
-        </nav>
-        <img class="logo" src="images/timeraftlogo-white.png" \>
-    </header>
-</section>
-
 <div class="main-body">
+    <div class="container">
+        <h1 id="timer2">00:00:00</h1>
+        <button id="start2" name="controls">Start</button>
+        <button id="stop2" name="controls">Stop</button>
+        <button id="restart2" name="controls">Restart</button>
+<!--
+        &lt;!&ndash; If Javascript is not enabled in broswer &ndash;&gt;
+        <noscript>
+            <input id="start" type="radio" name="controls" />
+            <input id="stop" type="radio" name="controls" />
+            <input id="restart" type="radio" name="controls" />
 
+            <div id="timer">
+                <div class="cell">
+                    <div class="numbers tenhour moveten">0 1 2 3 4 5 6 7 8 9</div>
+                </div>
+                <div class="cell">
+                    <div class="numbers hour moveten">0 1 2 3 4 5 6 7 8 9</div>
+                </div>
+
+                <div class="cell divider">
+                    <div class="numbers">:</div>
+                </div>
+
+                <div class="cell">
+                    <div class="numbers tenminute movesix">0 1 2 3 4 5 6</div>
+                </div>
+                <div class="cell">
+                    <div class="numbers minute moveten">0 1 2 3 4 5 6 7 8 9</div>
+                </div>
+
+                <div class="cell divider">
+                    <div class="numbers">:</div>
+                </div>
+
+                <div class="cell">
+                    <div class="numbers tensecond movesix">0 1 2 3 4 5 6</div>
+                </div>
+                <div class="cell">
+                    <div class="numbers second moveten">0 1 2 3 4 5 6 7 8 9</div>
+                </div>
+            </div>
+            <div id="timer_controls">
+                <label for="start">Start</label>
+                <label for="stop">Pause</label>
+                <label for="restart">Finish</label>
+            </div>
+        </noscript>-->
+    </div>
 </div>
 
 </body>

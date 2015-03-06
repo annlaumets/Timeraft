@@ -47,6 +47,7 @@ img#mainpage-logo {
     left: 40%;
 }
 
+/*Navigation menu*/
 nav li{
     display: inline-block;
     padding: 0 30px 0 30px;
@@ -140,10 +141,10 @@ img.help {
     width: auto;
 }
 
+/*Main body*/
 div.main-body {
     margin-top: 60px;
     width: 100%;
-    height: 500px;
 }
 
 p {
@@ -151,6 +152,7 @@ p {
 
 }
 
+/*Sign in/sign up popup*/
 #form_signin, #form_signup {
     opacity: 0.95;
     width: 100%;
@@ -207,6 +209,7 @@ form {
     border-radius:10px 10px 0 0
 }
 
+/*Main page strips*/
 #timeraft {
     background-color: floralwhite;
     height: auto;
@@ -247,6 +250,7 @@ a {
     color: black;
 }
 
+/*Login buttons for FB and Google*/
 .nupud {
     display: inline-block;
     padding: 10px 20px;
@@ -282,26 +286,34 @@ h1, h2 {
     padding: 0;
 }
 
+/*Board CSS*/
 div.main-body .board {
-    width: 95%;
+    width: 100%;
     height: auto;
     display: inline-block;
-    top: 60px;
-    left: 7%;
-    position: absolute;
-    margin-right: auto;
-
+    top: 5px;
+    position: relative;
+    padding-right: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
 }
 
-div.main-body .list {
-    width: 25%;
-    margin: 30px 25px;
-    position: initial;
+div.main-body .board .container {
+    width: 33.3%;
     float: left;
-    background-color: lavender;
-    text-align: center;
     -moz-border-radius: 8px;
     border-radius: 8px;
+    z-index: 3;
+    position: static;
+}
+
+div.main-body .board .container .list {
+    width: 75%;
+    margin: 10px 15px;
+    text-align: center;
+    background-color: lavender;
+    alignment: center;
+
 }
 
 .list hr {
@@ -311,4 +323,140 @@ div.main-body .list {
     color: #5fd873;
     background-color: #5fd873;
     height: 1px;
+}
+
+.list p {
+    border: 3px lavender outset;
+    background-color: aliceblue;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding: 2px 0;
+    cursor: pointer;
+}
+
+/*Timer without JS*/
+.container {
+    padding: 200px;
+    text-align: center;
+}
+
+.timer {
+    padding: 10px;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+
+.cell {
+    /*Should only display 1 digit. */
+    width: 0.7em;
+    height: 40px;
+    font-size: 50px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+}
+
+.numbers {
+    width: 0.7em;
+    line-height: 40px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#timer_controls {
+    margin-top: -5px;
+}
+
+#timer_controls label {
+    cursor: pointer;
+    padding: 5px 10px;
+    background: #efefef;
+    font-size: 11px;
+    border-radius: 0 0 3px 3px;
+}
+
+/*input[name="controls"] {
+    display: none;
+}*/
+
+#start:checked ~ .timer .cell .numbers {
+    animation-play-state: running;
+}
+
+#stop:checked ~ .timer .numbers {
+    animation-play-state: paused;
+}
+
+#restart:checked ~ .timer .cell .numbers {
+    animation: none;
+}
+
+.moveten {
+    animation: moveten 10s steps(10, end) infinite;
+    animation-play-state: paused;
+}
+
+.movesix {
+    animation: movesix 10s steps(6, end) infinite;
+    animation-play-state: paused;
+}
+
+/*Syncing the animation speed with time speed*/
+.tenhour {animation-duration: 360000s;}
+
+.hour {animation-duration: 36000s;}
+
+.tenminute {animation-duration: 3600s;}
+
+.minute {animation-duration: 600s;}
+
+.tensecond {animation-duration: 60s;}
+
+.second {animation-duration: 10s;}
+
+/*Animation for the timer*/
+@keyframes moveten {
+    0% {top: 0;}
+    100% {top: -400px;}
+}
+
+@keyframes movesix {
+    0% {top: 0;}
+    100% {top: -240px;}
+}
+
+/*Account CSS*/
+img.profile {
+    width: 75%;
+    height: auto;
+}
+
+div.accountcontainer {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    padding: 50px;
+    text-align: justify;
+    overflow: hidden;
+}
+
+div.imgcontainer {
+    float: left;
+    width: 25%;
+    padding-bottom: 5em;
+}
+
+div.imgcontainer img {
+    display: block;
+    margin: 0 auto;
+}
+
+div.datacontainer {
+    width: 75%;
+    float: left;
+    padding-bottom: 5em;
+
 }

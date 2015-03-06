@@ -1,3 +1,9 @@
+<?php
+
+header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
+
+?>
+
 <!DOCTYPE html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -6,6 +12,7 @@
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/fblogin.js"></script>
     <script type="text/javascript" src="js/googlelogin.js"></script>
+    <script src="//connect.facebook.net/en_US/all.js"></script>
     <script src="https://apis.google.com/js/client:platform.js" async defer></script>
     <title>Timeraft</title>
 </head>
@@ -36,7 +43,7 @@
             Stop using your fridge as a noteboard and join Timeraft community, you will not regret it.</h3>
         <div id="form_signin"></div>
         <div id="popup_signin">
-            <form action="/include/login.php" id="form2_signin" method="post" name="form2">
+            <form accept-charset="utf-8" action="/include/login.php" id="form2_signin" method="post" name="form2">
                 <img id="close_signin" src="images/close.png" onclick="div_hide_signin()">
 
                 <h2>SIGN IN</h2>
@@ -46,8 +53,13 @@
                 <input onsubmit="div_hide_signin()" name="submit"  type="image" src="images/login.png" id="submit_signin" align="center">
 
                 <div class="nupud">
-                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false"
-                         data-auto-logout-link="false"></div>
+                    <!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false"
+                         data-auto-logout-link="false"></div>-->
+                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                    </fb:login-button>
+
+                    <div id="status">
+                    </div>
                 <span id="signinButton">
                     <span
                         class="g-signin"
@@ -65,7 +77,7 @@
 
         <div id="form_signup"></div>
         <div id="popup_signup">
-            <form action="/include/signup.php" id="form2_signup" method="post" name="form2">
+            <form accept-charset="utf-8" action="/include/signup.php" id="form2_signup" method="post" name="form2">
                 <img id="close_signup" src="images/close.png" onclick="div_hide_signup()">
 
                 <h2>SIGN UP</h2>
@@ -117,7 +129,7 @@
         <ul>
             <li>Annika Laumets - rockstar front-end developer, with quick fingers because I play the piano</li>
             <li>Viktoria Plemakova - When not sleepy, I am a legendary front-end/back-end developer</li>
-            <li>Andre TĆ¤ttar - Very skilled with servers and back-end, I get confused by HTML code</li>
+            <li>Andre Tättar - Very skilled with servers and back-end, I get confused by HTML code</li>
         </ul>
         <br>
         Contact us by email: annika.laumets@ut.ee</p>

@@ -2,6 +2,8 @@
 
 include("include/session.php");
 
+header('Content-Type: text/html; charset=UTF-8');
+
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +12,7 @@ include("include/session.php");
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> <!--Font-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
     <title>Timeraft | Main Board</title>
 </head>
@@ -20,15 +23,8 @@ include("include/session.php");
         <nav>
             <ul>
                 <li><a href="/mainboard.php">BOARDS</a></li>
-                <li id="account">USERNAME
-                    <ul>
-                        <li><a href="/account.php">PROFILE</a></li>
-                        <li><a href="/settings.php">SETTINGS</a></li>
-                        <li><a href="/stats.php">STATISTICS</a></li>
-                        <hr>
-                        <li><a href="/include/logout.php">LOG OUT</a></li>
-                    </ul>
-                </li>
+                <li id="account">
+
                 <li><a href="/help.php"><img class="help" src="images/help.png" \></a></li>
             </ul>
         </nav>
