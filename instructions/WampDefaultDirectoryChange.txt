@@ -1,0 +1,9 @@
+Open httpd.conf with notepad++. 
+	Location: C->wamp->bin->bin->apache->apache2.4.9->conf->httpd.conf
+
+Search for the term “DocumentRoot”
+Change the DocumentRoot path to your custom directory
+	Change this line: DocumentRoot "c:/wamp/www"
+	Into: DocumentRoot "c:/wamp/www/Webpage"
+
+Save your changes and “Restart All Services”
