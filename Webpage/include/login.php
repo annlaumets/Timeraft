@@ -25,13 +25,15 @@ if (isset($_POST["submit_x"])) {
     $result = $loginStmt->fetch(PDO::FETCH_ASSOC);
 
     if ($result) {
-        if ($result > 0) {
+        if (count($result) > 0) {
             session_regenerate_id(true);
             $_SESSION['login'] = true;
             $_SESSION['loginUser'] = $email;
             $updateLastVisited = $conn->prepare("Update Users SET Time_Last_Visited = now() WHERE Email = ".$email);
             if ($redirecturl) {
-                header("Location:" . $redirecturl);
+                file_put_contents('error.txt', $redirecturl, FILE_APPEND | LOCK_EX);
+                //header("Location:" . $redirecturl);
+                header("Location: /mainboard.php");
             } else {
                 header("Location: /mainboard.php");
             }
