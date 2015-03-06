@@ -50,6 +50,7 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
                 <br>
                 <input name="email" placeholder="Email" type="email" size="25" required>
                 <input name="password" placeholder="Password" type="password" size="25" required>
+                <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_GET['redirect']); ?>">
                 <input onsubmit="div_hide_signin()" name="submit"  type="image" src="images/login.png" id="submit_signin" align="center">
 
                 <div class="nupud">

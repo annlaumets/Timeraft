@@ -11,6 +11,11 @@ if (isset($_SESSION['login'])) {
 
 if (isset($_POST["submit_x"])) {
 
+    $redirecturl = NULL;
+    if ($_POST['redirect'] != '') {
+        $redirecturl = $_POST['redirect'];
+    }
+
     $email = $_POST["email"];
     $pass = $_POST["password"];
 
@@ -27,7 +32,12 @@ if (isset($_POST["submit_x"])) {
             $_SESSION['login'] = true;
             $_SESSION['login_user'] = $email;
             $update_visit_time = mysql_query("UPDATE Users SET Time_Last_Visited = now() WHERE Email = '$email'");
-            header("location: /mainboard.php");
+            if ($redirecturl) {
+                header("Location:" . $redirecturl);
+            } else {
+                header("Location: /mainboard.php");
+            }
+            exit;
         } else {
             echo "Failed.";
         }
