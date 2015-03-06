@@ -1,10 +1,11 @@
 <?php
-
 session_start();
+require("db_connection.php");
 
-$check_user = $_SESSION['login_user'];
-$query = mysql_query("SELECT Email FROM Users WHERE Email = '$check_user'");
-$session = mysql_fetch_assoc($query)['Email'];
+$checkUser = $_SESSION['loginUser'];
+
+$checkStmt = $conn->query("SELECT Email FROM Users WHERE Email = '$checkUser'");
+$session = $checkStmt->fetch(PDO::FETCH_ASSOC);
 
 if(!(isset($_SESSION['login'])) && !(isset($session))) {
     header("Location: index.php?redirect=" . urlencode($_SERVER['REQUEST_URI']));

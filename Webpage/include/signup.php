@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once("db_connection.php");
+require("db_connection.php");
 
 if (isset($_POST["submit_x"])) {
 
@@ -10,22 +10,25 @@ if (isset($_POST["submit_x"])) {
     $email = $_POST["email"];
     $pass = $_POST["password"];
 
-    // To avoid MySQL injection
-    $name = mysql_real_escape_string(stripcslashes($name));
-    $email = mysql_real_escape_string(stripcslashes($email));
-    $pass = mysql_real_escape_string(stripcslashes($pass));
+    $signupStmt = $conn->prepare("SELECT * FROM Users WHERE Email = :email");
+    $signupStmt->execute(array('email'=>$email));
 
-    // Check if e-mail already in use
-    $check = mysql_query("SELECT * FROM Users WHERE Email = '$email'");
-    $check_result = mysql_num_rows($check);
+    $checkRes = $signupStmt->fetchAll();
 
-    if ($check_result != 0) {
-        die("Sorry, you already have an account.");
+    if (count($checkRes) != 0) {
+        // Probably will want better error handling here !
+        die("Sorry, Account with this email has already been registered");
     }
-
-    $insert = mysql_query("CALL add_user('$name', '$pass', '$email')");
-
+    // Kutsub add_user meetodi, bindparam annab 3 parameetrit - name, pass, email
+    $insert = $conn->prepare("CALL add_user('$name', '$pass', '$email')");
+    $insert->execute();
     if ($insert) {
+        session_regenerate_id(true);
+        $_SESSION['login'] = true;
+        $_SESSION['loginUser'] = $email;
         header("location: /mainboard.php");
+    } else {
+        // Better error handling here ?
+        die("Signup error, Andre viga");
     }
 }
