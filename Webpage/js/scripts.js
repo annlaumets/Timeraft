@@ -8,7 +8,6 @@ function div_show_signin() {
 }
 
 function div_show_signup() {
-
     document.getElementById("form_signup").style.display= "block";
     document.getElementById("popup_signup").style.display = "block";
 }
@@ -43,9 +42,18 @@ for (var i = 0; i < forms.length; i++) {
         //Prevent submission if checkValidity on the form returns false.
         if (!event.target.checkValidity()) {
             event.preventDefault();
-            alert("Error.")
+            alert("Error.");
             //Implement you own means of displaying error messages to the user here.
         }
     }, false);
 }
 
+function div_show() {
+    document.getElementById("form_signin").style.display = "block";
+    document.getElementById("popup_desc").style.display= "block";
+}
+
+function div_hide() {
+    document.getElementById("form_signin").style.display = "none";
+    document.getElementById("popup_desc").style.display= "none";
+}
