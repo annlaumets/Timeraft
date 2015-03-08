@@ -145,6 +145,7 @@ img.help {
 div.main-body {
     margin-top: 60px;
     width: 100%;
+    text-align: center;
 }
 
 p {
@@ -288,13 +289,13 @@ h1, h2 {
 
 /*Board CSS*/
 div.main-body .board {
-    width: 100%;
+    width: 85%;
     height: auto;
     display: inline-block;
     top: 5px;
     position: relative;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
     box-sizing: border-box;
 }
 
@@ -308,12 +309,9 @@ div.main-body .board .container {
 }
 
 div.main-body .board .container .list {
-    width: 75%;
-    margin: 10px 15px;
+    width: 90%;
+    margin: 10px auto;
     text-align: center;
-    background-color: lavender;
-    alignment: center;
-
 }
 
 .list hr {
@@ -334,8 +332,15 @@ div.main-body .board .container .list {
     cursor: pointer;
 }
 
+div.main-body .board .container .list .boardpcontainer {
+    background-color: lavender;
+    padding: 5px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
 /*Timer without JS*/
-.container {
+.timercontainer {
     padding: 200px;
     text-align: center;
 }

@@ -4,6 +4,7 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
 
 ?>
 
+<html>
 <!DOCTYPE html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -11,9 +12,7 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
     <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/fblogin.js"></script>
-    <script type="text/javascript" src="js/googlelogin.js"></script>
     <script src="//connect.facebook.net/en_US/all.js"></script>
-    <script src="https://apis.google.com/js/client:platform.js" async defer></script>
     <title>Timeraft</title>
 </head>
 
@@ -36,7 +35,7 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
     <a name=1></a>
     <section id="timeraft">
 
-        <img src="images/timeraftlogo.png" id="mainpage-logo"\>
+        <img src="images/timeraftlogo.png" id="mainpage-logo" \>
         <br>
         <h3>Timeraft gives you a perfect oppurtunity to start managing your daily tasks online with good statistical analysis tools.<br>
             <br>
@@ -50,27 +49,12 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
                 <br>
                 <input name="email" placeholder="Email" type="email" size="25" required>
                 <input name="password" placeholder="Password" type="password" size="25" required>
-                <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_GET['redirect']); ?>">
                 <input onsubmit="div_hide_signin()" name="submit"  type="image" src="images/login.png" id="submit_signin" align="center">
 
                 <div class="nupud">
-                    <!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false"
-                         data-auto-logout-link="false"></div>-->
-                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-                    </fb:login-button>
-
-                    <div id="status">
-                    </div>
-                <span id="signinButton">
-                    <span
-                        class="g-signin"
-                        data-clientid="268576648753-du5td3f7nsvqrf746n1r84v0a5lu9hjf.apps.googleusercontent.com"
-                        data-cookiepolicy="single_host_origin"
-                        data-requestvisibleactions="http://schema.org/AddAction"
-                        data-callback="signinCallback"
-                        data-scope="https://www.googleapis.com/auth/plus.login">
-                    </span>
-                </span>
+                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false"
+                         data-auto-logout-link="false"></div>
+                    <div id="status"></div>
                 </div>
             </form>
         </div>
@@ -91,17 +75,7 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
                 <div class="nupud">
                     <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false"
                          data-auto-logout-link="false"></div>
-                    <!--<span id="signinButton">
-                        <span
-                                class="g-signin"
-                                data-clientid="268576648753-du5td3f7nsvqrf746n1r84v0a5lu9hjf.apps.googleusercontent.com"
-                                data-cookiepolicy="single_host_origin"
-                                data-requestvisibleactions="http://schema.org/AddAction"
-                                data-callback="signinCallback"
-                                data-scope="https://www.googleapis.com/auth/plus.login">
-                        </span>
-                    </span>-->
-                </div>
+		</div>
             </form>
         </div>
         <input type="image" src="images/signup.png" onclick="div_show_signup()"/>
@@ -126,14 +100,13 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
         <h1>ABOUT US</h1>
 
         <p>TIMERAFT Team: 3 2nd year Bachelor students from University of Tartu studying IT. <br>
-            Development was done by all of us with 2 or 3 meetings per week, team leader is Annika Laumets.
+            Development was done by all of us with 2 or 3 meetings per week, team leader is Annika Laumets.</p>
         <ul>
             <li>Annika Laumets - rockstar front-end developer, with quick fingers because I play the piano</li>
             <li>Viktoria Plemakova - When not sleepy, I am a legendary front-end/back-end developer</li>
             <li>Andre Tättar - Very skilled with servers and back-end, I get confused by HTML code</li>
         </ul>
-        <br>
-        Contact us by email: annika.laumets@ut.ee</p>
+        <p>Contact us by email: annika.laumets@ut.ee</p>
     </section>
 </div>
 
