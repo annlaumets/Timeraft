@@ -6,14 +6,14 @@ require("db_connection.php");
 
 if (isset($_SESSION['login'])) {
     header("location: /mainboard.php");
-    exit();
+    exit;
 }
 
 if (isset($_POST["submit_x"])) {
 
-    $redirecturl = NULL;
-    if ($_POST['redirect'] != '') {
-        $redirecturl = $_POST['redirect'];
+    $redirectURL = NULL;
+    if (!empty($_POST['redirect'])) {
+        $redirectURL = $_POST['redirect'];
     }
 
     $email = $_POST["email"];
@@ -30,10 +30,9 @@ if (isset($_POST["submit_x"])) {
             $_SESSION['login'] = true;
             $_SESSION['loginUser'] = $email;
             $updateLastVisited = $conn->prepare("Update Users SET Time_Last_Visited = now() WHERE Email = ".$email);
-            if ($redirecturl) {
-                file_put_contents('error.txt', $redirecturl, FILE_APPEND | LOCK_EX);
-                //header("Location:" . $redirecturl);
-                header("Location: /mainboard.php");
+            if ($redirectURL) {
+                // file_put_contents('error.txt', $redirectURL, FILE_APPEND | LOCK_EX);
+                header("Location:" . $redirectURL);
             } else {
                 header("Location: /mainboard.php");
             }
