@@ -33,14 +33,14 @@ if (isset($_SESSION['login'])) {
     exit;
 }
 
-require_once('facebook/FacebookSession.php');
-require_once('Facebook/RedirectLoginHelper.php');
-require_once('facebook/FacebookRequest.php');
-require_once('facebook/FacebookResponse.php');
-require_once('facebook/FacebookSDKException.php');
-require_once('facebook/FacebookRequestException.php');
-require_once('facebook/FacebookOtherException.php');
-require_once('facebook/FacebookAuthorizationException');
+require_once('lib/facebook/FacebookSession.php');
+require_once('lib/Facebook/FacebookRedirectLoginHelper.php');
+require_once('lib/facebook/FacebookRequest.php');
+require_once('lib/facebook/FacebookResponse.php');
+require_once('lib/facebook/FacebookSDKException.php');
+require_once('lib/facebook/FacebookRequestException.php');
+require_once('lib/facebook/FacebookOtherException.php');
+require_once('lib/facebook/FacebookAuthorizationException.php');
 
 // Take very secret .ini file secret stuff
 $iniFBSecret = parse_ini_file("fbsecret.ini");
