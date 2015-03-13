@@ -92,12 +92,12 @@ nav ul ul {
     display: none;
 }
 
-nav ul #account:hover ul {
-    display: block;
+nav ul #account {
+    min-width: 100px;
 }
 
 nav ul #account:hover {
-    background-color: bisque;
+    background-color: #DEB887;
     padding: 21px 25px 20px 30px;
     position: relative;
 }
@@ -105,35 +105,44 @@ nav ul #account:hover {
 nav ul #account a {
     display: block;
     padding: 25px 15px;
-    color: #757575;
+    color: #000000;
     text-decoration: none;
 }
 
+nav ul #account:hover ul {
+    display: block;
+    vertical-align: top;
+}
+
 nav ul #account ul {
-    padding: 0;
+    width: 100%;
     position: absolute;
     right: 0;
-    top: 55px;
+    top: 60px;
+    padding: 0;
     background-color: #88e297;
 }
 
 nav ul #account ul li {
-    padding: 0 10px;
-    width: 100px;
-    text-align: left;
+    padding: 0;
+    min-width: 100%;
+    vertical-align: top;
+    text-align: center;
+    white-space: nowrap;
 }
 
 nav ul #account ul li:hover {
-    background-color: bisque;
+    background-color: #DEB887;
     position: relative;
-    width: 100px;
-    left: 0;
-    overflow: hidden;
+    width: 100%;
+    padding: 0;
+
 }
 
 nav ul #account ul a {
     display: block;
     text-decoration: none;
+    color: #000000;
 }
 
 img.help {
