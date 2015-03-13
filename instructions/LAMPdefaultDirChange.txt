@@ -1,1 +1,6 @@
+Install git on server:
+http://www.liquidweb.com/kb/how-to-install-git-on-ubuntu-14-04/
+
 http://stackoverflow.com/questions/5891802/how-do-i-change-the-root-directory-of-an-apache-server
+Clone into specific folder: 
+http://stackoverflow.com/questions/651038/how-do-you-clone-a-git-repository-into-a-specific-folder
