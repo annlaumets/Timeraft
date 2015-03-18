@@ -22,18 +22,7 @@ function div_hide_signup() {
     document.getElementById("popup_signup").style.display = "none";
 }
 
-//If page loads, it displays the right username
-$(document).ready(function () {
-    $.ajax({
-        type: "GET",
-        url: "/include/username.php",
-        success: function (msg) {
-            document.getElementById("account").innerHTML = msg;
-        }
-    });
-});
-
-//Checks in Safari if all fields in signin are correct
+/*//Checks in Safari if all fields in signin are correct
 var forms = document.getElementById("form2_signin").getElementsByTagName("input");
 for (var i = 0; i < forms.length; i++) {
     forms[i].noValidate = true;
@@ -46,7 +35,7 @@ for (var i = 0; i < forms.length; i++) {
             //Implement you own means of displaying error messages to the user here.
         }
     }, false);
-}
+}*/
 
 function div_show() {
     document.getElementById("form_signin").style.display = "block";

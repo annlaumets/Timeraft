@@ -11,8 +11,9 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="js/scripts.js"></script>
-    <script type="text/javascript" src="js/fblogin.js"></script>
-    <script src="//connect.facebook.net/en_US/all.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/loginproov.js"></script>
+
     <title>Timeraft</title>
 </head>
 
@@ -49,12 +50,10 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
                 <br>
                 <input name="email" placeholder="Email" type="email" size="25" required>
                 <input name="password" placeholder="Password" type="password" size="25" required>
-                <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_GET['redirect']); ?>">
                 <input onsubmit="div_hide_signin()" name="submit"  type="image" src="images/login.png" id="submit_signin" align="center">
 
                 <div class="nupud">
-                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false"
-                         data-auto-logout-link="false"></div>
+                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false" scope="public_profile, email"></div>
                     <div id="status"></div>
                 </div>
             </form>
@@ -74,8 +73,9 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
                 <input onsubmit="div_hide_signup()" name="submit" type="image" src="images/register.png" id="submit_signup">
 
                 <div class="nupud">
-                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false"
-                         data-auto-logout-link="false"></div>
+                    <!--<fb:login-button scope="public_profile,email" onclick="checkLoginState();">
+                    </fb:login-button>-->
+                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
 		</div>
             </form>
         </div>
