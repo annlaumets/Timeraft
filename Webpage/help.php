@@ -14,7 +14,6 @@ header('Content-Type: text/html; charset=UTF-8');
     <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> <!--Font-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
-    <script type="text/javascript" src="js/showusername.js"></script>
     <title>Timeraft | Help</title>
 </head>
 
@@ -26,10 +25,10 @@ header('Content-Type: text/html; charset=UTF-8');
                 <li><a href="/mainboard.php">BOARDS</a></li>
                 <li id="account">
 
-                <li><a href="/help.php"><img class="help" src="images/help.png" \></a></li>
+                <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
             </ul>
         </nav>
-        <img class="logo" src="/images/timeraftlogo-white.png" \>
+        <img class="logo" alt="TIMERAFT" src="/images/timeraftlogo-white.png">
     </header>
 </section>
 
