@@ -26,17 +26,17 @@ header('Content-Type: text/html; charset=UTF-8');
                 <li><a href="/mainboard.php">BOARDS</a></li>
                 <li id="account">
 
-                <li><a href="/help.php"><img class="help" src="images/help.png" \></a></li>
+                <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
             </ul>
         </nav>
-        <img class="logo" src="images/timeraftlogo-white.png" \>
+        <img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png">
     </header>
 </section>
 
 <div class="main-body">
     <div class="accountcontainer">
         <div class="imgcontainer">
-            <img class="profile" src="http://placehold.it/175x250/0099FF/000000" \>
+            <img class="profile" alt="PROFILE PICTURE" src="http://placehold.it/175x250/0099FF/000000">
         </div>
         <div class="datacontainer">
             <h4>Name</h4>
