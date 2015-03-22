@@ -9,8 +9,8 @@ header('Content-Type: text/html; charset=UTF-8');
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> <!--Font-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" async></script> <!-- JQuery library -->
-    <script type="text/javascript" src="js/showusername.js" async></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- JQuery library -->
+    <script type="text/javascript" src="js/showusername.js"></script>
     <script type="text/javascript" src="js/boardload.js"></script>
     <title>Timeraft | Main Board</title>
 </head>
@@ -29,6 +29,7 @@ header('Content-Type: text/html; charset=UTF-8');
     </header>
 </section>
 
+
 <div class="main-body">
     <!-- Board popup -->
     <div id="form_signin"></div>
@@ -37,6 +38,7 @@ header('Content-Type: text/html; charset=UTF-8');
             <img id="close_signin" alt="X" src="images/close.png" onclick="div_hide()">
             <h3>Name: </h3>
             <h3>Description:</h3>
+
             <input type="image" src="/images/showtasks.png" alt="SHOW TASKS" onclick="location.href='/board.php'">
         </div>
     </div>
@@ -54,10 +56,14 @@ header('Content-Type: text/html; charset=UTF-8');
 
     <div class="board">
         <div class="maincontainer">
+
         </div>
         <div class="maincontainer">
+
         </div>
     </div>
 </div>
+
+
 </body>
 </html>
