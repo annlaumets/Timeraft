@@ -15,6 +15,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/showusername.js"></script>
+    <script type="text/javascript" src="js/boardload.js"></script>
     <title>Timeraft | Main Board</title>
 </head>
 
@@ -39,46 +40,17 @@ header('Content-Type: text/html; charset=UTF-8');
     <div id="popup_desc">
         <div id="boarddesc">
             <img id="close_signin" src="images/close.png" onclick="div_hide()">
-            <h3>Name: </h3><p>Board 1</p>
-            <h3>Description:</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in eros eros. Ut lobortis neque eget porta auctor. Curabitur eget maximus ex.</p>
+            <h3>Name: </h3>
+            <h3>Description:</h3>
             <a href="/board.php"><button id="boardsubmit">Show tasks</button></a>
         </div>
     </div>
 
     <div class="board">
         <div class="maincontainer">
-            <div class="list">
-                <div class="boardpcontainer">
-                    <p onclick="div_show()">Board 1</p>
-                </div>
-            </div>
-            <div class="list">
-                <div class="boardpcontainer">
-                    <p onclick="div_show()">Board 2</p>
-                </div>
-            </div>
-            <div class="list">
-                <div class="boardpcontainer">
-                    <p onclick="div_show()">Board 3</p>
-                </div>
-            </div>
+
         </div>
         <div class="maincontainer">
-            <div class="list">
-                <div class="boardpcontainer">
-                    <p onclick="div_show()">Board 4</p>
-                </div>
-            </div>
-            <div class="list">
-                <div class="boardpcontainer">
-                    <p onclick="div_show()">Board 5</p>
-                </div>
-            </div>
-            <div class="list">
-                <div class="boardpcontainer">
-                    <p><b>+</b></p>
-                </div>
-            </div>
 
         </div>
     </div>

@@ -14,6 +14,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> <!--Font-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/taskload.js"></script>
     <title>Timeraft | Board</title>
 </head>
 
@@ -25,10 +26,10 @@ header('Content-Type: text/html; charset=UTF-8');
                 <li><a href="/mainboard.php">BOARDS</a></li>
                 <li id="account">
 
-                <li><a href="/help.php"><img class="help" src="images/help.png" \></a></li>
+                <li><a href="/help.php"><img class="help" src="images/help.png"></a></li>
             </ul>
         </nav>
-        <img class="logo" src="images/timeraftlogo-white.png" \>
+        <img class="logo" src="images/timeraftlogo-white.png">
     </header>
 </section>
 
@@ -39,11 +40,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <h3>To Do</h3>
                 <hr>
                 <div class="boardpcontainer">
-                    <p>Task 1</p>
-                    <p>Task 2</p>
-                    <p>Task 7</p>
-                    <p>Task 7</p>
-                    <p>Task 7</p>
+
                 </div>
             </div>
         </div>
@@ -52,9 +49,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <h3>Pending</h3>
                 <hr>
                 <div class="boardpcontainer">
-                    <p>Task 3</p>
-                    <p>Task 4</p>
-                    <p>Task 7</p>
+
                 </div>
             </div>
         </div>
@@ -63,13 +58,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <h3>Finished</h3>
                 <hr>
                 <div class="boardpcontainer">
-                    <p>Task 5</p>
-                    <p>Task 6</p>
-                    <p>Task 7</p>
-                    <p>Task 7</p>
-                    <p>Task 7</p>
-                    <p>Task 7</p>
-                    <p>Task 7</p>
+
                 </div>
             </div>
         </div>

@@ -37,12 +37,3 @@ for (var i = 0; i < forms.length; i++) {
     }, false);
 }*/
 
-function div_show() {
-    document.getElementById("form_signin").style.display = "block";
-    document.getElementById("popup_desc").style.display= "block";
-}
-
-function div_hide() {
-    document.getElementById("form_signin").style.display = "none";
-    document.getElementById("popup_desc").style.display= "none";
-}
