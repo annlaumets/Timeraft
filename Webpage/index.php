@@ -53,7 +53,7 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
                 <input onsubmit="div_hide_signin()" name="submit"  type="image" alt="LOG IN" src="images/login.png" id="submit_signin">
 
                 <div class="nupud">
-                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false" scope="public_profile, email"></div>
+                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
                     <div id="status"></div>
                 </div>
             </form>

@@ -18,7 +18,7 @@ window.fbAsyncInit = function() {
             // vast vale
             die("Logged out");
         }
-    });
+    }, {scope: 'public_profile, email'});
 };
 
 function saveuserdetail() {
