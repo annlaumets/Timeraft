@@ -1,9 +1,6 @@
 <?php
-
 include("include/session.php");
-
 header('Content-Type: text/html; charset=UTF-8');
-
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +38,7 @@ header('Content-Type: text/html; charset=UTF-8');
             <img id="close_signin" alt="X" src="images/close.png" onclick="div_hide()">
             <h3>Name: </h3>
             <h3>Description:</h3>
+
             <input type="image" src="/images/showtasks.png" alt="SHOW TASKS" onclick="location.href='/board.php'">
         </div>
     </div>

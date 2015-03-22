@@ -1,9 +1,7 @@
 <?php
 
 session_start();
-
 require("db_connection.php");
-
 
 if(!empty($_POST['data'])) {
     $redirectURL = NULL;

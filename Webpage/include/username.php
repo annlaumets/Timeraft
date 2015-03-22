@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 require("db_connection.php");
 
 $checkUser = $_SESSION['loginUser'];
