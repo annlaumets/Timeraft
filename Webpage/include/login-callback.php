@@ -50,7 +50,6 @@ if(!empty($_POST['data'])) {
             // Better error handling here ?
             die("Signup error, Andre viga");
         }
-        echo 'success';
     }
 }
 else {
