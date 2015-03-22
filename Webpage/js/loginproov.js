@@ -33,6 +33,7 @@ function saveuserdetail() {
             success: function(msg){
                 console.log("Pärast successi.");
                 console.log(msg);
+                window.location.replace("/mainboard.php");
 
             }
         });
