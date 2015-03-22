@@ -58,7 +58,7 @@ $(window).load(function () {
                 p3.textContent = "+"; //kui veel ühtegi boardi pole tehtud
                 p3.addEventListener("click", function () {
                     document.getElementById("form_signin").style.display = "block";
-                    document.getElementById("popup_desc").style.display = "block";
+                    document.getElementById("popup_newdesc").style.display = "block";
                 });
 
                 document.body.getElementsByClassName("maincontainer").item(1).appendChild(list3);
@@ -79,7 +79,7 @@ $(window).load(function () {
                 p2.textContent = "+"; //kui veel ühtegi boardi pole tehtud
                 p2.addEventListener("click", function () {
                     document.getElementById("form_signin").style.display = "block";
-                    document.getElementById("popup_desc").style.display = "block";
+                    document.getElementById("popup_newdesc").style.display = "block";
                 });
 
                 document.body.getElementsByClassName("maincontainer").item(0).appendChild(list2);
@@ -94,4 +94,9 @@ $(window).load(function () {
 function div_hide() {
     document.getElementById("form_signin").style.display = "none";
     document.getElementById("popup_desc").style.display= "none";
+}
+
+function div_hide_new() {
+    document.getElementById("form_signin").style.display = "none";
+    document.getElementById("popup_newdesc").style.display= "none";
 }
