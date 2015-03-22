@@ -1,18 +1,5 @@
 <?php
 
-use Facebook\FacebookRequest;
-
-include 'lib2/src/Facebook/autoload.php';
-
-require_once('lib/facebook/FacebookSession.php');
-require_once('lib/Facebook/FacebookRedirectLoginHelper.php');
-require_once('lib/facebook/FacebookRequest.php');
-require_once('lib/facebook/FacebookResponse.php');
-require_once('lib/facebook/FacebookSDKException.php');
-require_once('lib/facebook/FacebookRequestException.php');
-require_once('lib/facebook/FacebookOtherException.php');
-require_once('lib/facebook/FacebookAuthorizationException.php');
-
 session_start();
 
 require("db_connection.php");
