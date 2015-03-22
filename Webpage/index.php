@@ -4,8 +4,8 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
 
 ?>
 
-<html>
 <!DOCTYPE html>
+<html>
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -21,7 +21,7 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
 <div id="fb-root"></div>
 <section>
     <header>
-        <a href=#1><img class="logo-main" src="images/timeraftlogo-white.png"/></a>
+        <a href=#1><img class="logo-main" alt="TIMERAFT" src="images/timeraftlogo-white.png"/></a>
         <nav>
             <ul class="ul2">
                 <li class="li2"><a href=#2>FEATURES</a></li>
@@ -36,7 +36,7 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
     <a name=1></a>
     <section id="timeraft">
 
-        <img src="images/timeraftlogo.png" id="mainpage-logo" \>
+        <img src="images/timeraftlogo.png" alt="TIMERAFT" id="mainpage-logo">
         <br>
         <h3>Timeraft gives you a perfect oppurtunity to start managing your daily tasks online with good statistical analysis tools.<br>
             <br>
@@ -44,13 +44,13 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
         <div id="form_signin"></div>
         <div id="popup_signin">
             <form accept-charset="utf-8" action="/include/login.php" id="form2_signin" method="post" name="form2">
-                <img id="close_signin" src="images/close.png" onclick="div_hide_signin()">
+                <img id="close_signin" alt="X" src="images/close.png" onclick="div_hide_signin()">
 
                 <h2>SIGN IN</h2>
                 <br>
                 <input name="email" placeholder="Email" type="email" size="25" required>
                 <input name="password" placeholder="Password" type="password" size="25" required>
-                <input onsubmit="div_hide_signin()" name="submit"  type="image" src="images/login.png" id="submit_signin" align="center">
+                <input onsubmit="div_hide_signin()" name="submit"  type="image" alt="LOG IN" src="images/login.png" id="submit_signin">
 
                 <div class="nupud">
                     <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false" scope="public_profile, email"></div>
@@ -58,28 +58,28 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
                 </div>
             </form>
         </div>
-        <input type="image" onclick="div_show_signin()" src="images/signin.png" />
+        <input type="image" alt="SIGN IN" onclick="div_show_signin()" src="images/signin.png" />
 
         <div id="form_signup"></div>
         <div id="popup_signup">
             <form accept-charset="utf-8" action="/include/signup.php" id="form2_signup" method="post" name="form2">
-                <img id="close_signup" src="images/close.png" onclick="div_hide_signup()">
+                <img id="close_signup" alt="X" src="images/close.png" onclick="div_hide_signup()">
 
                 <h2>SIGN UP</h2>
                 <br>
                 <input name="name" placeholder="Name" type="text" size="25" required>
                 <input name="email" placeholder="Email" type="email" size="25" required>
                 <input name="password" placeholder="Password" type="password" size="25" required>
-                <input onsubmit="div_hide_signup()" name="submit" type="image" src="images/register.png" id="submit_signup">
+                <input onsubmit="div_hide_signup()" name="submit" type="image" alt="REGISTER" src="images/register.png" id="submit_signup">
 
                 <div class="nupud">
                     <!--<fb:login-button scope="public_profile,email" onclick="checkLoginState();">
                     </fb:login-button>-->
                     <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
-		</div>
+                </div>
             </form>
         </div>
-        <input type="image" src="images/signup.png" onclick="div_show_signup()"/>
+        <input type="image" alt="SIGN UP" src="images/signup.png" onclick="div_show_signup()"/>
     </section>
 
 
@@ -110,7 +110,5 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
         <p>Contact us by email: annika.laumets@ut.ee</p>
     </section>
 </div>
-
-
 </body>
 </html>

@@ -25,11 +25,10 @@ header('Content-Type: text/html; charset=UTF-8');
             <ul>
                 <li><a href="/mainboard.php">BOARDS</a></li>
                 <li id="account">
-
-                <li><a href="/help.php"><img class="help" src="images/help.png"></a></li>
+                <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
             </ul>
         </nav>
-        <img class="logo" src="images/timeraftlogo-white.png">
+        <img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png">
     </header>
 </section>
 
@@ -39,7 +38,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <div id="form_signin"></div>
     <div id="popup_desc">
         <div id="boarddesc">
-            <img id="close_signin" src="images/close.png" onclick="div_hide()">
+            <img id="close_signin" alt="X" src="images/close.png" onclick="div_hide()">
             <h3>Name: </h3>
             <h3>Description:</h3>
             <input type="image" src="/images/showtasks.png" alt="SHOW TASKS" onclick="location.href='/board.php'">

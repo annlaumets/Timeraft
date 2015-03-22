@@ -12,9 +12,11 @@ window.fbAsyncInit = function() {
         if (response.status === 'connected') {
             saveuserdetail();
         } else if (response.status === 'not_authorized') {
-            FB.login();
+            // vast vale
+            die("Not_authorized");
         } else {
-            FB.login();
+            // vast vale
+            die("Logged out");
         }
     });
 };
@@ -31,12 +33,8 @@ function saveuserdetail() {
             success: function(msg){
                 console.log("Pärast successi.");
                 console.log(msg);
-                if(msg =='success'){
-                    window.location.assign("/mainboard.php");
-                }
-                else {
-                    alert("Midagi läks ajaxis metsa.");
-                }
+                window.location.replace(msg);
+
             }
         });
     })

@@ -15,7 +15,7 @@ if (isset($_POST["submit_x"])) {
     if (!empty($_POST['redirect'])) {
         $redirectURL = $_POST['redirect'];
     }
-
+    file_put_contents($file, $redirectURL, FILE_APPEND);
     $email = $_POST["email"];
     $pass = $_POST["password"];
 
@@ -29,6 +29,7 @@ if (isset($_POST["submit_x"])) {
             session_regenerate_id(true);
             $_SESSION['login'] = true;
             $_SESSION['loginUser'] = $email;
+            $_SESSION['UserID'] = $result['ID'];
             $updateLastVisited = $conn->prepare("Update Users SET Time_Last_Visited = now() WHERE Email = ".$email);
             if ($redirectURL) {
                 // file_put_contents('error.txt', $redirectURL, FILE_APPEND | LOCK_EX);
