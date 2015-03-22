@@ -1,12 +1,10 @@
 <?php
 
 session_start();
-
 require("db_connection.php");
 
 $owner_Email = $_SESSION['loginUser'];
 // file_put_contents("boardtest.txt", $owner_Email, FILE_APPEND | LOCK_EX);
-
 
 $array = array(
     array(

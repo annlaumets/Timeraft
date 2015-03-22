@@ -1,9 +1,6 @@
 <?php
-
 include("include/session.php");
-
 header('Content-Type: text/html; charset=UTF-8');
-
 ?>
 
 <!DOCTYPE html>
@@ -12,9 +9,9 @@ header('Content-Type: text/html; charset=UTF-8');
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> <!--Font-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- JQuery library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" async></script> <!-- JQuery library -->
     <script type="text/javascript" src="js/taskload.js"></script>
-    <script type="text/javascript" src="js/showusername.js"></script>
+    <script type="text/javascript" src="js/showusername.js" async></script>
     <title>Timeraft | Board</title>
 </head>
 
@@ -25,7 +22,6 @@ header('Content-Type: text/html; charset=UTF-8');
             <ul>
                 <li><a href="/mainboard.php">BOARDS</a></li>
                 <li id="account">
-
                 <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
             </ul>
         </nav>
@@ -111,7 +107,6 @@ header('Content-Type: text/html; charset=UTF-8');
                 <h3 id="adding">To Do</h3>
                 <hr>
                 <div class="boardpcontainer">
-
                 </div>
             </div>
         </div>
@@ -120,7 +115,6 @@ header('Content-Type: text/html; charset=UTF-8');
                 <h3>Pending</h3>
                 <hr>
                 <div class="boardpcontainer">
-
                 </div>
             </div>
         </div>
@@ -129,12 +123,10 @@ header('Content-Type: text/html; charset=UTF-8');
                 <h3>Finished</h3>
                 <hr>
                 <div class="boardpcontainer">
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>

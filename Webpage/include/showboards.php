@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require("db_connection.php");
 
 $owner_Email = $_SESSION['loginUser'];
