@@ -32,10 +32,10 @@ header('Content-Type: text/html; charset=UTF-8');
 
 <div class="main-body">
     <!-- Board popup -->
-    <div id="form_signin"></div>
+    <div id="form_signin1"></div>
     <div id="popup_desc">
         <div id="boarddesc">
-            <img id="close_signin" alt="X" src="images/close.png" onclick="div_hide()">
+            <img id="close_desc" alt="X" src="images/close.png" onclick="div_hide()">
             <h3>Name: </h3>
             <h3>Description:</h3>
 
@@ -44,13 +44,13 @@ header('Content-Type: text/html; charset=UTF-8');
     </div>
 
     <!-- New board popup -->
-    <div id="form_signin"></div>
+    <div id="form_signin2"></div>
     <div id="popup_newdesc">
         <form accept-charset="utf-8" action="/include/addBoard.php" id="form2_signin" method="post" name="form_board">
-            <img id="close_signin" src="images/close.png" onclick="div_hide_new()">
+            <img id="close_newdesc" alt="X" src="images/close.png" onclick="div_hide_new()">
             <input name="name" placeholder="Name" type="text" size="25" required>
             <textarea name="desc" cols="28" rows="4" placeholder="Enter description here"></textarea>
-            <input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newBoard" align="center">
+            <input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newBoard">
         </form>
     </div>
 

@@ -397,8 +397,8 @@ div.main-body .board .maincontainer .list .boardpcontainer {
     background-color: snow;
 }
 
-#popup_desc #boarddesc img#close_signin, #popup_start #boarddesc img#close_signin, #popup_pending #boarddesc img#close_signin,
-#popup_finish #boarddesc img#close_signin {
+#popup_desc #boarddesc img#close_desc, #popup_start #boarddescstart img#close_start,
+#popup_pending #boarddescpend img#close_pend, #popup_finish #boarddescfinish img#close_finish {
     height: 10%;
     position: absolute;
     right: -2px;
@@ -417,13 +417,27 @@ div.main-body .board .maincontainer .list .boardpcontainer {
     display: none;
 }
 
-#popup_newdesc img#close_signin {
+#popup_newdesc img#close_newdesc, #popup_newdesc img#close_newtask {
     height: 10%;
     position: absolute;
     right: 2px;
     top: -2px;
     cursor: pointer;
     padding-right: 0;
+}
+
+#form_signin1, #form_signin2, #form_signin3 {
+    opacity: 0.95;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: none;
+    overflow: auto;
+    background-color: grey;
+    z-index: 1;
+    text-align: center;
 }
 
 input {
