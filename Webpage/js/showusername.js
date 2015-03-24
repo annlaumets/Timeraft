@@ -7,4 +7,5 @@ $(function () {
             document.getElementById("account").innerHTML = msg;
         }
     });
+    $("#datepick").datepicker({minDate: 0}); //datepicker for due date in create task
 });

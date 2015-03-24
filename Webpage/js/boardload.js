@@ -6,7 +6,6 @@ $(window).load(function () {
         url: "/include/showboards.php",
         dataType: "json",
         success: function (data) {
-            console.log("Data stringina: " + JSON.stringify(data));
             if (data.length != 0) {
                 boarddata.data = data;
                 for (var i = 0; i < data.length; i++) {
@@ -30,7 +29,7 @@ $(window).load(function () {
                     p.textContent = JSON.stringify(data[i]["Name"]);
                     p.addEventListener("click", function () {
                         console.log("Data clickis: " + data[i]);
-                        document.getElementById("form_signin").style.display = "block";
+                        document.getElementById("form_popup").style.display = "block";
                         document.getElementById("popup_desc").style.display = "block";
 
                         var name = document.createElement("p");
@@ -57,7 +56,7 @@ $(window).load(function () {
 
                 p3.textContent = "+"; //kui veel ühtegi boardi pole tehtud
                 p3.addEventListener("click", function () {
-                    document.getElementById("form_signin").style.display = "block";
+                    document.getElementById("form_popup").style.display = "block";
                     document.getElementById("popup_newdesc").style.display = "block";
                 });
 
@@ -90,13 +89,12 @@ $(window).load(function () {
     });
 });
 
-
 function div_hide() {
-    document.getElementById("form_signin").style.display = "none";
+    document.getElementById("form_popup").style.display = "none";
     document.getElementById("popup_desc").style.display= "none";
 }
 
 function div_hide_new() {
-    document.getElementById("form_signin").style.display = "none";
+    document.getElementById("form_popup").style.display = "none";
     document.getElementById("popup_newdesc").style.display= "none";
 }

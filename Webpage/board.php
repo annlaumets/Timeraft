@@ -10,8 +10,11 @@ header('Content-Type: text/html; charset=UTF-8');
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> <!--Font-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- JQuery library -->
+    <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/smoothness/jquery-ui.css" media="all">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/taskload.js"></script>
     <script type="text/javascript" src="js/showusername.js"></script>
+
     <title>Timeraft | Board</title>
 </head>
 
@@ -31,11 +34,11 @@ header('Content-Type: text/html; charset=UTF-8');
 </section>
 
 <div class="main-body">
-    <div id="form_signin3"></div>
+    <div id="form_popup"></div>
 
     <!-- Not started task popup -->
     <div id="popup_start">
-        <div id="boarddescstart">
+        <div class="boarddesc">
             <img id="close_start" alt="X" src="images/close.png" onclick="div_hide_start()">
             <h3>Name: </h3>
             <h3>Status: </h3>
@@ -49,7 +52,7 @@ header('Content-Type: text/html; charset=UTF-8');
 
     <!-- Pending task popup -->
     <div id="popup_pending">
-        <div id="boarddescpend">
+        <div class="boarddesc">
             <img id="close_pend" alt="X" src="images/close.png" onclick="div_hide_pending()">
             <h3>Name: </h3>
             <h3>Status: </h3>
@@ -64,7 +67,7 @@ header('Content-Type: text/html; charset=UTF-8');
 
     <!-- Finished task popup -->
     <div id="popup_finish">
-        <div id="boarddescfinish">
+        <div class="boarddesc">
             <img id="close_finish" alt="X" src="images/close.png" onclick="div_hide_finished()">
             <h3>Name: </h3>
             <h3>Status: </h3>
@@ -77,9 +80,8 @@ header('Content-Type: text/html; charset=UTF-8');
     </div>
 
     <!-- New task popup -->
-    <div id="form_signin"></div>
     <div id="popup_newdesc">
-        <form accept-charset="utf-8" action="/include/addTask.php" id="form2_signin" method="post" name="form_task">
+        <form accept-charset="utf-8" action="/include/addTask.php" id="form_newtask" method="post" name="form_task">
             <img id="close_newtask" alt="X" src="images/close.png" onclick="div_hide_new()">
             <table>
                 <tr>
@@ -92,7 +94,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 </tr>
                 <tr>
                     <th>Due date:</th>
-                    <td><input type="date"></td>
+                    <td><input type="text" id="datepick"></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newTask"></td>
@@ -105,7 +107,7 @@ header('Content-Type: text/html; charset=UTF-8');
         <div class="container">
             <div class="list">
                 <img src="images/add.png" alt="+" id="addButton" onclick="div_show_new()">
-                <h3 id="adding">To Do</h3>
+                <h3>To Do</h3>
                 <hr>
                 <div class="boardpcontainer">
 
