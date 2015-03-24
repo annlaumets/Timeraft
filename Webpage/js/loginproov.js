@@ -1,6 +1,6 @@
 window.fbAsyncInit = function() {
     FB.init({
-        appId      : '430038987162090', // replace your app id here
+        appId      : '426437317522257', // replace your app id here
         channelUrl : 'localhost/index.php',
         status     : true,
         cookie     : true,
