@@ -20,6 +20,7 @@ if(!empty($_POST['data'])) {
     $fbLogst->execute(array('facebookid' => $fbid));
     $result = $fbLogst->fetch(PDO::FETCH_ASSOC);
 
+    file_put_contents("error.txt", "Hello", FILE_APPEND);
     if (!empty($result)) {
         // If not empty -> Login
         file_put_contents($file, "Successful login by: ".$name, FILE_APPEND);
