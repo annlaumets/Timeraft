@@ -56,3 +56,12 @@ BEGIN
   JOIN Board ON Task.Board_ID = Board.ID WHERE Task.Board_ID = in_board;
 END //
 DELIMITER ;
+DROP PROCEDURE IF EXISTs sp_getTaskPerBoard;
+
+DELIMITER //
+CREATE PROCEDURE sp_getTaskPerBoard(IN in_board INT(11))
+BEGIN 
+  SELECT Task.Name, Task.Description, Task.Task_Type, Task.Task_Time FROM Task 
+  JOIN Board ON Task.Board_ID = Board.ID WHERE Board.ID = in_board;
+END //
+DELIMITER ;
