@@ -7,7 +7,8 @@ $(window).load(function () {
         dataType: "json",
         success: function (data) {
             if (data.length != 0) {
-                boarddata.data = data;
+                boarddata.push(data);
+
                 for (var i = 0; i < data.length; i++) {
                     var list = document.createElement("div");
                     var boardpcontainer = document.createElement("div");
@@ -26,24 +27,8 @@ $(window).load(function () {
                         document.body.getElementsByClassName("boardpcontainer").item(i).appendChild(p);
                     }
 
-                    p.textContent = JSON.stringify(data[i]["Name"]);
-                    p.addEventListener("click", function () {
-                        console.log("Data clickis: " + data[i]);
-                        document.getElementById("form_popup").style.display = "block";
-                        document.getElementById("popup_desc").style.display = "block";
-
-                        var name = document.createElement("p");
-                        name.textContent = JSON.stringify(data[i]["Name"]);
-                        document.getElementsByTagName("h3").item(0).appendChild(name);
-
-                        var desc = document.createElement("p");
-                        console.log("Data[i]: " + JSON.stringify(data[i]));
-                        console.log("Data[i] desc: " + JSON.stringify(data[i]["Description"]));
-                        desc.textContent = JSON.stringify(data[i]["Description"]);
-                        document.getElementsByTagName("h3").item(1).appendChild(desc);
-
-                    });
-
+                    p.textContent = JSON.stringify(boarddata[0][i]["Name"]);
+                    p.addEventListener("click", showBoardInfo.bind(null, p.textContent));
                 }
 
                 //lisamise nupp
@@ -63,10 +48,10 @@ $(window).load(function () {
                 document.body.getElementsByClassName("maincontainer").item(1).appendChild(list3);
                 var pikkusList = document.body.getElementsByClassName("list").length;
 
-                document.body.getElementsByClassName("list").item(pikkusList-1).appendChild(boardpcontainer3);
+                document.body.getElementsByClassName("list").item(pikkusList - 1).appendChild(boardpcontainer3);
                 var pikkusBoard = document.body.getElementsByClassName("boardpcontainer").length;
 
-                document.body.getElementsByClassName("boardpcontainer").item(pikkusBoard-1).appendChild(p3);
+                document.body.getElementsByClassName("boardpcontainer").item(pikkusBoard - 1).appendChild(p3);
             } else {
                 var p2 = document.createElement("p");
                 var list2 = document.createElement("div");
@@ -89,12 +74,59 @@ $(window).load(function () {
     });
 });
 
+function div_show() {
+    document.getElementById("form_popup").style.display = "block";
+    document.getElementById("popup_desc").style.display = "block";
+}
+
 function div_hide() {
+    document.getElementsByTagName("h3").item(0).childNodes[1].textContent = null;
+    document.getElementsByTagName("h3").item(1).childNodes[1].textContent = null;
     document.getElementById("form_popup").style.display = "none";
-    document.getElementById("popup_desc").style.display= "none";
+    document.getElementById("popup_desc").style.display = "none";
 }
 
 function div_hide_new() {
     document.getElementById("form_popup").style.display = "none";
-    document.getElementById("popup_newdesc").style.display= "none";
+    document.getElementById("popup_newdesc").style.display = "none";
+}
+
+function showBoardInfo(board) {
+    var name;
+    var desc;
+    var n = document.getElementsByTagName("h3").item(0).childNodes[1];
+    var d = document.getElementsByTagName("h3").item(1).childNodes[1];
+
+    if (!(typeof n == "undefined")) {
+        n.textContent = null;
+        d.textContent = null;
+        div_show();
+
+        for (var i = 0; i < data.length; i++) {
+            if (boarddata[0][i]["Name"] == board.split('"').join("")) {
+                console.log("Data[i]: " + JSON.stringify(boarddata[0][i]));
+                console.log("Data[i] desc: " + JSON.stringify(boarddata[0][i]["Description"]));
+
+                n.textContent = JSON.stringify(boarddata[0][i]["Name"]);
+                d.textContent = JSON.stringify(boarddata[0][i]["Description"]);
+            }
+        }
+    } else {
+        div_show();
+
+        for (var i = 0; i < data.length; i++) {
+            if (boarddata[0][i]["Name"] == board.split('"').join("")) {
+                console.log("Data[i]: " + JSON.stringify(boarddata[0][i]));
+                console.log("Data[i] desc: " + JSON.stringify(boarddata[0][i]["Description"]));
+
+                name = document.createElement("p");
+                name.textContent = JSON.stringify(boarddata[0][i]["Name"]);
+                document.getElementsByTagName("h3").item(0).appendChild(name);
+
+                desc = document.createElement("p");
+                desc.textContent = JSON.stringify(boarddata[0][i]["Description"]);
+                document.getElementsByTagName("h3").item(1).appendChild(desc);
+            }
+        }
+    }
 }
