@@ -28,34 +28,25 @@ $(window).load(function () {
                     }
 
                     p.textContent = JSON.stringify(boarddata[0][i]["Name"]);
-                    
+
                     function showBoardInfo(board) {
                         var name;
                         var desc;
                         var n = document.getElementsByTagName("h3").item(0).childNodes[1];
                         var d = document.getElementsByTagName("h3").item(1).childNodes[1];
 
-                        if (!(typeof n == "undefined")) {
-                            n.textContent = null;
-                            d.textContent = null;
-                            div_show();
+                        for (var i = 0; i < data.length; i++) {
+                            if (boarddata[0][i]["Name"] == board.split('"').join("")) {
+                                if (!(typeof n == "undefined")) {
+                                    n.textContent = null;
+                                    d.textContent = null;
 
-                            for (var i = 0; i < data.length; i++) {
-                                if (boarddata[0][i]["Name"] == board.split('"').join("")) {
-                                    console.log("Data[i]: " + JSON.stringify(boarddata[0][i]));
-                                    console.log("Data[i] desc: " + JSON.stringify(boarddata[0][i]["Description"]));
+                                    div_show();
 
                                     n.textContent = JSON.stringify(boarddata[0][i]["Name"]);
                                     d.textContent = JSON.stringify(boarddata[0][i]["Description"]);
-                                }
-                            }
-                        } else {
-                            div_show();
-
-                            for (var i = 0; i < data.length; i++) {
-                                if (boarddata[0][i]["Name"] == board.split('"').join("")) {
-                                    console.log("Data[i]: " + JSON.stringify(boarddata[0][i]));
-                                    console.log("Data[i] desc: " + JSON.stringify(boarddata[0][i]["Description"]));
+                                } else {
+                                    div_show();
 
                                     name = document.createElement("p");
                                     name.textContent = JSON.stringify(boarddata[0][i]["Name"]);
@@ -111,8 +102,10 @@ $(window).load(function () {
                 document.body.getElementsByClassName("boardpcontainer").item(0).appendChild(p2);
             }
         }
-    });
-});
+    })
+    ;
+})
+;
 
 function div_show() {
     document.getElementById("form_popup").style.display = "block";
