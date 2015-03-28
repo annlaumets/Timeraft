@@ -28,6 +28,46 @@ $(window).load(function () {
                     }
 
                     p.textContent = JSON.stringify(boarddata[0][i]["Name"]);
+                    
+                    function showBoardInfo(board) {
+                        var name;
+                        var desc;
+                        var n = document.getElementsByTagName("h3").item(0).childNodes[1];
+                        var d = document.getElementsByTagName("h3").item(1).childNodes[1];
+
+                        if (!(typeof n == "undefined")) {
+                            n.textContent = null;
+                            d.textContent = null;
+                            div_show();
+
+                            for (var i = 0; i < data.length; i++) {
+                                if (boarddata[0][i]["Name"] == board.split('"').join("")) {
+                                    console.log("Data[i]: " + JSON.stringify(boarddata[0][i]));
+                                    console.log("Data[i] desc: " + JSON.stringify(boarddata[0][i]["Description"]));
+
+                                    n.textContent = JSON.stringify(boarddata[0][i]["Name"]);
+                                    d.textContent = JSON.stringify(boarddata[0][i]["Description"]);
+                                }
+                            }
+                        } else {
+                            div_show();
+
+                            for (var i = 0; i < data.length; i++) {
+                                if (boarddata[0][i]["Name"] == board.split('"').join("")) {
+                                    console.log("Data[i]: " + JSON.stringify(boarddata[0][i]));
+                                    console.log("Data[i] desc: " + JSON.stringify(boarddata[0][i]["Description"]));
+
+                                    name = document.createElement("p");
+                                    name.textContent = JSON.stringify(boarddata[0][i]["Name"]);
+                                    document.getElementsByTagName("h3").item(0).appendChild(name);
+
+                                    desc = document.createElement("p");
+                                    desc.textContent = JSON.stringify(boarddata[0][i]["Description"]);
+                                    document.getElementsByTagName("h3").item(1).appendChild(desc);
+                                }
+                            }
+                        }
+                    }
                     p.addEventListener("click", showBoardInfo.bind(null, p.textContent));
                 }
 
@@ -89,44 +129,4 @@ function div_hide() {
 function div_hide_new() {
     document.getElementById("form_popup").style.display = "none";
     document.getElementById("popup_newdesc").style.display = "none";
-}
-
-function showBoardInfo(board) {
-    var name;
-    var desc;
-    var n = document.getElementsByTagName("h3").item(0).childNodes[1];
-    var d = document.getElementsByTagName("h3").item(1).childNodes[1];
-
-    if (!(typeof n == "undefined")) {
-        n.textContent = null;
-        d.textContent = null;
-        div_show();
-
-        for (var i = 0; i < data.length; i++) {
-            if (boarddata[0][i]["Name"] == board.split('"').join("")) {
-                console.log("Data[i]: " + JSON.stringify(boarddata[0][i]));
-                console.log("Data[i] desc: " + JSON.stringify(boarddata[0][i]["Description"]));
-
-                n.textContent = JSON.stringify(boarddata[0][i]["Name"]);
-                d.textContent = JSON.stringify(boarddata[0][i]["Description"]);
-            }
-        }
-    } else {
-        div_show();
-
-        for (var i = 0; i < data.length; i++) {
-            if (boarddata[0][i]["Name"] == board.split('"').join("")) {
-                console.log("Data[i]: " + JSON.stringify(boarddata[0][i]));
-                console.log("Data[i] desc: " + JSON.stringify(boarddata[0][i]["Description"]));
-
-                name = document.createElement("p");
-                name.textContent = JSON.stringify(boarddata[0][i]["Name"]);
-                document.getElementsByTagName("h3").item(0).appendChild(name);
-
-                desc = document.createElement("p");
-                desc.textContent = JSON.stringify(boarddata[0][i]["Description"]);
-                document.getElementsByTagName("h3").item(1).appendChild(desc);
-            }
-        }
-    }
 }
