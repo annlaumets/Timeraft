@@ -20,7 +20,7 @@ if (isset($_POST["submit_x"])) {
 
     //UUs PDO kood
     $loginStmt = $conn->prepare("SELECT * FROM Users WHERE Email = :email AND Password = :pass");
-    $loginStmt->execute(array('email'=>$email, 'pass'=>$pass));
+    $loginStmt->execute(array('email' => $email, 'pass' => $pass));
     $result = $loginStmt->fetch(PDO::FETCH_ASSOC);
 
     if ($result) {
@@ -29,9 +29,8 @@ if (isset($_POST["submit_x"])) {
             $_SESSION['login'] = true;
             $_SESSION['loginUser'] = $email;
             $_SESSION['UserID'] = $result['ID'];
-            $updateLastVisited = $conn->prepare("Update Users SET Time_Last_Visited = now() WHERE Email = ".$email);
+            $updateLastVisited = $conn->prepare("Update Users SET Time_Last_Visited = now() WHERE Email = " . $email);
             if ($redirectURL) {
-                // file_put_contents('error.txt', $redirectURL, FILE_APPEND | LOCK_EX);
                 header("Location:" . $redirectURL);
             } else {
                 header("Location: /mainboard.php");

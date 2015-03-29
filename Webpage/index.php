@@ -44,7 +44,7 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
                 <br>
                 <input name="email" placeholder="Email" type="email" size="25" required>
                 <input name="password" placeholder="Password" type="password" size="25" required>
-                <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_GET['redirect']); ?>">
+                <input type="hidden" name="redirect" value="<?php if(isset($_GET['redirect'])) echo htmlspecialchars($_GET['redirect']); ?>">
                 <input onsubmit="div_hide_signin()" name="submit"  type="image" alt="LOG IN" src="images/login.png" id="submit_signin">
                 <div class="nupud">
                     <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
