@@ -1,5 +1,5 @@
 var boarddata = []; //siia salvestama boardide data, et popupi ajal kasutada
-
+var boardName;
 $(window).load(function () {
     $.ajax({
         type: "GET",
@@ -37,6 +37,7 @@ $(window).load(function () {
 
                         for (var i = 0; i < data.length; i++) {
                             if (boarddata[0][i]["Name"] == board.split('"').join("")) {
+                                boardName = board.split('"').join("");
                                 if (!(typeof n == "undefined")) {
                                     n.textContent = null;
                                     d.textContent = null;
@@ -59,6 +60,7 @@ $(window).load(function () {
                             }
                         }
                     }
+
                     p.addEventListener("click", showBoardInfo.bind(null, p.textContent));
                 }
 
@@ -122,4 +124,8 @@ function div_hide() {
 function div_hide_new() {
     document.getElementById("form_popup").style.display = "none";
     document.getElementById("popup_newdesc").style.display = "none";
+}
+
+function boardURL() {
+    return boardName;
 }

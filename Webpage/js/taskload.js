@@ -1,41 +1,42 @@
-var taskdata = {}; //siia salvestama taskide data, et popupi ajal kasutada
+var taskdata = []; //siia salvestama taskide data, et popupi ajal kasutada
 
 $(window).load(function () {
     $.ajax({
         type: "GET",
         url: "/include/showtasks.php",
         dataType: "json",
+        data: {'boardURL': window.location.href},
         success: function (data) {
             if (data.length != 0) {
-                taskdata.data = data;
-
+                taskdata.push(data);
+                console.log(taskdata[0]);
                 for (var i = 0; i < data.length; i++) {
                     var p = document.createElement("p");
-                    p.textContent = JSON.stringify(data[i]["Name"]);
-                    console.log(data[i]["Type"]);
+                    p.textContent = JSON.stringify(taskdata[0][i]["Name"]);
+                    console.log(taskdata[0][i]["Task_Type"]);
 
-                    if (data[i]["Type"] == "To Do") {
+                    if (taskdata[0][i]["Task_Type"] == "ToDo") {
                         p.addEventListener("click", function () { //popupid on veel tegemata
                             console.log("Vajutasin todo-s.");
                             document.getElementById("form_popup").style.display = "block";
                             document.getElementById("popup_start").style.display = "block";
-                        })
+                        });
                         document.body.getElementsByClassName("boardpcontainer").item(0).appendChild(p);
                     }
-                    else if (data[i]["Type"] == "Pending") {
+                    else if (taskdata[0][i]["Task_Type"] == "Pending") {
                         p.addEventListener("click", function () { //popupid on veel tegemata
                             console.log("Vajutasin pending'us.");
                             document.getElementById("form_popup").style.display = "block";
                             document.getElementById("popup_pending").style.display = "block";
-                        })
+                        });
                         document.body.getElementsByClassName("boardpcontainer").item(1).appendChild(p);
                     }
-                    else if (data[i]["Type"] == "Finished") {
+                    else if (taskdata[0][i]["Task_Type"] == "Finished") {
                         p.addEventListener("click", function () { //popupid on veel tegemata
                             console.log("Vajutasin finishis.");
                             document.getElementById("form_popup").style.display = "block";
                             document.getElementById("popup_finish").style.display = "block";
-                        })
+                        });
                         document.body.getElementsByClassName("boardpcontainer").item(2).appendChild(p);
                     }
                 }

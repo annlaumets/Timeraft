@@ -8,8 +8,10 @@ header('Content-Type: text/html; charset=UTF-8');
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> <!--Font-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- JQuery library -->
+    <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
+    <!--Font-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- JQuery library -->
     <script type="text/javascript" src="js/showusername.js"></script>
     <script type="text/javascript" src="js/boardload.js"></script>
     <title>Timeraft | Main Board</title>
@@ -37,10 +39,12 @@ header('Content-Type: text/html; charset=UTF-8');
     <div id="popup_desc">
         <div class="boarddesc">
             <img id="close_desc" alt="X" src="images/close.png" onclick="div_hide()">
-            <h3>Name: </h3>
-            <h3>Description:</h3>
 
-            <input type="image" src="/images/showtasks.png" alt="SHOW TASKS" onclick="location.href='/board.php'">
+            <h3>Name: </h3>
+
+            <h3>Description:</h3>
+            <input type="image" name="tasks" src="/images/showtasks.png" alt="SHOW TASKS"
+                   onclick="location.href='/board.php?tasks=' + boardURL()">
         </div>
     </div>
 
@@ -58,7 +62,8 @@ header('Content-Type: text/html; charset=UTF-8');
                     <td><textarea name="desc" cols="18" rows="4"></textarea></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newBoard"></td>
+                    <td colspan="2"><input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image"
+                                           src="images/create.png" id="submit_newBoard"></td>
                 </tr>
             </table>
         </form>
