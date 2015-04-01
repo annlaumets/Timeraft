@@ -27,7 +27,7 @@ $(window).load(function () {
                         document.body.getElementsByClassName("boardpcontainer").item(i).appendChild(p);
                     }
 
-                    p.textContent = JSON.stringify(boarddata[0][i]["Name"]);
+                    p.textContent = JSON.stringify(boarddata[0][i]["Name"]).replace(/[""]/g,'');
 
                     function showBoardInfo(board) {
                         var name;
@@ -36,25 +36,34 @@ $(window).load(function () {
                         var d = document.getElementsByTagName("h3").item(1).childNodes[1];
 
                         for (var i = 0; i < data.length; i++) {
-                            if (boarddata[0][i]["Name"] == board.split('"').join("")) {
-                                boardName = board.split('"').join("");
+                            if (boarddata[0][i]["Name"] == board.replace(/[""]/g,'')) {
+                                boardName = board.replace(/[""]/g,'');
+                                console.log(boardName);
                                 if (!(typeof n == "undefined")) {
                                     n.textContent = null;
                                     d.textContent = null;
 
                                     div_show();
 
-                                    n.textContent = JSON.stringify(boarddata[0][i]["Name"]);
-                                    d.textContent = JSON.stringify(boarddata[0][i]["Description"]);
-                                } else {
+                                    n.textContent = JSON.stringify(boarddata[0][i]["Name"]).replace(/[""]/g,'');
+                                    d.textContent = JSON.stringify(boarddata[0][i]["Description"]).replace(/[""]/g,'');
+                                }
+                                else {
                                     div_show();
 
                                     name = document.createElement("p");
-                                    name.textContent = JSON.stringify(boarddata[0][i]["Name"]);
+                                    name.textContent = JSON.stringify(boarddata[0][i]["Name"]).replace(/[""]/g,'');
+
+                                    //console.log(document.getElementsByTagName("h3").item(0).parentNode);
+                                    //var h3abiNimi = document.getElementsByTagName("h3").item(0);
+                                    //h3abiNimi.parentNode.insertBefore(name, h3abiNimi.nextSibling);
                                     document.getElementsByTagName("h3").item(0).appendChild(name);
 
                                     desc = document.createElement("p");
-                                    desc.textContent = JSON.stringify(boarddata[0][i]["Description"]);
+                                    desc.textContent = JSON.stringify(boarddata[0][i]["Description"]).replace(/[""]/g,'');
+
+                                    //var h3abiDesc = document.getElementsByTagName("h3").item(1);
+                                    //h3abiDesc.parentNode.insertBefore(desc, h3abiDesc.nextSibling);
                                     document.getElementsByTagName("h3").item(1).appendChild(desc);
                                 }
                             }
@@ -69,8 +78,8 @@ $(window).load(function () {
                 var boardpcontainer3 = document.createElement("div");
                 var p3 = document.createElement("p");
 
-                list3.className = "list";
-                boardpcontainer3.className = "boardpcontainer";
+                list3.className = "listplus";
+                boardpcontainer3.className = "boardpcontainerplus";
 
                 p3.textContent = "+"; //kui veel ühtegi boardi pole tehtud
                 p3.addEventListener("click", function () {
@@ -78,14 +87,20 @@ $(window).load(function () {
                     document.getElementById("popup_newdesc").style.display = "block";
                 });
 
-                document.body.getElementsByClassName("maincontainer").item(1).appendChild(list3);
-                var pikkusList = document.body.getElementsByClassName("list").length;
+                if (document.body.getElementsByClassName("list").length % 2 == 1) {
+                    document.body.getElementsByClassName("maincontainer").item(0).appendChild(list3);
 
-                document.body.getElementsByClassName("list").item(pikkusList - 1).appendChild(boardpcontainer3);
-                var pikkusBoard = document.body.getElementsByClassName("boardpcontainer").length;
+                }
+                else {
+                    document.body.getElementsByClassName("maincontainer").item(1).appendChild(list3);
 
-                document.body.getElementsByClassName("boardpcontainer").item(pikkusBoard - 1).appendChild(p3);
-            } else {
+                }
+
+                document.body.getElementsByClassName("listplus").item(0).appendChild(boardpcontainer3);
+
+                document.body.getElementsByClassName("boardpcontainerplus").item(0).appendChild(p3);
+            }
+            else {
                 var p2 = document.createElement("p");
                 var list2 = document.createElement("div");
                 var boardpcontainer2 = document.createElement("div");
@@ -95,7 +110,7 @@ $(window).load(function () {
 
                 p2.textContent = "+"; //kui veel ühtegi boardi pole tehtud
                 p2.addEventListener("click", function () {
-                    document.getElementById("form_signin").style.display = "block";
+                    document.getElementById("form_popup").style.display = "block";
                     document.getElementById("popup_newdesc").style.display = "block";
                 });
 
