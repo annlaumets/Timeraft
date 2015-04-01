@@ -87,7 +87,7 @@ $(window).load(function () {
                     document.getElementById("popup_newdesc").style.display = "block";
                 });
 
-                if (document.body.getElementsByClassName("list").length % 2 == 1) {
+                if (document.body.getElementsByClassName("list").length % 2 == 0) {
                     document.body.getElementsByClassName("maincontainer").item(0).appendChild(list3);
 
                 }
