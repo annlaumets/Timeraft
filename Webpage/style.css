@@ -334,7 +334,7 @@ div.main-body .board .container .list {
     height: 1px;
 }
 
-.list p {
+.list p, .listplus p {
     border: 3px lavender outset;
     background-color: aliceblue;
     -moz-border-radius: 8px;
@@ -359,13 +359,14 @@ div.main-body .board .maincontainer {
     position: static;
 }
 
-div.main-body .board .maincontainer .list {
+div.main-body .board .maincontainer .list, div.main-body .board .maincontainer .listplus {
     width: 90%;
     margin: 10px auto;
     text-align: center;
 }
 
-div.main-body .board .maincontainer .list .boardpcontainer {
+div.main-body .board .maincontainer .list .boardpcontainer,
+div.main-body .board .maincontainer .listplus .boardpcontainerplus{
     background-color: lavender;
     padding: 5px;
     -moz-border-radius: 8px;
