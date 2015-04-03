@@ -4,7 +4,7 @@
  */
 session_start();
 require("db_connection.php");
-echo $_POST['tasks'];
+
 if (isset($_POST['tasks'])){
     $boardName = $_POST['tasks'];
     $ownerID = $_SESSION['UserID'];

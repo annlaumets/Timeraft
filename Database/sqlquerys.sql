@@ -65,3 +65,46 @@ BEGIN
   JOIN Board ON Task.Board_ID = Board.ID WHERE Board.ID = in_board;
 END //
 DELIMITER ;
+
+
+ALTER TABLE Task ADD DueDate DATE NOT NULL DEFAULT '2016-01-01';
+
+DELIMITER //
+
+CREATE PROCEDURE sp_getBoardID(
+	IN in_boardName VARCHAR(50), IN in_ownerID INT(11),
+	OUT out_boardID INT(11)
+)
+BEGIN
+	SELECT ID INTO out_boardID FROM Board 
+	WHERE Name = in_boardName AND Owner_ID = in_ownerID;
+END //
+
+DELIMITER ;
+
+### Siin näidatud, kuidas kasutada out parameetrit
+CALL sp_getBoardID("Unicorns",19,@asd);
+
+SELECT @asd;
+
+ALTER TABLE Task ADD startDate DATE;
+ALTER TABLE Task ADD endDate DATE;
+
+DELIMITER // 
+
+CREATE PROCEDURE sp_startTask(IN in_taskID INT(11), IN in_timeToAdd TIMESTAMP)
+BEGIN
+	UPDATE Task SET startDate = current_date, Task_Time = in_timeToAdd WHERE ID = in_taskID;
+END //
+
+CREATE PROCEDURE sp_pauseTask(IN in_taskID INT(11), IN in_timeToAdd TIMESTAMP)
+BEGIN 
+	UPDATE Task SET Task_Time = ADDTIME(Task_Time, in_timeToAdd) WHERE ID = in_taskID;
+END //
+
+CREATE PROCEDURE sp_finishTask(IN in_taskID INT(11), IN in_timeToAdd TIMESTAMP)
+BEGIN
+	UPDATE Task SET Task_Time = ADDTIME(Task_Time, in_timeToAdd), endDate = CURRENT_DATE WHERE ID = in_taskID;
+END //
+
+DELIMITER ;
