@@ -27,6 +27,7 @@ if(!empty($_POST['data'])) {
         session_regenerate_id(true);
         $_SESSION['login'] = true;
         $_SESSION['loginUser'] = $email;
+        $_SESSION['UserID'] = $result['ID'];
         $updateLastVisited = $conn->prepare("Update Users SET Time_Last_Visited = now() WHERE facebook_uid = " . $fbid);
         if (is_null($redirectURL)) {
             $redirectURL = "/mainboard.php";
@@ -41,6 +42,7 @@ if(!empty($_POST['data'])) {
             session_regenerate_id(true);
             $_SESSION['login'] = true;
             $_SESSION['loginUser'] = $email;
+            $_SESSION['UserID'] = $result['ID'];
             if (is_null($redirectURL)) {
                 $redirectURL = "/mainboard.php";
             }
