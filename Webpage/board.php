@@ -47,7 +47,8 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Due date: </th></tr>
                 <tr><th>Start Date: </th></tr>
                 <tr><th>End date: </th></tr>
-                <tr><th colspan="2"><input type="image" src="/images/start.png" alt="START" onclick="location.href='/taskrunning.php'"></th></tr>
+                <tr><th colspan="2"><input type="image" src="/images/start.png" alt="START"
+                                           onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&taskID=' + taskURL()"></th></tr>
             </table>
         </div>
     </div>
@@ -64,7 +65,8 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Start Date: </th></tr>
                 <tr><th>End date: </th></tr>
                 <tr><th>Time spent: </th></tr>
-                <tr><th colspan="2"><input type="image" src="/images/continue.png" alt="CONTINUE" onclick="location.href='/taskrunning.php'"></th></tr>
+                <tr><th colspan="2"><input type="image" src="/images/continue.png" alt="CONTINUE"
+                                           onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&taskID=' + taskURL()"></th></tr>
             </table>
         </div>
     </div>
@@ -92,15 +94,17 @@ header('Content-Type: text/html; charset=UTF-8');
             <table>
                 <tr>
                     <th>Name:</th>
-                    <td><input name="name" type="text" size="20" required></td>
+                    <td><label><input name="name" type="text" size="20" required></label></td>
                 </tr>
                 <tr>
                     <th>Description:</th>
-                    <td><textarea name="desc" cols="18" rows="4"></textarea></td>
+                    <td><label>
+                            <textarea name="desc" cols="18" rows="4"></textarea>
+                        </label></td>
                 </tr>
                 <tr>
                     <th>Due date:</th>
-                    <td><input type="text" name="DueDate" id="datepick"></td>
+                    <td><label><input type="text" name="DueDate" id="datepick"></label></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newTask"></td>

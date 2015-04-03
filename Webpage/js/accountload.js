@@ -8,16 +8,15 @@ $(window).load(function() {
                 var email = document.createElement("p");
                 var bio = document.createElement("p");
                 var totalTime = document.createElement("p");
-                var tmp;
 
-                console.log(data);
+                var hour = Math.floor(data["totalTime"] / 3600);
+                var min = Math.floor((data["totalTime"] / 3600 - hour) * 60);
+                var sec = Math.round(((data["totalTime"] / 3600 - hour) * 60 - min) * 60);
 
                 name.textContent = JSON.stringify(data["Name"]).replace(/\"/g, "");
                 email.textContent = JSON.stringify(data["Email"]).replace(/\"/g, "");
                 bio.textContent = JSON.stringify(data["Bio"]).replace(/\"/g, "");
-                tmp = JSON.stringify(data["totalTime"]).replace(/\"/g, "");
-                tmp = parseFloat(tmp/3600).toFixed(2);
-                totalTime.textContent = tmp;
+                totalTime.textContent = hour + " hours " + min + " minutes " + sec + " seconds";
 
                 var array;
                 array = [name, email, bio, totalTime];

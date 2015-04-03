@@ -1,5 +1,6 @@
 var taskdata = []; //siia salvestama taskide data, et popupi ajal kasutada
-
+var taskID;
+var boardName;
 $(window).load(function () {
     $.ajax({
         type: "GET",
@@ -13,23 +14,25 @@ $(window).load(function () {
                     var p = document.createElement("p");
                     p.textContent = JSON.stringify(taskdata[i]["Name"]);
 
+                    var id = data[i]["ID"];
+                    var boardname = data[i]["boardName"];
+
                     if (taskdata[i]["Task_Type"] == "ToDo") {
                         document.body.getElementsByClassName("boardpcontainer").item(0).appendChild(p);
-                        p.addEventListener("click", showToDo.bind(null, p.textContent));
+                        p.addEventListener("click", showToDo.bind(null, p.textContent, id, boardname));
                     }
                     else if (taskdata[i]["Task_Type"] == "Pending") {
                         document.body.getElementsByClassName("boardpcontainer").item(1).appendChild(p);
-                        p.addEventListener("click", showPending.bind(null, p.textContent));
-
+                        p.addEventListener("click", showPending.bind(null, p.textContent, id, boardname));
                     }
                     else if (taskdata[i]["Task_Type"] == "Finished") {
                         document.body.getElementsByClassName("boardpcontainer").item(2).appendChild(p);
-                        p.addEventListener("click", showFinish.bind(null, p.textContent));
+                        p.addEventListener("click", showFinish.bind(null, p.textContent, id, boardname));
                     }
                 }
             }
 
-            function showToDo (task) {
+            function showToDo (task, id, board) {
                 var name;
                 var status;
                 var desc;
@@ -45,6 +48,8 @@ $(window).load(function () {
 
                 for (var i = 0; i < taskdata.length; i++) {
                     if (taskdata[i]["Name"] == task.replace(/[""]/g,'')) {
+                        taskID = id.replace(/[""]/g, '');
+                        boardName = board.replace(/[""]/g, '');
                         if (typeof n == "undefined") {
 
                             name = document.createElement("td");
@@ -57,7 +62,7 @@ $(window).load(function () {
                                 desc.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
                             }
                             dueDate = document.createElement("td");
-                            //dueDate.textContent = JSON.stringify(taskdata[i]["Due date"]).replace(/[""]/g, '');
+                            dueDate.textContent = JSON.stringify(taskdata[i]["dueDate"]).replace(/[""]/g, '');
 
                             status = document.createElement("td");
                             status.textContent = "Not started";
@@ -89,7 +94,7 @@ $(window).load(function () {
                             else {
                                 d.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
                             }
-                            //dDate.textContent = JSON.stringify(taskdata[i]["Due date"]).replace(/[""]/
+                            dDate.textContent = JSON.stringify(taskdata[i]["dueDate"]).replace(/[""]/g, '');
                             st.textContent = "Not started";
                             sd.textContent = "N/A";
                             ed.textContent = "N/A";
@@ -102,7 +107,7 @@ $(window).load(function () {
 
             }
 
-            function showPending (task) {
+            function showPending (task, id, board) {
                 var name;
                 var status;
                 var desc;
@@ -120,27 +125,28 @@ $(window).load(function () {
 
                 for (var i = 0; i < taskdata.length; i++) {
                     if (taskdata[i]["Name"] == task.replace(/[""]/g,'')) {
+                        taskID = id.replace(/[""]/g, '');
+                        boardName = board.replace(/[""]/g, '');
                         if (typeof n == "undefined") {
 
                             name = document.createElement("td");
                             name.textContent = JSON.stringify(taskdata[i]["Name"]).replace(/[""]/g, '');
 
                             desc = document.createElement("td");
-                            if (JSON.stringify(taskdata[i]["Description"]) == "null") {
-                                desc.textContent = "";
-                            }
-                            else {
+                            if (JSON.stringify(taskdata[i]["Description"]) != "null") {
                                 desc.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
+                            } else {
+                                desc.textContent = "";
                             }
 
                             dueDate = document.createElement("td");
-                            //dueDate.textContent = JSON.stringify(taskdata[i]["Due date"]).replace(/[""]/g, '');
+                            dueDate.textContent = JSON.stringify(taskdata[i]["dueDate"]).replace(/[""]/g, '');
 
                             status = document.createElement("td");
                             status.textContent = "Pending";
 
                             startDate = document.createElement("td");
-                            //startDate.textContent = JSON.stringify(taskdata[i]["Start date"]).replace(/[""]/g, '');
+                            startDate.textContent = JSON.stringify(taskdata[i]["startDate"]).replace(/[""]/g, '');
 
                             endDate = document.createElement("td");
                             endDate.textContent = "N/A";
@@ -173,9 +179,9 @@ $(window).load(function () {
                             else {
                                 d.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
                             }
-                            //dDate.textContent = JSON.stringify(taskdata[i]["Due date"]).replace(/[""]/
+                            dDate.textContent = JSON.stringify(taskdata[i]["dueDate"]).replace(/[""]/g, '');
                             st.textContent = "Pending";
-                            //sd.textContent = JSON.stringify(taskdata[i]["Start date"]).replace(/[""]/g,'');
+                            sd.textContent = JSON.stringify(taskdata[i]["startDate"]).replace(/[""]/g,'');
                             ed.textContent = "N/A";
                             t.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g,'');
                         }
@@ -186,7 +192,7 @@ $(window).load(function () {
                 document.getElementById("popup_pending").style.display = "block";
             }
 
-            function showFinish (task) {
+            function showFinish (task, id, board) {
                 var name;
                 var status;
                 var desc;
@@ -204,6 +210,8 @@ $(window).load(function () {
 
                 for (var i = 0; i < taskdata.length; i++) {
                     if (taskdata[i]["Name"] == task.replace(/[""]/g,'')) {
+                        taskID = id.replace(/[""]/g, '');
+                        boardName = board.replace(/[""]/g, '');
                         if (typeof n == "undefined") {
 
                             name = document.createElement("td");
@@ -218,16 +226,16 @@ $(window).load(function () {
                             }
 
                             dueDate = document.createElement("td");
-                            //dueDate.textContent = JSON.stringify(taskdata[i]["Due date"]).replace(/[""]/g, '');
+                            dueDate.textContent = JSON.stringify(taskdata[i]["dueDate"]).replace(/[""]/g, '');
 
                             status = document.createElement("td");
                             status.textContent = "Finished";
 
                             startDate = document.createElement("td");
-                            //startDate.textContent = JSON.stringify(taskdata[i]["Start date"]).replace(/[""]/g, '');
+                            startDate.textContent = JSON.stringify(taskdata[i]["startDate"]).replace(/[""]/g, '');
 
                             endDate = document.createElement("td");
-                            //endDate.textContent = JSON.stringify(taskdata[i]["End date"]).replace(/[""]/g, '');
+                            endDate.textContent = JSON.stringify(taskdata[i]["endDate"]).replace(/[""]/g, '');
 
                             time = document.createElement("td");
                             time.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g, '');
@@ -257,10 +265,10 @@ $(window).load(function () {
                             else {
                                 d.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
                             }
-                            //dDate.textContent = JSON.stringify(taskdata[i]["Due date"]).replace(/[""]/
+                            dDate.textContent = JSON.stringify(taskdata[i]["dueDate"]).replace(/[""]/g, '');
                             st.textContent = "Finished";
-                            //sd.textContent = JSON.stringify(taskdata[i]["Start date"]).replace(/[""]/g,'');
-                            //ed.textContent = JSON.stringify(taskdata[i]["End date"]).replace(/[""]/g,'');;
+                            sd.textContent = JSON.stringify(taskdata[i]["startDate"]).replace(/[""]/g,'');
+                            ed.textContent = JSON.stringify(taskdata[i]["endDate"]).replace(/[""]/g,'');
                             t.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g,'');
                         }
                     }
@@ -298,4 +306,12 @@ function div_hide_new() {
 function div_show_new() {
     document.getElementById("form_popup").style.display = "block";
     document.getElementById("popup_newdesc").style.display= "block";
+}
+
+function taskURL() {
+    return taskID;
+}
+
+function boardURL () {
+    return boardName;
 }

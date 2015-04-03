@@ -25,34 +25,35 @@ window.onload = function() {
         t = setTimeout(add, 1000);
     }
 
-    document.getElementById('pause2').onclick = function () {
+    document.getElementById('pause2').addEventListener('click', function () {
         clearTimeout(t);
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: "include/addTime.php",
-            data: t,
-            success: function() {
-                window.location.replace("/board.php");
+            data: {'taskURL': window.location.href, 'taskTime': t},
+            success: function(data) {
+                window.location.href = '/board.php?tasks=' + data;
             },
             error: function() {
                 console.log("Pausi error.")
             }
         })
-    };
+    });
 
-    document.getElementById('stop2').onclick = function () {
+    document.getElementById('stop2').addEventListener('click', function () {
         clearTimeout(t);
+        console.log(window.location.href);
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: "include/addTime.php",
-            data: t,
-            success: function() {
-                window.location.replace("/board.php");
+            data: {'taskURL': window.location.href, 'taskTime': t},
+            success: function(data) {
+                window.location.href = '/board.php?tasks=' + data;
             },
             error: function() {
                 console.log("Stopi error.")
             }
         })
-    };
+    });
 
 };

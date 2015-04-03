@@ -55,11 +55,11 @@ header('Content-Type: text/html; charset=UTF-8');
             <table>
                 <tr>
                     <th>Name:</th>
-                    <td><input name="name" type="text" size="20" required></td>
+                    <td><label><input name="name" type="text" size="20" required></label></td>
                 </tr>
                 <tr>
                     <th>Description:</th>
-                    <td><textarea name="desc" cols="18" rows="4"></textarea></td>
+                    <td><label><textarea name="desc" cols="18" rows="4"></textarea></label></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image"
