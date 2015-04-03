@@ -38,7 +38,7 @@ header('Content-Type: text/html; charset=UTF-8');
             <h4>Name:</h4>
             <h4>Email address:</h4>
             <h4>Biography:</h4>
-            <h4>Total time spent:</h4>
+            <h4>Total time spent (in hours):</h4>
         </div>
     </div>
 </div>
