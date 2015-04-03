@@ -14,6 +14,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <!-- JQuery library -->
     <script type="text/javascript" src="js/showusername.js"></script>
     <script type="text/javascript" src="js/boardload.js"></script>
+    <script type="text/javascript" src="js/getNewBoard.js"></script>
     <title>Timeraft | Main Board</title>
 </head>
 

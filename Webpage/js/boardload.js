@@ -1,6 +1,12 @@
-var boarddata = []; //siia salvestama boardide data, et popupi ajal kasutada
 var boardName;
-$(window).load(function () {
+var boarddata = []; //siia salvestama boardide data, et popupi ajal kasutada
+
+$(window).load(loadBoard());
+
+function loadBoard() {
+    $("div.list").empty();
+    $("div.maincontainer").empty();
+    boarddata.length = 0;
     $.ajax({
         type: "GET",
         url: "/include/showboards.php",
@@ -8,7 +14,7 @@ $(window).load(function () {
         success: function (data) {
             if (data.length != 0) {
                 boarddata.push.apply(boarddata, data);
-
+                console.log(boarddata);
                 for (var i = 0; i < data.length; i++) {
                     var list = document.createElement("div");
                     var boardpcontainer = document.createElement("div");
@@ -121,10 +127,8 @@ $(window).load(function () {
                 document.body.getElementsByClassName("boardpcontainer").item(0).appendChild(p2);
             }
         }
-    })
-    ;
-})
-;
+    });
+}
 
 function div_show() {
     document.getElementById("form_popup").style.display = "block";
