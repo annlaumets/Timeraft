@@ -409,9 +409,13 @@ form#form_newboard, form#form_newtask {
     background-color: snow;
 }
 
-#form_newtask table, #form_newboard table {
+#form_newtask table, #form_newboard table, div.boarddesc table {
     width: 95%;
     margin: 0 auto;
+}
+
+div.boarddesc table td, div.boarddesc table th {
+    padding: 10px;
 }
 
 /*Closing buttons on popups*/

@@ -40,13 +40,15 @@ header('Content-Type: text/html; charset=UTF-8');
     <div id="popup_start">
         <div class="boarddesc">
             <img id="close_start" alt="X" src="images/close.png" onclick="div_hide_start()">
-            <h3>Name: </h3>
-            <h3>Status: </h3>
-            <h3>Description: </h3>
-            <h3>Due date: </h3>
-            <h3>Start Date: </h3>
-            <h3>End date: </h3>
-            <input type="image" src="/images/start.png" alt="START" onclick="location.href='/taskrunning.php'">
+            <table>
+                <tr><th>Name: </th></tr>
+                <tr><th>Status: </th></tr>
+                <tr><th>Description: </th></tr>
+                <tr><th>Due date: </th></tr>
+                <tr><th>Start Date: </th></tr>
+                <tr><th>End date: </th></tr>
+                <tr><th colspan="2"><input type="image" src="/images/start.png" alt="START" onclick="location.href='/taskrunning.php'"></th></tr>
+            </table>
         </div>
     </div>
 
@@ -54,14 +56,16 @@ header('Content-Type: text/html; charset=UTF-8');
     <div id="popup_pending">
         <div class="boarddesc">
             <img id="close_pend" alt="X" src="images/close.png" onclick="div_hide_pending()">
-            <h3>Name: </h3>
-            <h3>Status: </h3>
-            <h3>Description: </h3>
-            <h3>Due date: </h3>
-            <h3>Start Date: </h3>
-            <h3>End date: </h3>
-            <h3>Time spent: </h3>
-            <input type="image" src="/images/continue.png" alt="CONTINUE" onclick="location.href='/taskrunning.php'">
+            <table>
+                <tr><th>Name: </th></tr>
+                <tr><th>Status: </th></tr>
+                <tr><th>Description: </th></tr>
+                <tr><th>Due date: </th></tr>
+                <tr><th>Start Date: </th></tr>
+                <tr><th>End date: </th></tr>
+                <tr><th>Time spent: </th></tr>
+                <tr><th colspan="2"><input type="image" src="/images/continue.png" alt="CONTINUE" onclick="location.href='/taskrunning.php'"></th></tr>
+            </table>
         </div>
     </div>
 
@@ -69,13 +73,15 @@ header('Content-Type: text/html; charset=UTF-8');
     <div id="popup_finish">
         <div class="boarddesc">
             <img id="close_finish" alt="X" src="images/close.png" onclick="div_hide_finished()">
-            <h3>Name: </h3>
-            <h3>Status: </h3>
-            <h3>Description: </h3>
-            <h3>Due date: </h3>
-            <h3>Start Date: </h3>
-            <h3>End date: </h3>
-            <h3>Time spent: </h3>
+            <table>
+                <tr><th>Name: </th></tr>
+                <tr><th>Status: </th></tr>
+                <tr><th>Description: </th></tr>
+                <tr><th>Due date: </th></tr>
+                <tr><th>Start Date: </th></tr>
+                <tr><th>End date: </th></tr>
+                <tr><th>Time spent: </th></tr>
+            </table>
         </div>
     </div>
 
@@ -94,7 +100,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 </tr>
                 <tr>
                     <th>Due date:</th>
-                    <td><input type="text" id="datepick"></td>
+                    <td><input type="text" name="DueDate" id="datepick"></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newTask"></td>

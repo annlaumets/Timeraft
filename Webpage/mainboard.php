@@ -39,12 +39,12 @@ header('Content-Type: text/html; charset=UTF-8');
     <div id="popup_desc">
         <div class="boarddesc">
             <img id="close_desc" alt="X" src="images/close.png" onclick="div_hide()">
-
-            <h3>Name: </h3>
-
-            <h3>Description:</h3>
-            <input type="image" name="tasks" src="/images/showtasks.png" alt="SHOW TASKS"
-                   onclick="location.href='/board.php?tasks=' + boardURL()">
+            <table>
+                <tr><th>Name: </th></tr>
+                <tr><th>Description: </th></tr>
+                <tr><th colspan="2"><input type="image" name="tasks" src="/images/showtasks.png" alt="SHOW TASKS"
+                               onclick="location.href='/board.php?tasks=' + boardURL()"></th></tr>
+            </table>
         </div>
     </div>
 

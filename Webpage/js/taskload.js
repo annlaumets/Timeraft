@@ -8,43 +8,272 @@ $(window).load(function () {
         data: {'boardURL': window.location.href},
         success: function (data) {
             if (data.length != 0) {
-                taskdata.push(data);
-                console.log(taskdata[0]);
+                taskdata.push.apply(taskdata, data);
                 for (var i = 0; i < data.length; i++) {
                     var p = document.createElement("p");
-                    p.textContent = JSON.stringify(taskdata[0][i]["Name"]);
-                    console.log(taskdata[0][i]["Task_Type"]);
+                    p.textContent = JSON.stringify(taskdata[i]["Name"]);
 
-                    if (taskdata[0][i]["Task_Type"] == "ToDo") {
-                        p.addEventListener("click", function () { //popupid on veel tegemata
-                            console.log("Vajutasin todo-s.");
-                            document.getElementById("form_popup").style.display = "block";
-                            document.getElementById("popup_start").style.display = "block";
-                        });
+                    if (taskdata[i]["Task_Type"] == "ToDo") {
                         document.body.getElementsByClassName("boardpcontainer").item(0).appendChild(p);
+                        p.addEventListener("click", showToDo.bind(null, p.textContent));
                     }
-                    else if (taskdata[0][i]["Task_Type"] == "Pending") {
-                        p.addEventListener("click", function () { //popupid on veel tegemata
-                            console.log("Vajutasin pending'us.");
-                            document.getElementById("form_popup").style.display = "block";
-                            document.getElementById("popup_pending").style.display = "block";
-                        });
+                    else if (taskdata[i]["Task_Type"] == "Pending") {
                         document.body.getElementsByClassName("boardpcontainer").item(1).appendChild(p);
+                        p.addEventListener("click", showPending.bind(null, p.textContent));
+
                     }
-                    else if (taskdata[0][i]["Task_Type"] == "Finished") {
-                        p.addEventListener("click", function () { //popupid on veel tegemata
-                            console.log("Vajutasin finishis.");
-                            document.getElementById("form_popup").style.display = "block";
-                            document.getElementById("popup_finish").style.display = "block";
-                        });
+                    else if (taskdata[i]["Task_Type"] == "Finished") {
                         document.body.getElementsByClassName("boardpcontainer").item(2).appendChild(p);
+                        p.addEventListener("click", showFinish.bind(null, p.textContent));
                     }
                 }
+            }
+
+            function showToDo (task) {
+                var name;
+                var status;
+                var desc;
+                var dueDate;
+                var startDate;
+                var endDate;
+                var n = document.getElementsByTagName("tr").item(0).childNodes[1];
+                var st = document.getElementsByTagName("tr").item(1).childNodes[1];
+                var d = document.getElementsByTagName("tr").item(2).childNodes[1];
+                var dDate = document.getElementsByTagName("tr").item(3).childNodes[1];
+                var sd = document.getElementsByTagName("tr").item(4).childNodes[1];
+                var ed = document.getElementsByTagName("tr").item(5).childNodes[1];
+
+                for (var i = 0; i < taskdata.length; i++) {
+                    if (taskdata[i]["Name"] == task.replace(/[""]/g,'')) {
+                        if (typeof n == "undefined") {
+
+                            name = document.createElement("td");
+                            name.textContent = JSON.stringify(taskdata[i]["Name"]).replace(/[""]/g, '');
+
+                            desc = document.createElement("td");if (JSON.stringify(taskdata[i]["Description"]) == "null") {
+                                desc.textContent = "";
+                            }
+                            else {
+                                desc.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
+                            }
+                            dueDate = document.createElement("td");
+                            //dueDate.textContent = JSON.stringify(taskdata[i]["Due date"]).replace(/[""]/g, '');
+
+                            status = document.createElement("td");
+                            status.textContent = "Not started";
+
+                            startDate = document.createElement("td");
+                            startDate.textContent = "N/A";
+
+                            endDate = document.createElement("td");
+                            endDate.textContent = "N/A";
+
+                            document.getElementsByTagName("tr").item(0).insertBefore(name, document.getElementsByTagName("tr").item(0).childNodes[2]);
+                            document.getElementsByTagName("tr").item(1).insertBefore(status, document.getElementsByTagName("tr").item(1).childNodes[2]);
+                            document.getElementsByTagName("tr").item(2).insertBefore(desc, document.getElementsByTagName("tr").item(2).childNodes[2]);
+                            document.getElementsByTagName("tr").item(3).insertBefore(dueDate, document.getElementsByTagName("tr").item(3).childNodes[2]);
+                            document.getElementsByTagName("tr").item(4).insertBefore(startDate, document.getElementsByTagName("tr").item(4).childNodes[2]);
+                            document.getElementsByTagName("tr").item(5).insertBefore(endDate, document.getElementsByTagName("tr").item(5).childNodes[2]);
+                        }
+                        else {
+                            n.textContent = null;
+                            d.textContent = null;
+                            dDate.textContent = null;
+                            st.textContent = null;
+                            sd.textContent = null;
+                            ed.textContent = null;
+
+                            n.textContent = JSON.stringify(taskdata[i]["Name"]).replace(/[""]/g,'');if (JSON.stringify(taskdata[i]["Description"]) == "null") {
+                                d.textContent = "";
+                            }
+                            else {
+                                d.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
+                            }
+                            //dDate.textContent = JSON.stringify(taskdata[i]["Due date"]).replace(/[""]/
+                            st.textContent = "Not started";
+                            sd.textContent = "N/A";
+                            ed.textContent = "N/A";
+
+                        }
+                    }
+                }
+                document.getElementById("form_popup").style.display = "block";
+                document.getElementById("popup_start").style.display = "block";
+
+            }
+
+            function showPending (task) {
+                var name;
+                var status;
+                var desc;
+                var dueDate;
+                var startDate;
+                var endDate;
+                var time;
+                var n = document.getElementsByTagName("tr").item(7).childNodes[1];
+                var st = document.getElementsByTagName("tr").item(8).childNodes[1];
+                var d = document.getElementsByTagName("tr").item(9).childNodes[1];
+                var dDate = document.getElementsByTagName("tr").item(10).childNodes[1];
+                var sd = document.getElementsByTagName("tr").item(11).childNodes[1];
+                var ed = document.getElementsByTagName("tr").item(12).childNodes[1];
+                var t = document.getElementsByTagName("tr").item(13).childNodes[1];
+
+                for (var i = 0; i < taskdata.length; i++) {
+                    if (taskdata[i]["Name"] == task.replace(/[""]/g,'')) {
+                        if (typeof n == "undefined") {
+
+                            name = document.createElement("td");
+                            name.textContent = JSON.stringify(taskdata[i]["Name"]).replace(/[""]/g, '');
+
+                            desc = document.createElement("td");
+                            if (JSON.stringify(taskdata[i]["Description"]) == "null") {
+                                desc.textContent = "";
+                            }
+                            else {
+                                desc.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
+                            }
+
+                            dueDate = document.createElement("td");
+                            //dueDate.textContent = JSON.stringify(taskdata[i]["Due date"]).replace(/[""]/g, '');
+
+                            status = document.createElement("td");
+                            status.textContent = "Pending";
+
+                            startDate = document.createElement("td");
+                            //startDate.textContent = JSON.stringify(taskdata[i]["Start date"]).replace(/[""]/g, '');
+
+                            endDate = document.createElement("td");
+                            endDate.textContent = "N/A";
+
+                            time = document.createElement("td");
+                            time.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g, '');
+
+                            document.getElementsByTagName("tr").item(7).insertBefore(name, document.getElementsByTagName("tr").item(7).childNodes[2]);
+                            document.getElementsByTagName("tr").item(8).insertBefore(status, document.getElementsByTagName("tr").item(8).childNodes[2]);
+                            document.getElementsByTagName("tr").item(9).insertBefore(desc, document.getElementsByTagName("tr").item(9).childNodes[2]);
+                            document.getElementsByTagName("tr").item(10).insertBefore(dueDate, document.getElementsByTagName("tr").item(10).childNodes[2]);
+                            document.getElementsByTagName("tr").item(11).insertBefore(startDate, document.getElementsByTagName("tr").item(11).childNodes[2]);
+                            document.getElementsByTagName("tr").item(12).insertBefore(endDate, document.getElementsByTagName("tr").item(12).childNodes[2]);
+                            document.getElementsByTagName("tr").item(13).insertBefore(time, document.getElementsByTagName("tr").item(13).childNodes[2]);
+
+                        }
+                        else {
+                            n.textContent = null;
+                            d.textContent = null;
+                            dDate.textContent = null;
+                            st.textContent = null;
+                            sd.textContent = null;
+                            ed.textContent = null;
+                            t.textContent = null;
+
+                            n.textContent = JSON.stringify(taskdata[i]["Name"]).replace(/[""]/g,'');
+                            if (JSON.stringify(taskdata[i]["Description"]) == "null") {
+                                d.textContent = "";
+                            }
+                            else {
+                                d.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
+                            }
+                            //dDate.textContent = JSON.stringify(taskdata[i]["Due date"]).replace(/[""]/
+                            st.textContent = "Pending";
+                            //sd.textContent = JSON.stringify(taskdata[i]["Start date"]).replace(/[""]/g,'');
+                            ed.textContent = "N/A";
+                            t.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g,'');
+                        }
+                    }
+                }
+
+                document.getElementById("form_popup").style.display = "block";
+                document.getElementById("popup_pending").style.display = "block";
+            }
+
+            function showFinish (task) {
+                var name;
+                var status;
+                var desc;
+                var dueDate;
+                var startDate;
+                var endDate;
+                var time;
+                var n = document.getElementsByTagName("tr").item(15).childNodes[1];
+                var st = document.getElementsByTagName("tr").item(16).childNodes[1];
+                var d = document.getElementsByTagName("tr").item(17).childNodes[1];
+                var dDate = document.getElementsByTagName("tr").item(18).childNodes[1];
+                var sd = document.getElementsByTagName("tr").item(19).childNodes[1];
+                var ed = document.getElementsByTagName("tr").item(20).childNodes[1];
+                var t = document.getElementsByTagName("tr").item(21).childNodes[1];
+
+                for (var i = 0; i < taskdata.length; i++) {
+                    if (taskdata[i]["Name"] == task.replace(/[""]/g,'')) {
+                        if (typeof n == "undefined") {
+
+                            name = document.createElement("td");
+                            name.textContent = JSON.stringify(taskdata[i]["Name"]).replace(/[""]/g, '');
+
+                            desc = document.createElement("td");
+                            if (JSON.stringify(taskdata[i]["Description"]) == "null") {
+                                desc.textContent = "";
+                            }
+                            else {
+                                desc.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
+                            }
+
+                            dueDate = document.createElement("td");
+                            //dueDate.textContent = JSON.stringify(taskdata[i]["Due date"]).replace(/[""]/g, '');
+
+                            status = document.createElement("td");
+                            status.textContent = "Finished";
+
+                            startDate = document.createElement("td");
+                            //startDate.textContent = JSON.stringify(taskdata[i]["Start date"]).replace(/[""]/g, '');
+
+                            endDate = document.createElement("td");
+                            //endDate.textContent = JSON.stringify(taskdata[i]["End date"]).replace(/[""]/g, '');
+
+                            time = document.createElement("td");
+                            time.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g, '');
+
+                            document.getElementsByTagName("tr").item(15).insertBefore(name, document.getElementsByTagName("tr").item(15).childNodes[2]);
+                            document.getElementsByTagName("tr").item(16).insertBefore(status, document.getElementsByTagName("tr").item(16).childNodes[2]);
+                            document.getElementsByTagName("tr").item(17).insertBefore(desc, document.getElementsByTagName("tr").item(17).childNodes[2]);
+                            document.getElementsByTagName("tr").item(18).insertBefore(dueDate, document.getElementsByTagName("tr").item(18).childNodes[2]);
+                            document.getElementsByTagName("tr").item(19).insertBefore(startDate, document.getElementsByTagName("tr").item(19).childNodes[2]);
+                            document.getElementsByTagName("tr").item(20).insertBefore(endDate, document.getElementsByTagName("tr").item(20).childNodes[2]);
+                            document.getElementsByTagName("tr").item(21).insertBefore(time, document.getElementsByTagName("tr").item(21).childNodes[2]);
+
+                        }
+                        else {
+                            n.textContent = null;
+                            d.textContent = null;
+                            dDate.textContent = null;
+                            st.textContent = null;
+                            sd.textContent = null;
+                            ed.textContent = null;
+                            t.textContent = null;
+
+                            n.textContent = JSON.stringify(taskdata[i]["Name"]).replace(/[""]/g,'');
+                            if (JSON.stringify(taskdata[i]["Description"]) == "null") {
+                                d.textContent = "";
+                            }
+                            else {
+                                d.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
+                            }
+                            //dDate.textContent = JSON.stringify(taskdata[i]["Due date"]).replace(/[""]/
+                            st.textContent = "Finished";
+                            //sd.textContent = JSON.stringify(taskdata[i]["Start date"]).replace(/[""]/g,'');
+                            //ed.textContent = JSON.stringify(taskdata[i]["End date"]).replace(/[""]/g,'');;
+                            t.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g,'');
+                        }
+                    }
+                }
+
+                document.getElementById("form_popup").style.display = "block";
+                document.getElementById("popup_finish").style.display = "block";
             }
         }
     });
 
 });
+
 
 function div_hide_start() {
     document.getElementById("form_popup").style.display = "none";

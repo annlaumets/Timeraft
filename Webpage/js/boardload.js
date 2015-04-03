@@ -7,7 +7,7 @@ $(window).load(function () {
         dataType: "json",
         success: function (data) {
             if (data.length != 0) {
-                boarddata.push(data);
+                boarddata.push.apply(boarddata, data);
 
                 for (var i = 0; i < data.length; i++) {
                     var list = document.createElement("div");
@@ -27,44 +27,46 @@ $(window).load(function () {
                         document.body.getElementsByClassName("boardpcontainer").item(i).appendChild(p);
                     }
 
-                    p.textContent = JSON.stringify(boarddata[0][i]["Name"]).replace(/[""]/g,'');
+                    p.textContent = JSON.stringify(boarddata[i]["Name"]).replace(/[""]/g,'');
 
                     function showBoardInfo(board) {
                         var name;
                         var desc;
-                        var n = document.getElementsByTagName("h3").item(0).childNodes[1];
-                        var d = document.getElementsByTagName("h3").item(1).childNodes[1];
+                        var n = document.getElementsByTagName("tr").item(0).childNodes[1];
+                        var d = document.getElementsByTagName("tr").item(1).childNodes[1];
 
-                        for (var i = 0; i < data.length; i++) {
-                            if (boarddata[0][i]["Name"] == board.replace(/[""]/g,'')) {
+                        for (var i = 0; i < boarddata.length; i++) {
+                            if (boarddata[i]["Name"] == board.replace(/[""]/g,'')) {
                                 boardName = board.replace(/[""]/g,'');
-                                console.log(boardName);
                                 if (!(typeof n == "undefined")) {
                                     n.textContent = null;
                                     d.textContent = null;
 
                                     div_show();
 
-                                    n.textContent = JSON.stringify(boarddata[0][i]["Name"]).replace(/[""]/g,'');
-                                    d.textContent = JSON.stringify(boarddata[0][i]["Description"]).replace(/[""]/g,'');
+                                    n.textContent = JSON.stringify(boarddata[i]["Name"]).replace(/[""]/g,'');
+                                    if (JSON.stringify(boarddata[i]["Description"]) == "null") {
+                                        d.textContent = "";
+                                    }
+                                    else {
+                                        d.textContent = JSON.stringify(boarddata[i]["Description"]).replace(/[""]/g, '');
+                                    }
                                 }
                                 else {
                                     div_show();
 
-                                    name = document.createElement("p");
-                                    name.textContent = JSON.stringify(boarddata[0][i]["Name"]).replace(/[""]/g,'');
+                                    name = document.createElement("td");
+                                    name.textContent = JSON.stringify(boarddata[i]["Name"]).replace(/[""]/g,'');
+                                    desc = document.createElement("td");
+                                    if (JSON.stringify(boarddata[i]["Description"]) == "null") {
+                                        desc.textContent = "";
+                                    }
+                                    else {
+                                        desc.textContent = JSON.stringify(boarddata[i]["Description"]).replace(/[""]/g, '');
+                                    }
 
-                                    //console.log(document.getElementsByTagName("h3").item(0).parentNode);
-                                    //var h3abiNimi = document.getElementsByTagName("h3").item(0);
-                                    //h3abiNimi.parentNode.insertBefore(name, h3abiNimi.nextSibling);
-                                    document.getElementsByTagName("h3").item(0).appendChild(name);
-
-                                    desc = document.createElement("p");
-                                    desc.textContent = JSON.stringify(boarddata[0][i]["Description"]).replace(/[""]/g,'');
-
-                                    //var h3abiDesc = document.getElementsByTagName("h3").item(1);
-                                    //h3abiDesc.parentNode.insertBefore(desc, h3abiDesc.nextSibling);
-                                    document.getElementsByTagName("h3").item(1).appendChild(desc);
+                                    document.getElementsByTagName("tr").item(0).insertBefore(name, document.getElementsByTagName("tr").item(0).childNodes[1]);
+                                    document.getElementsByTagName("tr").item(1).insertBefore(desc, document.getElementsByTagName("tr").item(1).childNodes[1]);
                                 }
                             }
                         }
@@ -130,8 +132,8 @@ function div_show() {
 }
 
 function div_hide() {
-    document.getElementsByTagName("h3").item(0).childNodes[1].textContent = null;
-    document.getElementsByTagName("h3").item(1).childNodes[1].textContent = null;
+    document.getElementsByTagName("tr").item(0).childNodes[1].textContent = null;
+    document.getElementsByTagName("tr").item(1).childNodes[1].textContent = null;
     document.getElementById("form_popup").style.display = "none";
     document.getElementById("popup_desc").style.display = "none";
 }

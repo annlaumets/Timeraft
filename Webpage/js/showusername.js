@@ -7,7 +7,10 @@ $(function () {
             document.getElementById("account").innerHTML = msg;
         }
     });
-    if (document.body.contains("datepick")) {
-        $("#datepick").datepicker({minDate: 0}); //datepicker for due date in create task
-    }
+    if (!!document.getElementById("datepick")) {
+        var pickerOpts = {
+                dateFormat:"dd/mm/yy"
+        };
+        $("#datepick").datepicker(pickerOpts, {minDate: 0}); //datepicker for due date in create task
+    };
 });
