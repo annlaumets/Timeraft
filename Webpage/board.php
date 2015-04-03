@@ -106,6 +106,7 @@ header('Content-Type: text/html; charset=UTF-8');
                     <td colspan="2"><input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newTask"></td>
                 </tr>
             </table>
+            <input type="hidden" name="tasks" value="<?php if(isset($_GET['tasks'])) echo htmlspecialchars($_GET['tasks']); ?>">
         </form>
     </div>
 
