@@ -27,11 +27,13 @@ window.onload = function() {
 
     document.getElementById('pause2').addEventListener('click', function () {
         clearTimeout(t);
+        var test = "pause";
         $.ajax({
             type: "GET",
             url: "include/addTime.php",
-            data: {'taskURL': window.location.href, 'taskTime': t},
+            data: {'taskURL': window.location.href, 'taskTime': t, 'type': test},
             success: function(data) {
+                console.log(data);
                 window.location.href = '/board.php?tasks=' + data;
             },
             error: function() {
@@ -46,7 +48,7 @@ window.onload = function() {
         $.ajax({
             type: "GET",
             url: "include/addTime.php",
-            data: {'taskURL': window.location.href, 'taskTime': t},
+            data: {'taskURL': window.location.href, 'taskTime': t, 'type': 'stop'},
             success: function(data) {
                 window.location.href = '/board.php?tasks=' + data;
             },
