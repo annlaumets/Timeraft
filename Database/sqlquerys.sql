@@ -196,3 +196,17 @@ BEGIN
     Task_Type = IF (Task_type = "ToDo", "Pending", Task_type),
     Task_Time = Task_Time + in_timeToAdd WHERE ID = in_taskID;
 END //
+
+CREATE PROCEDURE sp_getUserStats(IN in_userID INT(11))
+BEGIN
+	SELECT SUM(Task_Time) AS boardTime, Board.Name AS boardName FROM Task JOIN Board ON Task.Board_ID = Board.ID 
+    WHERE Board.Owner_ID = in_userID GROUP BY boardName;    
+END //
+
+CREATE PROCEDURE sp_getBoardStats(IN in_boardID INT(11))
+BEGIN
+	SELECT Task.Name, Task_Time FROM Task WHERE Task.Board_ID = in_boardID AND 
+    Task_Time > 0 ORDER BY Task_time DESC;
+END //
+
+DELIMITER ; 
