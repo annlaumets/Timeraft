@@ -3,7 +3,6 @@
  */
 
 function fetchNewBoard(timestamp, lastID) {
-    var t;
 
     if (typeof lastID == 'undefined') {
         lastID = 0;
@@ -13,17 +12,20 @@ function fetchNewBoard(timestamp, lastID) {
         url: '/include/polling.php',
         type: 'GET',
         async: true,
+        cache: false,
+        timeout: 30000,
         data: {'timestamp': timestamp, 'lastID': lastID},
         dataType: 'json',
         success: function (data) {
-            clearInterval(t);
             console.log(data.status);
-            if (data.status == 'results' || data.status == 'no-new-boards') {
-                if (data.status == 'results') {
-                    loadBoard();
-                }
-                t = setTimeout(fetchNewBoard(data.timestamp, data.lastID), 1000);
+            console.log(data.data);
+            if (data.status == 'results') {
+                loadBoard();
             }
+            setTimeout(fetchNewBoard(data.timestamp, data.lastID), 10000);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown){
+            setTimeout(fetchNewBoard(time), 10000);
         }
     });
 }
