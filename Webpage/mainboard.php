@@ -41,7 +41,7 @@ header('Content-Type: text/html; charset=UTF-8');
             <table>
                 <tr><th>Name: </th></tr>
                 <tr><th>Description: </th></tr>
-                <tr><th colspan="2"><input type="image" name="tasks" src="/images/showtasks.png" alt="SHOW TASKS"
+                <tr><th colspan="1"><input type="image" name="tasks" src="/images/showtasks.png" alt="SHOW TASKS"
                                onclick="location.href='/board.php?tasks=' + boardURL()"></th></tr>
             </table>
         </div>
@@ -61,7 +61,7 @@ header('Content-Type: text/html; charset=UTF-8');
                     <td><label><textarea name="desc" cols="18" rows="4"></textarea></label></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input name="submit" alt="CREATE" type="image"
+                    <td colspan="1"><input name="submit" alt="CREATE" type="image"
                                            src="images/create.png" id="submit_newBoard"></td>
                 </tr>
             </table>

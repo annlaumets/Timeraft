@@ -46,7 +46,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Due date: </th></tr>
                 <tr><th>Start Date: </th></tr>
                 <tr><th>End date: </th></tr>
-                <tr><th colspan="2"><input type="image" src="/images/start.png" alt="START"
+                <tr><th colspan="1"><input type="image" src="/images/start.png" alt="START"
                                            onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th></tr>
             </table>
         </div>
@@ -64,7 +64,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Start Date: </th></tr>
                 <tr><th>End date: </th></tr>
                 <tr><th>Time spent: </th></tr>
-                <tr><th colspan="2"><input type="image" src="/images/continue.png" alt="CONTINUE"
+                <tr><th colspan="1"><input type="image" src="/images/continue.png" alt="CONTINUE"
                                            onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th></tr>
             </table>
         </div>
@@ -106,7 +106,7 @@ header('Content-Type: text/html; charset=UTF-8');
                     <td><label><input type="text" name="DueDate" id="datepick"></label></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newTask"></td>
+                    <td colspan="1"><input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newTask"></td>
                 </tr>
             </table>
             <input type="hidden" name="tasks" value="<?php if(isset($_GET['tasks'])) echo htmlspecialchars($_GET['tasks']); ?>">
