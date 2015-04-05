@@ -7,7 +7,6 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> <!-- Font -->
     <script type="text/javascript" src="js/scripts.js" async></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" async></script> <!-- JQuery library -->
     <script type="text/javascript" src="js/loginproov.js" async></script>
