@@ -24,7 +24,7 @@ include("include/session.php");
                 <li><a href="/help.php"><img class="help" src="images/help.png" alt="HELP"></a></li>
             </ul>
         </nav>
-        <img class="logo" src="images/timeraftlogo-white.png">
+        <img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png">
     </header>
 </section>
 

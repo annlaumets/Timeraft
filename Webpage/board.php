@@ -47,7 +47,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Start Date: </th></tr>
                 <tr><th>End date: </th></tr>
                 <tr><th colspan="2"><input type="image" src="/images/start.png" alt="START"
-                                           onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&taskID=' + taskURL()"></th></tr>
+                                           onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th></tr>
             </table>
         </div>
     </div>
@@ -65,7 +65,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>End date: </th></tr>
                 <tr><th>Time spent: </th></tr>
                 <tr><th colspan="2"><input type="image" src="/images/continue.png" alt="CONTINUE"
-                                           onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&taskID=' + taskURL()"></th></tr>
+                                           onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th></tr>
             </table>
         </div>
     </div>
