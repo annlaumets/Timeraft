@@ -26,6 +26,9 @@ window.onload = function() {
     }
 
     document.getElementById('pause2').addEventListener('click', function () {
+        if (typeof window.localStorage != "undefined") {
+            sessionStorage.setItem("pause", t);
+        }
         clearTimeout(t);
         var test = "pause";
         $.ajax({
@@ -38,11 +41,15 @@ window.onload = function() {
             },
             error: function() {
                 console.log("Pausi error.")
+                console.log("Time: " + sessionStorage.getItem("pause"));
             }
         })
     });
 
     document.getElementById('stop2').addEventListener('click', function () {
+        if (typeof window.localStorage != "undefined") {
+            sessionStorage.setItem("stop", t);
+        }
         clearTimeout(t);
         console.log(window.location.href);
         $.ajax({
@@ -53,7 +60,8 @@ window.onload = function() {
                 window.location.href = '/board.php?tasks=' + data;
             },
             error: function() {
-                console.log("Stopi error.")
+                console.log("Stopi error.");
+                console.log("Time: " + sessionStorage.getItem("stop"));
             }
         })
     });

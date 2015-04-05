@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <!DOCTYPE html>
-<html>
+<html manifest="/cache.manifest">
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -25,6 +25,7 @@ header('Content-Type: text/html; charset=UTF-8');
             <ul>
                 <li><a href="/mainboard.php">BOARDS</a></li>
                 <li id="account">
+                </li>
                 <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
             </ul>
         </nav>
