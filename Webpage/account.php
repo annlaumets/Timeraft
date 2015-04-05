@@ -4,11 +4,10 @@ header('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <!DOCTYPE html>
-<html>
+<html manifest="/cache.manifest">
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> <!--Font-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- JQuery library -->
     <script type="text/javascript" src="js/showusername.js"></script>
     <script type="text/javascript" src="js/accountload.js"></script>
@@ -38,7 +37,7 @@ header('Content-Type: text/html; charset=UTF-8');
             <h4>Name:</h4>
             <h4>Email address:</h4>
             <h4>Biography:</h4>
-            <h4>Total time spent (in hours):</h4>
+            <h4>Total time spent:</h4>
         </div>
     </div>
 </div>

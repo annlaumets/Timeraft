@@ -26,32 +26,42 @@ window.onload = function() {
     }
 
     document.getElementById('pause2').addEventListener('click', function () {
+        if (typeof window.localStorage != "undefined") {
+            sessionStorage.setItem("pause", t);
+        }
         clearTimeout(t);
+        var test = "pause";
         $.ajax({
             type: "GET",
             url: "include/addTime.php",
-            data: {'taskURL': window.location.href, 'taskTime': t},
+            data: {'taskURL': window.location.href, 'taskTime': t, 'type': test},
             success: function(data) {
+                console.log(data);
                 window.location.href = '/board.php?tasks=' + data;
             },
             error: function() {
                 console.log("Pausi error.")
+                console.log("Time: " + sessionStorage.getItem("pause"));
             }
         })
     });
 
     document.getElementById('stop2').addEventListener('click', function () {
+        if (typeof window.localStorage != "undefined") {
+            sessionStorage.setItem("stop", t);
+        }
         clearTimeout(t);
         console.log(window.location.href);
         $.ajax({
             type: "GET",
             url: "include/addTime.php",
-            data: {'taskURL': window.location.href, 'taskTime': t},
+            data: {'taskURL': window.location.href, 'taskTime': t, 'type': 'stop'},
             success: function(data) {
                 window.location.href = '/board.php?tasks=' + data;
             },
             error: function() {
-                console.log("Stopi error.")
+                console.log("Stopi error.");
+                console.log("Time: " + sessionStorage.getItem("stop"));
             }
         })
     });

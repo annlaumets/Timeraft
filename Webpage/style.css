@@ -621,3 +621,8 @@ div.datacontainer {
 #pause2, #stop2 {
     margin: 10px 15px;
 }
+
+@font-face {
+    font-family: 'Sanchez';
+    src: url("/lib/sanchez/Sanchezregular.otf") format("opentype");
+}

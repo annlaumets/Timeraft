@@ -9,8 +9,9 @@ $(function () {
     });
     if (!!document.getElementById("datepick")) {
         var pickerOpts = {
-                dateFormat:"dd/mm/yy"
+            dateFormat:"dd/mm/yy",
+            minDate: 0
         };
-        $("#datepick").datepicker(pickerOpts, {minDate: 0}); //datepicker for due date in create task
+        $("#datepick").datepicker(pickerOpts); //datepicker for due date in create task
     };
 });
