@@ -1,7 +1,10 @@
 var boardName;
 var boarddata = []; //siia salvestama boardide data, et popupi ajal kasutada
 
-$(window).load(loadBoard());
+$(window).load(function() {
+    loadBoard();
+    submitNewBoard();
+});
 
 function loadBoard() {
     $("div.list").empty();
@@ -14,7 +17,7 @@ function loadBoard() {
         success: function (data) {
             if (data.length != 0) {
                 boarddata.push.apply(boarddata, data);
-
+                console.log(boarddata);
                 for (var i = 0; i < data.length; i++) {
                     var list = document.createElement("div");
                     var boardpcontainer = document.createElement("div");
@@ -149,4 +152,30 @@ function div_hide_new() {
 
 function boardURL() {
     return boardName;
+}
+
+function submitNewBoard() {
+    $('#form_newboard').submit(function (e) {
+        e.preventDefault();
+
+        var data = $(this).serialize();
+        console.log("Data: " + data);
+        console.log("E: " + e);
+        var url = $(this).attr('action');
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: data,
+            success: function () {
+                document.getElementById("form_popup").style.display = "none";
+                document.getElementById("popup_newdesc").style.display = "none";
+            },
+            error: function () {
+                console.log("submitNewBoard.js viga.");
+            }
+
+        });
+        e.unbind();
+    });
 }

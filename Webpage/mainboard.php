@@ -61,7 +61,7 @@ header('Content-Type: text/html; charset=UTF-8');
                     <td><label><textarea name="desc" cols="18" rows="4"></textarea></label></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image"
+                    <td colspan="2"><input name="submit" alt="CREATE" type="image"
                                            src="images/create.png" id="submit_newBoard"></td>
                 </tr>
             </table>
