@@ -210,3 +210,10 @@ BEGIN
 END //
 
 DELIMITER ; 
+
+DROP PROCEDURE IF EXISTS sp_getBoards;
+DELIMITER //
+CREATE DEFINER=`jumal`@`%` PROCEDURE `sp_getBoards`(IN in_owner INT(11))
+BEGIN
+  SELECT ID, Name, Description FROM Board WHERE Board.Owner_ID = in_owner;
+END //
