@@ -3,7 +3,7 @@ include("include/session.php");
 ?>
 
 <!DOCTYPE html>
-<html manifest="/cache.manifest">
+<html>
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">

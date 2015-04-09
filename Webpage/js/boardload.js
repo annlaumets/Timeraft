@@ -129,6 +129,9 @@ function loadBoard() {
                 document.body.getElementsByClassName("list").item(0).appendChild(boardpcontainer2);
                 document.body.getElementsByClassName("boardpcontainer").item(0).appendChild(p2);
             }
+        },
+        error: function() {
+            console.log("Olin nõme ja läksin errorisse.");
         }
     });
 }
