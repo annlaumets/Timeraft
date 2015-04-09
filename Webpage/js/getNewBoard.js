@@ -14,7 +14,6 @@ function fetchNewBoard(lastID) {
         success: function (data) {
             clearInterval(t);
             console.log(data.status);
-            console.log(data.data);
             if (data.status == 'results' || data.status == 'no-new-boards') {
                 if (data.status == 'results') {
                     loadBoard();
