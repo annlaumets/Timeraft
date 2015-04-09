@@ -17,7 +17,6 @@ function loadBoard() {
         success: function (data) {
             if (data.length != 0) {
                 boarddata.push.apply(boarddata, data);
-                console.log(boarddata);
                 for (var i = 0; i < data.length; i++) {
                     var list = document.createElement("div");
                     var boardpcontainer = document.createElement("div");
@@ -179,6 +178,5 @@ function submitNewBoard() {
             }
 
         });
-        e.unbind();
     });
 }
