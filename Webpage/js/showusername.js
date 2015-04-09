@@ -4,7 +4,14 @@ $(function () {
         type: "GET",
         url: "/include/username.php",
         success: function (msg) {
-            document.getElementById("account").innerHTML = msg;
+            var name = "";
+            var i = 0;
+            while (msg[i] != "<") {
+                name += (msg[i]);
+                i++;
+            }
+            sessionStorage.setItem("Name", name);
+            document.getElementById("account").innerHTML = name.replace(/[""]/g, '') + msg.substring(i);
         }
     });
     if (!!document.getElementById("datepick")) {

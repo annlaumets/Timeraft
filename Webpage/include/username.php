@@ -15,5 +15,4 @@ if($_SESSION['login'] && !empty($session)) {
     echo '<hr>';
     echo '<li><a href="/include/logout.php">LOG OUT</a></li>';
     echo '</ul>';
-    echo '</li>';
 }
