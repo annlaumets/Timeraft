@@ -2,7 +2,8 @@ $(window).load(function () {
     setInterval(checkHash, 10);
     var valimine = document.getElementById("boardSelect");
     valimine.addEventListener('change', function() {
-        document.location.hash = valimine.options[valimine.selectedIndex].value; //lisame hashi urli lõppu
+        var id = valimine.options[valimine.selectedIndex].value;
+        history.pushState(id, "Test", "/stats.php?board=" + id);
         canvas = document.getElementById("boardDiagram");
     });
     var all = document.createElement("option");
@@ -29,23 +30,24 @@ $(window).load(function () {
 
 var recentHash = "";
 function checkHash() {
-    var hash = document.location.hash;
-    if (hash) {
-        hash = hash.substr(1);
-        if (hash == recentHash) {
+    //var hash = document.location.hash;
+    var hashSuur = window.location.search.substring(1);
+    var hashArray = hashSuur.split('=');
+    if (hashArray[1]) {
+        if (hashArray[1] == recentHash) {
             return;
         }
-        recentHash = hash;
-        loadPage(hash);
+        recentHash = hashArray[1];
+        history.pushState(hashArray[1], "Test", "/stats.php?board=" + hashArray[1]);
+        loadPage(hashArray[1]);
     }
 }
 
 function loadPage(id) {
-    var id2 = id.replace(/#/, "");
     $.ajax({
         type: "GET",
         url: "/include/boardStats.php",
-        data: {"boardID":id2},
+        data: {"boardID":id},
         success: function(data) {
             var data2 = JSON.parse(data);
 
