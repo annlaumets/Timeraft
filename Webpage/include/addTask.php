@@ -15,7 +15,7 @@ if (isset($_POST['tasks'])){
     $boardID = $result['ID'];
     // The statement
     // $date = date('Y-m-d', strtotime(str_replace('-', '/', $date)));
-    $formatDate = date('Y-m-d', strtotime(str_replace('-', '/', $_POST["DueDate"])));
+    $formatDate = date('Y-m-d', strtotime(str_replace('/', '-', $_POST["DueDate"])));
     $array = $conn->prepare("CALL sp_newTask(:taskName, :taskDesc, :dueDate, :boardId)");
     $array->execute(array('taskName' => $_POST["name"], 'taskDesc' => $_POST["desc"], 'dueDate' => $formatDate, 'boardId'=>$boardID));
 }

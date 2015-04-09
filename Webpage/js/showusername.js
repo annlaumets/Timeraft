@@ -15,10 +15,11 @@ $(function () {
         }
     });
     if (!!document.getElementById("datepick")) {
-        var pickerOpts = {
-            dateFormat:"dd/mm/yy",
-            minDate: 0
-        };
-        $("#datepick").datepicker(pickerOpts); //datepicker for due date in create task
-    };
+        $("#datepick").datepicker({
+            dateFormat: "dd/mm/yy",
+            minDate: 0,
+            changeMonth: true,
+            changeYear: true
+        });
+    }
 });
