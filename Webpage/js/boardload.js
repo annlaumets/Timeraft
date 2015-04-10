@@ -17,6 +17,7 @@ function loadBoard() {
         success: function (data) {
             if (data.length != 0) {
                 boarddata.push.apply(boarddata, data);
+                session.setItem("Boards", boarddata);
                 for (var i = 0; i < data.length; i++) {
                     var list = document.createElement("div");
                     var boardpcontainer = document.createElement("div");
@@ -176,7 +177,6 @@ function submitNewBoard() {
             error: function () {
                 console.log("submitNewBoard.js viga.");
             }
-
         });
     });
 }

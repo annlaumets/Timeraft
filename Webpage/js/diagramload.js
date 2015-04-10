@@ -23,7 +23,14 @@ $(window).load(function () {
             }
         },
         error: function() {
-            console.log("Diagramload.js boardide lugemine andmebaasist error.");
+            console.log("Diagramload.js boardide lugemine andmebaasist error ÜKS.");
+            for (var i = 0; i < sessionStorage.getItem("Boards").length; i++) {
+                var opt = document.createElement("option");
+                opt.textContent = JSON.stringify(data[i]["Name"]).replace(/[""]/g, '');
+                opt.value = JSON.stringify(data[i]["ID"]).replace(/[""]/g, '');
+                valimine.insertBefore(opt, valimine.lastChild);
+            }
+            console.log("Diagramload.js boardide lugemine andmebaasist error KAKS.");
         }
     });
 });
@@ -50,6 +57,7 @@ function loadPage(id) {
         data: {"boardID":id},
         success: function(data) {
             var data2 = JSON.parse(data);
+            sessionStorage.setItem("Stats", data2);
 
             canvas = document.getElementById("diagramCanvas");
             ctx = canvas.getContext("2d");

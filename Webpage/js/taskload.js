@@ -10,6 +10,7 @@ $(window).load(function () {
         success: function (data) {
             if (data.length != 0) {
                 taskdata.push.apply(taskdata, data);
+                sessionStorage.setItem("Tasks", taskdata);
                 for (var i = 0; i < data.length; i++) {
                     var p = document.createElement("p");
                     p.textContent = JSON.stringify(taskdata[i]["Name"]);
@@ -55,14 +56,33 @@ $(window).load(function () {
                             name = document.createElement("td");
                             name.textContent = JSON.stringify(taskdata[i]["Name"]).replace(/[""]/g, '');
 
-                            desc = document.createElement("td");if (JSON.stringify(taskdata[i]["Description"]) == "null") {
+                            desc = document.createElement("td");
+                            if (JSON.stringify(taskdata[i]["Description"]) == "null") {
                                 desc.textContent = "";
                             }
                             else {
                                 desc.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
                             }
+
                             dueDate = document.createElement("td");
-                            dueDate.textContent = JSON.stringify(taskdata[i]["dueDate"]).replace(/[""]/g, '');
+                            newDate = new Date(JSON.stringify(taskdata[i]["dueDate"]));
+                            if (newDate.getMonth() < 9 || newDate.getDate() < 10) {
+                                if (newDate.getMonth() < 9 && newDate.getDate() < 10) {
+                                    dueDate.textContent = "0" + newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                                else if (newDate.getMonth() >= 9 && newDate.getDate() < 10) {
+                                    dueDate.textContent = "0" + newDate.getDate() + "/" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                                else {
+                                    dueDate.textContent = newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                            }
+                            else {
+                                dueDate.textContent = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear();
+                            }
 
                             status = document.createElement("td");
                             status.textContent = "Not started";
@@ -94,7 +114,26 @@ $(window).load(function () {
                             else {
                                 d.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
                             }
-                            dDate.textContent = JSON.stringify(taskdata[i]["dueDate"]).replace(/[""]/g, '');
+
+                            newDate = new Date(JSON.stringify(taskdata[i]["dueDate"]));
+                            if (newDate.getMonth() < 9 || newDate.getDate() < 10) {
+                                if (newDate.getMonth() < 9 && newDate.getDate() < 10) {
+                                    dDate.textContent = "0" + newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                                else if (newDate.getMonth() >= 9 && newDate.getDate() < 10) {
+                                    dDate.textContent = "0" + newDate.getDate() + "/" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                                else {
+                                    dDate.textContent = newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                            }
+                            else {
+                                dDate.textContent = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear();
+                            }
+
                             st.textContent = "Not started";
                             sd.textContent = "N/A";
                             ed.textContent = "N/A";
@@ -140,19 +179,53 @@ $(window).load(function () {
                             }
 
                             dueDate = document.createElement("td");
-                            dueDate.textContent = JSON.stringify(taskdata[i]["dueDate"]).replace(/[""]/g, '');
+                            newDate = new Date(JSON.stringify(taskdata[i]["dueDate"]));
+                            if (newDate.getMonth() < 9 || newDate.getDate() < 10) {
+                                if (newDate.getMonth() < 9 && newDate.getDate() < 10) {
+                                    dueDate.textContent = "0" + newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                                else if (newDate.getMonth() >= 9 && newDate.getDate() < 10) {
+                                    dueDate.textContent = "0" + newDate.getDate() + "/" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                                else {
+                                    dueDate.textContent = newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                            }
+                            else {
+                                dueDate.textContent = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear();
+                            }
 
                             status = document.createElement("td");
                             status.textContent = "Pending";
 
                             startDate = document.createElement("td");
-                            startDate.textContent = JSON.stringify(taskdata[i]["startDate"]).replace(/[""]/g, '');
+                            newDateStart = new Date(JSON.stringify(taskdata[i]["startDate"]));
+                            if (newDateStart.getMonth() < 9 || newDateStart.getDate() < 10) {
+                                if (newDateStart.getMonth() < 9 && newDateStart.getDate() < 10) {
+                                    startDate.textContent = "0" + newDateStart.getDate() + "/0" + (newDateStart.getMonth() + 1)
+                                    + "/" + newDateStart.getFullYear();
+                                }
+                                else if (newDateStart.getMonth() >= 9 && newDateStart.getDate() < 10) {
+                                    startDate.textContent = "0" + newDateStart.getDate() + "/" + (newDateStart.getMonth() + 1)
+                                    + "/" + newDateStart.getFullYear();
+                                }
+                                else {
+                                    startDate.textContent = newDateStart.getDate() + "/0" + (newDateStart.getMonth() + 1)
+                                    + "/" + newDateStart.getFullYear();
+                                }
+                            }
+                            else {
+                                startDate.textContent = newDateStart.getDate() + "/" + (newDateStart.getMonth() + 1) + "/" + newDateStart.getFullYear();
+                            }
 
                             endDate = document.createElement("td");
                             endDate.textContent = "N/A";
 
                             time = document.createElement("td");
-                            time.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g, '');
+                            time.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g, '') + " seconds";
 
                             document.getElementsByTagName("tr").item(7).insertBefore(name, document.getElementsByTagName("tr").item(7).childNodes[2]);
                             document.getElementsByTagName("tr").item(8).insertBefore(status, document.getElementsByTagName("tr").item(8).childNodes[2]);
@@ -179,11 +252,49 @@ $(window).load(function () {
                             else {
                                 d.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
                             }
-                            dDate.textContent = JSON.stringify(taskdata[i]["dueDate"]).replace(/[""]/g, '');
+
+                            newDate = new Date(JSON.stringify(taskdata[i]["dueDate"]));
+                            if (newDate.getMonth() < 9 || newDate.getDate() < 10) {
+                                if (newDate.getMonth() < 9 && newDate.getDate() < 10) {
+                                    dDate.textContent = "0" + newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                                else if (newDate.getMonth() >= 9 && newDate.getDate() < 10) {
+                                    dDate.textContent = "0" + newDate.getDate() + "/" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                                else {
+                                    dDate.textContent = newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                            }
+                            else {
+                                dDate.textContent = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear();
+                            }
+
                             st.textContent = "Pending";
-                            sd.textContent = JSON.stringify(taskdata[i]["startDate"]).replace(/[""]/g,'');
+
+                            sd = document.createElement("td");
+                            newDateStart = new Date(JSON.stringify(taskdata[i]["startDate"]));
+                            if (newDateStart.getMonth() < 9 || newDateStart.getDate() < 10) {
+                                if (newDateStart.getMonth() < 9 && newDateStart.getDate() < 10) {
+                                    sd.textContent = "0" + newDateStart.getDate() + "/0" + (newDateStart.getMonth() + 1)
+                                    + "/" + newDateStart.getFullYear();
+                                }
+                                else if (newDateStart.getMonth() >= 9 && newDateStart.getDate() < 10) {
+                                    sd.textContent = "0" + newDateStart.getDate() + "/" + (newDateStart.getMonth() + 1)
+                                    + "/" + newDateStart.getFullYear();
+                                }
+                                else {
+                                    sd.textContent = newDateStart.getDate() + "/0" + (newDateStart.getMonth() + 1)
+                                    + "/" + newDateStart.getFullYear();
+                                }
+                            }
+                            else {
+                                sd.textContent = newDateStart.getDate() + "/" + (newDateStart.getMonth() + 1) + "/" + newDateStart.getFullYear();
+                            }
                             ed.textContent = "N/A";
-                            t.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g,'');
+                            t.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g,'') + " seconds";
                         }
                     }
                 }
@@ -226,19 +337,70 @@ $(window).load(function () {
                             }
 
                             dueDate = document.createElement("td");
-                            dueDate.textContent = JSON.stringify(taskdata[i]["dueDate"]).replace(/[""]/g, '');
+                            newDate = new Date(JSON.stringify(taskdata[i]["dueDate"]));
+                            if (newDate.getMonth() < 9 || newDate.getDate() < 10) {
+                                if (newDate.getMonth() < 9 && newDate.getDate() < 10) {
+                                    dueDate.textContent = "0" + newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                                else if (newDate.getMonth() >= 9 && newDate.getDate() < 10) {
+                                    dueDate.textContent = "0" + newDate.getDate() + "/" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                                else {
+                                    dueDate.textContent = newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                            }
+                            else {
+                                dueDate.textContent = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear();
+                            }
 
                             status = document.createElement("td");
                             status.textContent = "Finished";
 
                             startDate = document.createElement("td");
-                            startDate.textContent = JSON.stringify(taskdata[i]["startDate"]).replace(/[""]/g, '');
+                            newDateStart = new Date(JSON.stringify(taskdata[i]["startDate"]));
+                            if (newDateStart.getMonth() < 9 || newDateStart.getDate() < 10) {
+                                if (newDateStart.getMonth() < 9 && newDateStart.getDate() < 10) {
+                                    startDate.textContent = "0" + newDateStart.getDate() + "/0" + (newDateStart.getMonth() + 1)
+                                    + "/" + newDateStart.getFullYear();
+                                }
+                                else if (newDateStart.getMonth() >= 9 && newDateStart.getDate() < 10) {
+                                    startDate.textContent = "0" + newDateStart.getDate() + "/" + (newDateStart.getMonth() + 1)
+                                    + "/" + newDateStart.getFullYear();
+                                }
+                                else {
+                                    startDate.textContent = newDateStart.getDate() + "/0" + (newDateStart.getMonth() + 1)
+                                    + "/" + newDateStart.getFullYear();
+                                }
+                            }
+                            else {
+                                startDate.textContent = newDateStart.getDate() + "/" + (newDateStart.getMonth() + 1) + "/" + newDateStart.getFullYear();
+                            }
 
                             endDate = document.createElement("td");
-                            endDate.textContent = JSON.stringify(taskdata[i]["endDate"]).replace(/[""]/g, '');
+                            newDateEnd = new Date(JSON.stringify(taskdata[i]["endDate"]));
+                            if (newDateEnd.getMonth() < 9 || newDateEnd.getDate() < 10) {
+                                if (newDateEnd.getMonth() < 9 && newDateEnd.getDate() < 10) {
+                                    endDate.textContent = "0" + newDateEnd.getDate() + "/0" + (newDateEnd.getMonth() + 1)
+                                    + "/" + newDateEnd.getFullYear();
+                                }
+                                else if (newDateEnd.getMonth() >= 9 && newDateEnd.getDate() < 10) {
+                                    endDate.textContent = "0" + newDateEnd.getDate() + "/" + (newDateEnd.getMonth() + 1)
+                                    + "/" + newDateEnd.getFullYear();
+                                }
+                                else {
+                                    endDate.textContent = newDateEnd.getDate() + "/0" + (newDateEnd.getMonth() + 1)
+                                    + "/" + newDateEnd.getFullYear();
+                                }
+                            }
+                            else {
+                                endDate.textContent = newDateEnd.getDate() + "/" + (newDateEnd.getMonth() + 1) + "/" + newDateEnd.getFullYear();
+                            }
 
                             time = document.createElement("td");
-                            time.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g, '');
+                            time.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g, '') + " seconds";
 
                             document.getElementsByTagName("tr").item(15).insertBefore(name, document.getElementsByTagName("tr").item(15).childNodes[2]);
                             document.getElementsByTagName("tr").item(16).insertBefore(status, document.getElementsByTagName("tr").item(16).childNodes[2]);
@@ -265,11 +427,64 @@ $(window).load(function () {
                             else {
                                 d.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
                             }
-                            dDate.textContent = JSON.stringify(taskdata[i]["dueDate"]).replace(/[""]/g, '');
+
+                            newDate = new Date(JSON.stringify(taskdata[i]["dueDate"]));
+                            if (newDate.getMonth() < 9 || newDate.getDate() < 10) {
+                                if (newDate.getMonth() < 9 && newDate.getDate() < 10) {
+                                    dDate.textContent = "0" + newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                                else if (newDate.getMonth() >= 9 && newDate.getDate() < 10) {
+                                    dDate.textContent = "0" + newDate.getDate() + "/" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                                else {
+                                    dDate.textContent = newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                                    + "/" + newDate.getFullYear();
+                                }
+                            }
+                            else {
+                                dDate.textContent = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear();
+                            }
+                            newDateStart = new Date(JSON.stringify(taskdata[i]["startDate"]));
+                            if (newDateStart.getMonth() < 9 || newDateStart.getDate() < 10) {
+                                if (newDateStart.getMonth() < 9 && newDateStart.getDate() < 10) {
+                                    sd.textContent = "0" + newDateStart.getDate() + "/0" + (newDateStart.getMonth() + 1)
+                                    + "/" + newDateStart.getFullYear();
+                                }
+                                else if (newDateStart.getMonth() >= 9 && newDateStart.getDate() < 10) {
+                                    sd.textContent = "0" + newDateStart.getDate() + "/" + (newDateStart.getMonth() + 1)
+                                    + "/" + newDateStart.getFullYear();
+                                }
+                                else {
+                                    sd.textContent = newDateStart.getDate() + "/0" + (newDateStart.getMonth() + 1)
+                                    + "/" + newDateStart.getFullYear();
+                                }
+                            }
+                            else {
+                                sd.textContent = newDateStart.getDate() + "/" + (newDateStart.getMonth() + 1) + "/" + newDateStart.getFullYear();
+                            }
+
+                            newDateEnd = new Date(JSON.stringify(taskdata[i]["endDate"]));
+                            if (newDateEnd.getMonth() < 9 || newDateEnd.getDate() < 10) {
+                                if (newDateEnd.getMonth() < 9 && newDateEnd.getDate() < 10) {
+                                    ed.textContent = "0" + newDateEnd.getDate() + "/0" + (newDateEnd.getMonth() + 1)
+                                    + "/" + newDateEnd.getFullYear();
+                                }
+                                else if (newDateEnd.getMonth() >= 9 && newDateEnd.getDate() < 10) {
+                                    ed.textContent = "0" + newDateEnd.getDate() + "/" + (newDateEnd.getMonth() + 1)
+                                    + "/" + newDateEnd.getFullYear();
+                                }
+                                else {
+                                    ed.textContent = newDateEnd.getDate() + "/0" + (newDateEnd.getMonth() + 1)
+                                    + "/" + newDateEnd.getFullYear();
+                                }
+                            }
+                            else {
+                                ed.textContent = newDateEnd.getDate() + "/" + (newDateEnd.getMonth() + 1) + "/" + newDateEnd.getFullYear();
+                            }
                             st.textContent = "Finished";
-                            sd.textContent = JSON.stringify(taskdata[i]["startDate"]).replace(/[""]/g,'');
-                            ed.textContent = JSON.stringify(taskdata[i]["endDate"]).replace(/[""]/g,'');
-                            t.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g,'');
+                            t.textContent = JSON.stringify(taskdata[i]["Task_Time"]).replace(/[""]/g,'') + " seconds";
                         }
                     }
                 }

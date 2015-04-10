@@ -26,29 +26,28 @@ window.onload = function() {
     }
 
     document.getElementById('pause2').addEventListener('click', function () {
-        if (typeof window.localStorage != "undefined") {
-            sessionStorage.setItem("pause", t);
+        if (typeof window.sessionStorage != "undefined") {
+            sessionStorage.setItem("pauseTime" + window.location.href, t);
         }
         clearTimeout(t);
-        var test = "pause";
         $.ajax({
             type: "GET",
             url: "include/addTime.php",
-            data: {'taskURL': window.location.href, 'taskTime': t, 'type': test},
+            data: {'taskURL': window.location.href, 'taskTime': t, 'type': 'pause'},
             success: function(data) {
                 console.log(data);
                 window.location.href = '/board.php?tasks=' + data;
             },
             error: function() {
                 console.log("Pausi error.")
-                console.log("Time: " + sessionStorage.getItem("pause"));
+                console.log("Time: " + sessionStorage.getItem("pauseTime"));
             }
         })
     });
 
     document.getElementById('stop2').addEventListener('click', function () {
-        if (typeof window.localStorage != "undefined") {
-            sessionStorage.setItem("stop", t);
+        if (typeof window.sessionStorage != "undefined") {
+            sessionStorage.setItem("stopTime", t);
         }
         clearTimeout(t);
         console.log(window.location.href);

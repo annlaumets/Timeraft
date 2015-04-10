@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <!DOCTYPE html>
-<html>
+<html manifest="/cache.manifest">
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">

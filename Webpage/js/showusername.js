@@ -10,7 +10,7 @@ $(function () {
                 name += (msg[i]);
                 i++;
             }
-            sessionStorage.setItem("Name", name);
+            sessionStorage.setItem("UserName", name);
             document.getElementById("account").innerHTML = name.replace(/[""]/g, '') + msg.substring(i);
         }
     });

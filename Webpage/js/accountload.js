@@ -25,6 +25,11 @@ $(window).load(function() {
                     var h4abi = document.getElementsByTagName("h4").item(i);
                     h4abi.parentNode.insertBefore(array[i], h4abi.nextSibling);
                 }
+
+                sessionStorage.setItem("AccountName", name.textContent);
+                sessionStorage.setItem("AccountEmail", email.textContent);
+                sessionStorage.setItem("AccountBio", bio.textContent);
+                sessionStorage.setItem("AccountTime", totalTime.textContent);
             }
         }
     )
