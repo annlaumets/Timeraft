@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#rev 1
+#rev 5
 
 NETWORK:
 /include/addBoard.php
@@ -18,6 +18,8 @@ NETWORK:
 /include/showtasks.php
 /include/signup.php
 /include/username.php
+/js/loginproov.js
+/js/getNewBoard.js
 
 CACHE:
 /account.php
@@ -49,8 +51,6 @@ CACHE:
 /js/accountload.js
 /js/boardload.js
 /js/diagramload.js
-/js/getNewBoard.js
-/js/loginproov.js
 /js/scripts.js
 /js/showusername.js
 /js/taskload.js

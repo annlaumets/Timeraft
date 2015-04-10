@@ -57,7 +57,7 @@ function loadPage(id) {
         data: {"boardID":id},
         success: function(data) {
             var data2 = JSON.parse(data);
-            sessionStorage.setItem("Stats", data2);
+            sessionStorage.setItem("Stats?id=" + id, data2);
 
             canvas = document.getElementById("diagramCanvas");
             ctx = canvas.getContext("2d");

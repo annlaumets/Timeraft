@@ -8,7 +8,8 @@ header('Content-Type: text/html; charset=UTF-8');
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- JQuery library -->
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- JQuery library -->
+    <script src="/lib/jquery-1.11.2.min.js" async></script>
     <script type="text/javascript" src="js/showusername.js"></script>
     <script type="text/javascript" src="js/boardload.js"></script>
     <script type="text/javascript" src="js/getNewBoard.js"></script>

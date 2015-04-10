@@ -12,6 +12,11 @@ $(function () {
             }
             sessionStorage.setItem("UserName", name);
             document.getElementById("account").innerHTML = name.replace(/[""]/g, '') + msg.substring(i);
+        },
+        error: function() {
+            document.getElementById("account").innerHTML = sessionStorage.getItem("UserName") + '<ul><li><a href="/account.php">PROFILE</a></li>' +
+            '<li><a href="/settings.php">SETTINGS</a></li><li><a href="/stats.php">STATISTICS</a></li><hr>' +
+            '<li><a href="/include/logout.php">LOG OUT</a></li></ul>';
         }
     });
     if (!!document.getElementById("datepick")) {
