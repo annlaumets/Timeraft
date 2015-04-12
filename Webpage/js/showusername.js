@@ -12,6 +12,7 @@ $.script("showusername.js").wait(function() {
 });
 
 function loadUsername () {
+    $.ajaxSetup({ cache: false });
     $.ajax({
         type: "GET",
         url: "/include/username.php",

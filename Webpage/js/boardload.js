@@ -25,6 +25,7 @@ function loadBoard() {
     $("div.list").empty();
     $("div.maincontainer").empty();
     boarddata.length = 0;
+    $.ajaxSetup({ cache: false });
     $.ajax({
         type: "GET",
         url: "/include/showboards.php",
