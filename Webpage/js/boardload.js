@@ -1,7 +1,7 @@
 var boardName;
 var boarddata = []; //siia salvestama boardide data, et popupi ajal kasutada
 
-var isWindowLoaded = false;
+/*var isWindowLoaded = false;
 Event.observe(window,'load',function(){ isWindowLoaded = true; });
 
 
@@ -14,18 +14,17 @@ $.script("boardload.js").wait(function(){
         console.log("Boardload.js'i loadis on viga.");
         //Event.observe(window,'load',console.log("Olen jobu."));
     }
-});
+});*/
 
-/*$(window).load(function() {
+$(window).load(function() {
     loadBoard();
     submitNewBoard();
-});*/
+});
 
 function loadBoard() {
     $("div.list").empty();
     $("div.maincontainer").empty();
     boarddata.length = 0;
-    $.ajaxSetup({ cache: false });
     $.ajax({
         type: "GET",
         url: "/include/showboards.php",

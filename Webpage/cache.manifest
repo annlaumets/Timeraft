@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#rev 19
+#rev 24
 
 NETWORK:
 /include/addBoard.php
@@ -20,6 +20,7 @@ NETWORK:
 /include/username.php
 /js/loginproov.js
 /js/getNewBoard.js
+
 
 CACHE:
 /account.php
@@ -50,9 +51,9 @@ CACHE:
 /lib/sanchez/Sanchezregular.otf
 /lib/jquery-1.11.2.min.js
 /js/accountload.js
-/js/boardload.js
 /js/diagramload.js
 /js/scripts.js
 /js/showusername.js
 /js/taskload.js
 /js/timer.js
+/js/boardload.js
