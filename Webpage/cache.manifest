@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#rev 5
+#rev 18
 
 NETWORK:
 /include/addBoard.php
@@ -38,6 +38,7 @@ CACHE:
 /images/help.png
 /images/login.png
 /images/pause.png
+/images/placeholder.png
 /images/register.png
 /images/showtasks.png
 /images/signin.png

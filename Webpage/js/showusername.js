@@ -1,5 +1,17 @@
 //If page loads, it displays the right username
-$(function () {
+var isWindowLoaded3 = false;
+Event.observe(window, 'load', function() {isWindowLoaded3 = true});
+
+$.script("showusername.js").wait(function() {
+    if (isWindowLoaded3) {
+        loadUsername();
+    }
+    else {
+        console.log("Showusername.js loadis on viga.");
+    }
+});
+
+function loadUsername () {
     $.ajax({
         type: "GET",
         url: "/include/username.php",
@@ -27,4 +39,4 @@ $(function () {
             changeYear: true
         });
     }
-});
+}

@@ -1,10 +1,25 @@
 var boardName;
 var boarddata = []; //siia salvestama boardide data, et popupi ajal kasutada
 
-$(window).load(function() {
+var isWindowLoaded = false;
+Event.observe(window,'load',function(){ isWindowLoaded = true; });
+
+
+$.script("boardload.js").wait(function(){
+    if (isWindowLoaded) {
+        loadBoard();
+        submitNewBoard();
+    }
+    else {
+        console.log("Boardload.js'i loadis on viga.");
+        //Event.observe(window,'load',console.log("Olen jobu."));
+    }
+});
+
+/*$(window).load(function() {
     loadBoard();
     submitNewBoard();
-});
+});*/
 
 function loadBoard() {
     $("div.list").empty();
@@ -17,7 +32,7 @@ function loadBoard() {
         success: function (data) {
             if (data.length != 0) {
                 boarddata.push.apply(boarddata, data);
-                session.setItem("Boards", boarddata);
+                sessionStorage.setItem("Boards", boarddata);
                 for (var i = 0; i < data.length; i++) {
                     var list = document.createElement("div");
                     var boardpcontainer = document.createElement("div");
