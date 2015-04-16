@@ -29,8 +29,11 @@ function loadBoard() {
 }
 
 function loadBoards(data) {
-    if (data.length != 0) {
-        for (var i = 0; i < data.length; i++) {
+    console.log(JSON.parse(data));
+    var data3 = JSON.parse(data);
+    if (data3.length != 0) {
+        for (var i = 0; i < data3.length; i++) {
+            console.log(data3[i]);
             var list = document.createElement("div");
             var boardpcontainer = document.createElement("div");
             var p = document.createElement("p");
@@ -48,7 +51,7 @@ function loadBoards(data) {
                 document.body.getElementsByClassName("boardpcontainer").item(i).appendChild(p);
             }
 
-            p.textContent = boarddata[i]["Name"];
+            p.textContent = data3[i]["Name"];
 
 
             function showBoardInfo(board) {
