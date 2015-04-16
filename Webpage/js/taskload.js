@@ -2,7 +2,7 @@ var taskdata = []; //siia salvestama taskide data, et popupi ajal kasutada
 var taskID;
 var boardName;
 
-var isWindowLoaded2 = false;
+/*var isWindowLoaded2 = false;
 Event.observe(window, 'load', function(){isWindowLoaded2 = true});
 
 $.script("taskload.js").wait(function() {
@@ -13,9 +13,9 @@ $.script("taskload.js").wait(function() {
     else {
        console.log("Taskload.js loadis on viga.");
    }
-});
+});*/
 
-function loadTasks() {
+$(window).load(function () {
     console.log("Olen lahe.");
     $.ajax({
         type: "GET",
@@ -49,7 +49,7 @@ function loadTasks() {
             }
         }
     });
-}
+});
 
 function showToDo(task, id, board) {
     var name;
