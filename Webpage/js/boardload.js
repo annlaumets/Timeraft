@@ -21,7 +21,7 @@ function loadBoard() {
         },
         error: function() {
             console.log("Olin nõme ja läksin errorisse.");
-            data2 = sessionStorage.getItem("Boards");
+            data2 = JSON.parse(sessionStorage.getItem("Boards"));
             console.log("Data2: " , data2);
             loadBoards(data2);
         }
@@ -29,11 +29,9 @@ function loadBoard() {
 }
 
 function loadBoards(data) {
-    console.log(JSON.parse(data));
-    var data3 = JSON.parse(data);
-    if (data3.length != 0) {
-        for (var i = 0; i < data3.length; i++) {
-            console.log(data3[i]);
+    if (data.length != 0) {
+        for (var i = 0; i < data.length; i++) {
+            console.log(data[i]);
             var list = document.createElement("div");
             var boardpcontainer = document.createElement("div");
             var p = document.createElement("p");
@@ -51,7 +49,7 @@ function loadBoards(data) {
                 document.body.getElementsByClassName("boardpcontainer").item(i).appendChild(p);
             }
 
-            p.textContent = data3[i]["Name"];
+            p.textContent = data[i]["Name"];
 
 
             function showBoardInfo(board) {
