@@ -8,7 +8,7 @@ include("include/session.php");
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- JQuery library -->
-    <script src="/lib/jquery-1.11.2.min.js" async></script>
+    <script src="/lib/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="js/timer.js"></script>
     <script type="text/javascript" src="js/showusername.js"></script>
     <title>Timeraft</title>
