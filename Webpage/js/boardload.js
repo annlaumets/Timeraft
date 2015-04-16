@@ -31,7 +31,6 @@ function loadBoard() {
 function loadBoards(data) {
     if (data.length != 0) {
         for (var i = 0; i < data.length; i++) {
-            console.log(data[i]);
             var list = document.createElement("div");
             var boardpcontainer = document.createElement("div");
             var p = document.createElement("p");

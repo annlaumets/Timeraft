@@ -30,6 +30,25 @@ $(window).load(function() {
                 sessionStorage.setItem("AccountEmail", email.textContent);
                 sessionStorage.setItem("AccountBio", bio.textContent);
                 sessionStorage.setItem("AccountTime", totalTime.textContent);
+            },
+            error: function() {
+                var name = document.createElement("p");
+                var email = document.createElement("p");
+                var bio = document.createElement("p");
+                var totalTime = document.createElement("p");
+
+                name.textContent = sessionStorage.getItem("AccountName");
+                email.textContent = sessionStorage.getItem("AccountEmail");
+                bio.textContent = sessionStorage.getItem("AccountBio");
+                totalTime.textContent = sessionStorage.getItem("AccountTime");
+
+                var array;
+                array = [name, email, bio, totalTime];
+
+                for (var i = 0; i < array.length; i++) {
+                    var h4abi = document.getElementsByTagName("h4").item(i);
+                    h4abi.parentNode.insertBefore(array[i], h4abi.nextSibling);
+                }
             }
         }
     )

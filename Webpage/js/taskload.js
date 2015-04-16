@@ -16,7 +16,6 @@ $.script("taskload.js").wait(function() {
 });*/
 
 $(window).load(function () {
-    console.log("Olen lahe.");
     $.ajax({
         type: "GET",
         url: "/include/showtasks.php",
