@@ -24,26 +24,31 @@ $(window).load(function() {
 function loadBoard() {
     $("div.list").empty();
     $("div.maincontainer").empty();
-    boarddata.length = 0;
+    console.log("Enne: " + boarddata);
     $.ajax({
         type: "GET",
         url: "/include/showboards.php",
         dataType: "json",
         success: function (data) {
+            boarddata.length = 0;
             boarddata.push.apply(boarddata, data);
-            sessionStorage.setItem("Boards", boarddata);
+            sessionStorage.setItem("Boards", data);
             showBoards(boarddata);
         },
         error: function() {
             console.log("Olin nõme ja läksin errorisse.");
-            showBoards(boarddata);
+
+            showBoards(sessionStorage.getItem("Boards"));
         }
     });
 }
 
 function showBoards(data) {
+    var data2 = JSON.parse(data);
+    console.log("Data2: " + data2);
     if (data.length != 0) {
         for (var i = 0; i < data.length; i++) {
+            console.log(JSON.stringify(data[i]));
             var list = document.createElement("div");
             var boardpcontainer = document.createElement("div");
             var p = document.createElement("p");
