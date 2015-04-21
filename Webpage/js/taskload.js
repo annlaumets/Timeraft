@@ -22,59 +22,44 @@ $(window).load(function () {
         dataType: "json",
         data: {'boardURL': window.location.href},
         success: function (data) {
-            if (data.length != 0) {
-                taskdata.push.apply(taskdata, data);
-                sessionStorage.setItem("Tasks", JSON.stringify(data));
-                for (var i = 0; i < data.length; i++) {
-                    var p = document.createElement("p");
-                    p.textContent = JSON.stringify(taskdata[i]["Name"]);
-
-                    var id = data[i]["ID"];
-                    var boardname = data[i]["boardName"];
-
-                    if (taskdata[i]["Task_Type"] == "ToDo") {
-                        document.body.getElementsByClassName("boardpcontainer").item(0).appendChild(p);
-                        p.addEventListener("click", showToDo.bind(null, p.textContent, id, boardname));
-                    }
-                    else if (taskdata[i]["Task_Type"] == "Pending") {
-                        document.body.getElementsByClassName("boardpcontainer").item(1).appendChild(p);
-                        p.addEventListener("click", showPending.bind(null, p.textContent, id, boardname));
-                    }
-                    else if (taskdata[i]["Task_Type"] == "Finished") {
-                        document.body.getElementsByClassName("boardpcontainer").item(2).appendChild(p);
-                        p.addEventListener("click", showFinish.bind(null, p.textContent, id, boardname));
-                    }
-                }
-            }
+            taskdata.push.apply(taskdata, data);
+            var url = (window.location.href.split('?'))[1];
+            sessionStorage.setItem(url, JSON.stringify(data));
+            showBoards(taskdata);
         },
         error: function() {
-            var data = sessionStorage.getItem("Tasks");
+            var url = (window.location.href.split('?'))[1];
+            var data = sessionStorage.getItem(url);
             console.log(data);
-            if (data.length != 0) {
-                for (var i = 0; i < data.length; i++) {
-                    var p = document.createElement("p");
-                    p.textContent = data[i]["Name"];
-
-                    var id = data[i]["ID"];
-                    var boardname = data[i]["boardName"];
-
-                    if (taskdata[i]["Task_Type"] == "ToDo") {
-                        document.body.getElementsByClassName("boardpcontainer").item(0).appendChild(p);
-                        p.addEventListener("click", showToDo.bind(null, p.textContent, id, boardname));
-                    }
-                    else if (taskdata[i]["Task_Type"] == "Pending") {
-                        document.body.getElementsByClassName("boardpcontainer").item(1).appendChild(p);
-                        p.addEventListener("click", showPending.bind(null, p.textContent, id, boardname));
-                    }
-                    else if (taskdata[i]["Task_Type"] == "Finished") {
-                        document.body.getElementsByClassName("boardpcontainer").item(2).appendChild(p);
-                        p.addEventListener("click", showFinish.bind(null, p.textContent, id, boardname));
-                    }
-                }
-            }
+            showBoards(data);
         }
     });
 });
+
+function showBoards(data) {
+    if (data.length != 0) {
+        for (var i = 0; i < data.length; i++) {
+            var p = document.createElement("p");
+            p.textContent = JSON.stringify(data[i]["Name"]);
+
+            var id = data[i]["ID"];
+            var boardname = data[i]["boardName"];
+
+            if (data[i]["Task_Type"] == "ToDo") {
+                document.body.getElementsByClassName("boardpcontainer").item(0).appendChild(p);
+                p.addEventListener("click", showToDo.bind(null, p.textContent, id, boardname));
+            }
+            else if (data[i]["Task_Type"] == "Pending") {
+                document.body.getElementsByClassName("boardpcontainer").item(1).appendChild(p);
+                p.addEventListener("click", showPending.bind(null, p.textContent, id, boardname));
+            }
+            else if (data[i]["Task_Type"] == "Finished") {
+                document.body.getElementsByClassName("boardpcontainer").item(2).appendChild(p);
+                p.addEventListener("click", showFinish.bind(null, p.textContent, id, boardname));
+            }
+        }
+    }
+}
 
 function showToDo(task, id, board) {
     var name;
