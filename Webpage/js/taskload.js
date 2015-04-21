@@ -25,18 +25,18 @@ $(window).load(function () {
             taskdata.push.apply(taskdata, data);
             var url = (window.location.href.split('?'))[1];
             sessionStorage.setItem(url, JSON.stringify(data));
-            showBoards(taskdata);
+            showBoards(data);
         },
         error: function() {
             var url = (window.location.href.split('?'))[1];
-            var data = sessionStorage.getItem(url);
-            console.log(data);
+            var data = JSON.parse(sessionStorage.getItem(url));
             showBoards(data);
         }
     });
 });
 
 function showBoards(data) {
+    console.log("Data: " + data);
     if (data.length != 0) {
         for (var i = 0; i < data.length; i++) {
             var p = document.createElement("p");
