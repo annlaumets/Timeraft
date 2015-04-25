@@ -13,6 +13,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>-->
     <script src="/lib/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="js/taskload.js"></script>
+    <script type="text/javascript" src="js/getNewTask.js"></script>
     <script type="text/javascript" src="js/showusername.js"></script>
 
     <title>Timeraft | Board</title>
@@ -107,7 +108,8 @@ header('Content-Type: text/html; charset=UTF-8');
                     <td><label><input type="text" name="DueDate" id="datepick"></label></td>
                 </tr>
                 <tr>
-                    <td colspan="1"><input onsubmit="div_hide_new()" name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newTask"></td>
+                    <td colspan="1"><input name="submit" alt="CREATE" type="image"
+                                           src="images/create.png" id="submit_newTask"></td>
                 </tr>
             </table>
             <input type="hidden" name="tasks" value="<?php if(isset($_GET['tasks'])) echo htmlspecialchars($_GET['tasks']); ?>">

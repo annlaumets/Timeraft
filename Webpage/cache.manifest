@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#rev 24
+#rev 25
 
 NETWORK:
 /include/addBoard.php
@@ -20,6 +20,7 @@ NETWORK:
 /include/username.php
 /js/loginproov.js
 /js/getNewBoard.js
+/js/getNewTask.js
 
 
 CACHE:

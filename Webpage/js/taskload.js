@@ -16,6 +16,11 @@ $.script("taskload.js").wait(function() {
 });*/
 
 $(window).load(function () {
+    loadTask();
+    submitNewTask();
+});
+
+function loadTask() {
     $.ajax({
         type: "GET",
         url: "/include/showtasks.php",
@@ -25,6 +30,7 @@ $(window).load(function () {
             taskdata.push.apply(taskdata, data);
             var url = (window.location.href.split('?'))[1];
             sessionStorage.setItem(url, JSON.stringify(data));
+            $("div.boardpcontainer").empty();
             showBoards(data);
         },
         error: function() {
@@ -33,7 +39,7 @@ $(window).load(function () {
             showBoards(data);
         }
     });
-});
+}
 
 function showBoards(data) {
     console.log("Data: " + data);
@@ -44,6 +50,9 @@ function showBoards(data) {
 
             var id = data[i]["ID"];
             var boardname = data[i]["boardName"];
+
+            var boardpcontainer = document.createElement("div");
+            boardpcontainer.className = "boardpcontainer";
 
             if (data[i]["Task_Type"] == "ToDo") {
                 document.body.getElementsByClassName("boardpcontainer").item(0).appendChild(p);
@@ -552,4 +561,28 @@ function taskURL() {
 
 function boardURL () {
     return boardName;
+}
+
+function submitNewTask() {
+    $('#form_newtask').submit(function (e) {
+        e.preventDefault();
+
+        var data = $(this).serialize();
+        console.log("Data: " + data);
+        console.log("E: " + e);
+        var url = $(this).attr('action');
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: data,
+            success: function () {
+                document.getElementById("form_popup").style.display = "none";
+                document.getElementById("popup_newdesc").style.display = "none";
+            },
+            error: function () {
+                console.log("submitNewTask.js viga.");
+            }
+        });
+    });
 }

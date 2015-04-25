@@ -7,8 +7,6 @@ $(window).load(function() {
 });
 
 function loadBoard() {
-    $("div.list").empty();
-    $("div.maincontainer").empty();
     $.ajax({
         type: "GET",
         url: "/include/showboards.php",
@@ -17,6 +15,8 @@ function loadBoard() {
             boarddata.length = 0;
             boarddata.push.apply(boarddata, data);
             sessionStorage.setItem("Boards", JSON.stringify(data));
+            $("div.list").empty();
+            $("div.maincontainer").empty();
             loadBoards(data);
         },
         error: function() {

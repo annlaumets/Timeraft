@@ -2,28 +2,61 @@
 session_start();
 require("db_connection.php");
 
-$lastID = isset($_GET['lastID']) && !empty($_GET['lastID']) ? $_GET['lastID'] : 0;
-$UserID = $_SESSION['UserID'];
+function get_new_stuff($conn, $lastID, $procedure)
+{
+    $UserID = $_SESSION['UserID'];
 
-$check_new_boards = $conn->prepare("SELECT * FROM Board WHERE ID > :lastID AND Owner_ID = :UserID");
-$check_new_boards->execute(array('lastID' => $lastID, 'UserID' => $UserID));
-$count_new_boards = $check_new_boards->rowCount();
+    if ($procedure == 'Board') {
+        $call = "CALL sp_checkNewBoards('$UserID', '$lastID')";
+    } elseif ($procedure == 'Task') {
+        parse_str(parse_url($_GET['boardURL'], PHP_URL_QUERY), $getName);
+        $boardName = $getName['tasks'];
 
-$time = 0;
+        // Mingi räme jant, et boardID kätte saada?
+        $stm = $conn->prepare("CALL sp_getBoardID(:boardName, :UserID, @out_boardID)");
+        $stm->bindParam(':boardName', $boardName, PDO::PARAM_STR);
+        $stm->bindParam(':UserID', $UserID, PDO::PARAM_INT);
+        $stm->execute();
+        $stm->closeCursor();
+        $r = $conn->query("SELECT @out_boardID")->fetch(PDO::FETCH_ASSOC);
 
-while ($count_new_boards <= 0) {
-    if ($time == 10) {
-        die(json_encode(array('status' => 'no-new-boards', 'lastID' => $lastID)));
-    } else {
-        usleep(250000);
-        $check_new_boards = $conn->prepare("SELECT * FROM Board WHERE ID > :lastID AND Owner_ID = :UserID");
-        $check_new_boards->execute(array('lastID' => $lastID, 'UserID' => $UserID));
-        $count_new_boards = $check_new_boards->rowCount();
-        $time += 1;
+        $boardID = $r['@out_boardID'];
+        $call = "CALL sp_checkNewTasks('$boardID', '$lastID')";
     }
+
+    $check_new = $conn->prepare($call);
+    $check_new->execute();
+    $count_new = $check_new->rowCount();
+
+    $time = 0;
+
+    while ($count_new <= 0) {
+        if ($time == 10) {
+            die(json_encode(array('status' => 'no-new', 'lastID' => $lastID)));
+        } else {
+            usleep(250000);
+            $check_new = $conn->prepare($call);
+            $check_new->execute();
+            $count_new = $check_new->rowCount();
+            $time += 1;
+        }
+    }
+
+    $new = $check_new->fetchAll(PDO::FETCH_ASSOC);
+    $last = end($new);
+    $last_ID = $last['ID'];
+
+    die(json_encode(array('status' => 'results', 'lastID' => $last_ID, 'data' => $new)));
 }
 
-$new_boards = $check_new_boards->fetchAll(PDO::FETCH_ASSOC);
-$last_board = end($new_boards);
-$last_ID = $last_board['ID'];
-die(json_encode(array('status' => 'results', 'lastID' => $last_ID, 'data' => $new_boards)));
+if (isset($_GET['lastID']) && !empty($_GET['lastID'])) {
+    $lastID = $_GET['lastID'];
+    get_new_stuff($conn, $lastID, 'Board');
+} elseif (isset($_GET['lastID_task']) && !empty($_GET['lastID_task'])) {
+    $lastID = $_GET['lastID_task'];
+    get_new_stuff($conn, $lastID, 'Task');
+} elseif (!isset($_GET['boardURL'])) {
+    get_new_stuff($conn, 0, 'Board');
+} else {
+    get_new_stuff($conn, 0, 'Task');
+}
