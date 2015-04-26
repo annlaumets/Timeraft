@@ -43,8 +43,8 @@ $(window).load(function() {
                 var urlArray = window.location.href.split('?');
                 var url = urlArray[1].split('&');
                 console.log("Pausi error.");
-                console.log("Time: " + sessionStorage.getItem("pauseTime?" + url[0]));
-                window.location.href = '/board.php?tasks=' + url[0];
+                console.log("Time: " + sessionStorage.getItem("pauseTime?" + urlArray[1]));
+                window.location.href = '/board.php?' + url[0];
             }
         })
     });
@@ -67,8 +67,8 @@ $(window).load(function() {
                 var urlArray = window.location.href.split('?');
                 var url = urlArray[1].split('&');
                 console.log("Stopi error.");
-                console.log("Time: " + sessionStorage.getItem("stopTime?" + url[0]));
-                //window.location.href = '/board.php?tasks=' + ;
+                console.log("Time: " + sessionStorage.getItem("stopTime?" + urlArray[1]));
+                window.location.href = '/board.php?' + url[0];
             }
         })
     });
