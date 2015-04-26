@@ -21,6 +21,10 @@ $(window).load(function () {
 });
 
 function loadTask() {
+    if (typeof window.sessionStorage != "undefined") {
+        var abi = sessionStorage.getItem("pauseTime?" + window.location.href.split('?')[1] + "&taskID=36");
+        console.log("Abi: " + abi);
+    }
     $.ajax({
         type: "GET",
         url: "/include/showtasks.php",
