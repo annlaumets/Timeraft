@@ -21,10 +21,6 @@ $(window).load(function () {
 });
 
 function loadTask() {
-    if (typeof window.sessionStorage != "undefined") {
-        var abi = sessionStorage.getItem("pauseTime?" + window.location.href.split('?')[1] + "&taskID=36");
-        console.log("Abi: " + abi);
-    }
     $.ajax({
         type: "GET",
         url: "/include/showtasks.php",
@@ -34,6 +30,7 @@ function loadTask() {
             taskdata.push.apply(taskdata, data);
             var url = (window.location.href.split('?'))[1];
             sessionStorage.setItem(url, JSON.stringify(data));
+            addTime(url, data.length);
             $("div.boardpcontainer").empty();
             showBoards(data);
         },
@@ -589,4 +586,15 @@ function submitNewTask() {
             }
         });
     });
+}
+
+function addTime(url, len) {
+    if (typeof window.sessionStorage != "undefined" && len != 0) {
+        for (var i = 0; i < len; i++) {
+            var abi = sessionStorage.getItem("pauseTime?" + url + "&taskID=" + i);
+            if (!(sessionStorage.getItem("pauseTime?" + url + "&taskID=" + i).empty())) {
+                console.log("Abi: " + abi);
+            }
+        }
+    }
 }
