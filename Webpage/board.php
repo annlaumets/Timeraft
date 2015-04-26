@@ -41,29 +41,13 @@ header('Content-Type: text/html; charset=UTF-8');
         <div class="boarddesc">
             <img id="close_start" alt="X" src="images/close.png" onclick="div_hide_start()">
             <table>
-                <tr>
-                    <th>Name:</th>
-                </tr>
-                <tr>
-                    <th>Status:</th>
-                </tr>
-                <tr>
-                    <th>Description:</th>
-                </tr>
-                <tr>
-                    <th>Due date:</th>
-                </tr>
-                <tr>
-                    <th>Start Date:</th>
-                </tr>
-                <tr>
-                    <th>End date:</th>
-                </tr>
-                <tr>
-                    <th colspan="1"><input type="image" src="/images/start.png" alt="START"
-                                           onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()">
-                    </th>
-                </tr>
+                <tr><th>Name:</th></tr>
+                <tr><th>Status:</th></tr>
+                <tr><th>Description:</th></tr>
+                <tr><th>Due date:</th> </tr>
+                <tr><th>Start Date:</th></tr>
+                <tr><th>End date:</th></tr>
+                <tr><th colspan="1"><input type="image" src="/images/start.png" alt="START" onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th></tr>
             </table>
         </div>
     </div>
@@ -73,32 +57,14 @@ header('Content-Type: text/html; charset=UTF-8');
         <div class="boarddesc">
             <img id="close_pend" alt="X" src="images/close.png" onclick="div_hide_pending()">
             <table>
-                <tr>
-                    <th>Name:</th>
-                </tr>
-                <tr>
-                    <th>Status:</th>
-                </tr>
-                <tr>
-                    <th>Description:</th>
-                </tr>
-                <tr>
-                    <th>Due date:</th>
-                </tr>
-                <tr>
-                    <th>Start Date:</th>
-                </tr>
-                <tr>
-                    <th>End date:</th>
-                </tr>
-                <tr>
-                    <th>Time spent:</th>
-                </tr>
-                <tr>
-                    <th colspan="1"><input type="image" src="/images/continue.png" alt="CONTINUE"
-                                           onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()">
-                    </th>
-                </tr>
+                <tr><th>Name:</th></tr>
+                <tr><th>Status:</th></tr>
+                <tr><th>Description:</th></tr>
+                <tr><th>Due date:</th></tr>
+                <tr><th>Start Date:</th></tr>
+                <tr><th>End date:</th></tr>
+                <tr><th>Time spent:</th></tr>
+                <tr><th colspan="1"><input type="image" src="/images/continue.png" alt="CONTINUE" onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th></tr>
             </table>
         </div>
     </div>
@@ -108,27 +74,13 @@ header('Content-Type: text/html; charset=UTF-8');
         <div class="boarddesc">
             <img id="close_finish" alt="X" src="images/close.png" onclick="div_hide_finished()">
             <table>
-                <tr>
-                    <th>Name:</th>
-                </tr>
-                <tr>
-                    <th>Status:</th>
-                </tr>
-                <tr>
-                    <th>Description:</th>
-                </tr>
-                <tr>
-                    <th>Due date:</th>
-                </tr>
-                <tr>
-                    <th>Start Date:</th>
-                </tr>
-                <tr>
-                    <th>End date:</th>
-                </tr>
-                <tr>
-                    <th>Time spent:</th>
-                </tr>
+                <tr><th>Name:</th></tr>
+                <tr><th>Status:</th></tr>
+                <tr><th>Description:</th></tr>
+                <tr><th>Due date:</th></tr>
+                <tr><th>Start Date:</th></tr>
+                <tr><th>End date:</th></tr>
+                <tr><th>Time spent:</th></tr>
             </table>
         </div>
     </div>
@@ -138,24 +90,10 @@ header('Content-Type: text/html; charset=UTF-8');
         <form accept-charset="utf-8" action="/include/addTask.php" id="form_newtask" method="post" name="form_task">
             <img id="close_newtask" alt="X" src="images/close.png" onclick="div_hide_new()">
             <table>
-                <tr>
-                    <th>Name:</th>
-                    <td><label><input name="name" type="text" size="20" required></label></td>
-                </tr>
-                <tr>
-                    <th>Description:</th>
-                    <td><label>
-                            <textarea name="desc" cols="18" rows="4"></textarea>
-                        </label></td>
-                </tr>
-                <tr>
-                    <th>Due date:</th>
-                    <td><label><input type="text" name="DueDate" id="datepick"></label></td>
-                </tr>
-                <tr>
-                    <td colspan="1"><input name="submit" alt="CREATE" type="image"
-                                           src="images/create.png" id="submit_newTask"></td>
-                </tr>
+                <tr><th>Name:</th><td><label><input name="name" type="text" size="20" required></label></td></tr>
+                <tr><th>Description:</th><td><label><textarea name="desc" cols="18" rows="4"></textarea></label></td></tr>
+                <tr><th>Due date:</th><td><label><input type="text" name="DueDate" id="datepick"></label></td></tr>
+                <tr><td colspan="1"><input name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newTask"></td></tr>
             </table>
             <input type="hidden" name="tasks"
                    value="<?php if (isset($_GET['tasks'])) echo htmlspecialchars($_GET['tasks']); ?>">

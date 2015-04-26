@@ -590,7 +590,8 @@ function submitNewTask() {
 
 function addTime(url, len) {
     if (typeof window.sessionStorage != "undefined" && len != 0) {
-        for (var i = 0; i < len; i++) {
+        for (var i = 0; i < sessionStorage.length; i++) {
+            console.log(sessionStorage.key(i));
             var abi = sessionStorage.getItem("pauseTime?" + url + "&taskID=" + i);
             if (!(sessionStorage.getItem("pauseTime?" + url + "&taskID=" + i).empty())) {
                 console.log("Abi: " + abi);
