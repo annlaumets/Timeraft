@@ -28,9 +28,8 @@ function loadTask() {
         data: {'boardURL': window.location.href},
         success: function (data) {
             taskdata.push.apply(taskdata, data);
-            var url = (window.location.href.split('?'))[1];
             sessionStorage.setItem(url, JSON.stringify(data));
-            addTime(url, data.length);
+            addTime(data.length);
             $("div.boardpcontainer").empty();
             showBoards(data);
         },
@@ -588,18 +587,37 @@ function submitNewTask() {
     });
 }
 
-function addTime(url, len) {
+function addTime(len) {
     if (typeof window.sessionStorage != "undefined" && len != 0) {
         for (var i = 0; i < sessionStorage.length; i++) {
             //console.log(sessionStorage.key(i));
             if (sessionStorage.key(i).match(/pauseTime?/i)) {
-                console.log("Läksin pausi...");
+                console.log("Läksin pausi..." + sessionStorage.key(i));
+                var urlLopp = sessionStorage.key(i).split('?')[1];
+                var t = sessionStorage.getItem(sessionStorage.key(i));
+                var url = window.location.href.split('?')[0] + urlLopp;
+                $.ajax({
+                    type: "GET",
+                    url: "include/addTime.php",
+                    data: {'taskURL': url, 'taskTime': t, 'type': 'pause'},
+                    success: function(data) {
+                        console.log("I did it in pause.");
+                    }
+                });
             }
             else if (sessionStorage.key(i).match(/stopTime?/i)) {
-                console.log("Läksin stoppi...");
-            }
-            else {
-                console.log("Ei läinud kuhugi.");
+                console.log("Läksin stoppi..." + sessionStorage.key(i));
+                var urlLopp = sessionStorage.key(i).split('?')[1];
+                var t = sessionStorage.getItem(sessionStorage.key(i));
+                var url = window.location.href.split('?')[0] + urlLopp;
+                $.ajax({
+                    type: "GET",
+                    url: "include/addTime.php",
+                    data: {'taskURL': url, 'taskTime': t, 'type': 'stop'},
+                    success: function (data) {
+                        console.log("I did it in stop.");
+                    }
+                });
             }
         }
     }

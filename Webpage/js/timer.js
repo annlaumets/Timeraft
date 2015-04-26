@@ -55,7 +55,6 @@ $(window).load(function() {
             sessionStorage.setItem("stopTime?" + urlArray[1], t);
         }
         clearTimeout(t);
-        console.log(window.location.href);
         $.ajax({
             type: "GET",
             url: "include/addTime.php",
