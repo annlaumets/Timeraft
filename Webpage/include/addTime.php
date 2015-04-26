@@ -7,6 +7,7 @@ require("db_connection.php");
 
 if (isset($_GET["taskURL"])) {
     parse_str(parse_url($_GET['taskURL'], PHP_URL_QUERY), $getName);
+    file_put_contents("error2.txt", $_GET['taskURL'], FILE_APPEND);
     $taskID = $getName['taskID'];
     $boardName = $getName['tasks'];
 

@@ -28,6 +28,7 @@ function loadTask() {
         data: {'boardURL': window.location.href},
         success: function (data) {
             taskdata.push.apply(taskdata, data);
+            var url = window.location.href.split('?')[1];
             sessionStorage.setItem(url, JSON.stringify(data));
             addTime(data.length);
             $("div.boardpcontainer").empty();
@@ -601,7 +602,8 @@ function addTime(len) {
                     url: "include/addTime.php",
                     data: {'taskURL': url, 'taskTime': t, 'type': 'pause'},
                     success: function(data) {
-                        console.log("I did it in pause.");
+                        console.log("I did it in pause." + data + "!");
+                        sessionStorage.removeItem(sessionStorage.key(i));
                     }
                 });
             }
@@ -616,6 +618,7 @@ function addTime(len) {
                     data: {'taskURL': url, 'taskTime': t, 'type': 'stop'},
                     success: function (data) {
                         console.log("I did it in stop.");
+                        sessionStorage.removeItem(sessionStorage.key(i));
                     }
                 });
             }
