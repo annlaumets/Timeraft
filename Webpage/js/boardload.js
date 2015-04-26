@@ -49,9 +49,7 @@ function loadBoards(data) {
             }
 
             p.textContent = data[i]["Name"];
-            if(i == 0) {
-                p.id = "task0";
-            }
+            p.id = "task" + i;
 
             function showBoardInfo(board) {
                 var name;

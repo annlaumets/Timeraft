@@ -18,7 +18,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <header>
         <nav>
             <ul>
-                <li><a href="/mainboard.php">BOARDS</a></li>
+                <li><a href="/mainboard.php" id="gotoMain">BOARDS</a></li>
                 <li id="account"></li>
 
                 <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
