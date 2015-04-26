@@ -8,7 +8,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="lib/jquery-1.11.2.min.js"></script>
+    <script src="/lib/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="js/showusername.js"></script>
     <script type="text/javascript" src="js/boardload.js"></script>
     <script type="text/javascript" src="js/getNewBoard.js"></script>
@@ -50,14 +50,8 @@ header('Content-Type: text/html; charset=UTF-8');
         <form accept-charset="utf-8" action="/include/addBoard.php" id="form_newboard" method="post" name="form_board">
             <img id="close_newdesc" alt="X" src="images/close.png" onclick="div_hide_new()">
             <table>
-                <tr>
-                    <th>Name:</th>
-                    <td><label><input name="name" type="text" size="20" required></label></td>
-                </tr>
-                <tr>
-                    <th>Description:</th>
-                    <td><label><textarea name="desc" cols="18" rows="4"></textarea></label></td>
-                </tr>
+                <tr><th>Name:</th><td><label><input name="name" type="text" size="20" required></label></td></tr>
+                <tr><th>Description:</th><td><label><textarea name="desc" cols="18" rows="4"></textarea></label></td></tr>
                 <tr><td colspan="1"><input name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newBoard"></td></tr>
             </table>
         </form>
