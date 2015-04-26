@@ -41,29 +41,14 @@ header('Content-Type: text/html; charset=UTF-8');
         <div class="boarddesc">
             <img id="close_start" alt="X" src="images/close.png" onclick="div_hide_start()">
             <table>
-                <tr>
-                    <th>Name:</th>
-                </tr>
-                <tr>
-                    <th>Status:</th>
-                </tr>
-                <tr>
-                    <th>Description:</th>
-                </tr>
-                <tr>
-                    <th>Due date:</th>
-                </tr>
-                <tr>
-                    <th>Start Date:</th>
-                </tr>
-                <tr>
-                    <th>End date:</th>
-                </tr>
-                <tr>
-                    <th colspan="1"><input type="image" src="/images/start.png" alt="START"
-                                           onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()">
-                    </th>
-                </tr>
+                <tr><th>Name: </th></tr>
+                <tr><th>Status: </th></tr>
+                <tr><th>Description: </th></tr>
+                <tr><th>Due date: </th></tr>
+                <tr><th>Start Date: </th></tr>
+                <tr><th>End date: </th></tr>
+                <tr><th colspan="1"><input type="image" src="/images/start.png" alt="START"
+                                           onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th></tr>
             </table>
         </div>
     </div>
@@ -73,32 +58,15 @@ header('Content-Type: text/html; charset=UTF-8');
         <div class="boarddesc">
             <img id="close_pend" alt="X" src="images/close.png" onclick="div_hide_pending()">
             <table>
-                <tr>
-                    <th>Name:</th>
-                </tr>
-                <tr>
-                    <th>Status:</th>
-                </tr>
-                <tr>
-                    <th>Description:</th>
-                </tr>
-                <tr>
-                    <th>Due date:</th>
-                </tr>
-                <tr>
-                    <th>Start Date:</th>
-                </tr>
-                <tr>
-                    <th>End date:</th>
-                </tr>
-                <tr>
-                    <th>Time spent:</th>
-                </tr>
-                <tr>
-                    <th colspan="1"><input type="image" src="/images/continue.png" alt="CONTINUE"
-                                           onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()">
-                    </th>
-                </tr>
+                <tr><th>Name: </th></tr>
+                <tr><th>Status: </th></tr>
+                <tr><th>Description: </th></tr>
+                <tr><th>Due date: </th></tr>
+                <tr><th>Start Date: </th></tr>
+                <tr><th>End date: </th></tr>
+                <tr><th>Time spent: </th></tr>
+                <tr><th colspan="1"><input type="image" src="/images/continue.png" alt="CONTINUE"
+                                           onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th></tr>
             </table>
         </div>
     </div>
@@ -108,27 +76,13 @@ header('Content-Type: text/html; charset=UTF-8');
         <div class="boarddesc">
             <img id="close_finish" alt="X" src="images/close.png" onclick="div_hide_finished()">
             <table>
-                <tr>
-                    <th>Name:</th>
-                </tr>
-                <tr>
-                    <th>Status:</th>
-                </tr>
-                <tr>
-                    <th>Description:</th>
-                </tr>
-                <tr>
-                    <th>Due date:</th>
-                </tr>
-                <tr>
-                    <th>Start Date:</th>
-                </tr>
-                <tr>
-                    <th>End date:</th>
-                </tr>
-                <tr>
-                    <th>Time spent:</th>
-                </tr>
+                <tr><th>Name: </th></tr>
+                <tr><th>Status: </th></tr>
+                <tr><th>Description: </th></tr>
+                <tr><th>Due date: </th></tr>
+                <tr><th>Start Date: </th></tr>
+                <tr><th>End date: </th></tr>
+                <tr><th>Time spent: </th></tr>
             </table>
         </div>
     </div>
