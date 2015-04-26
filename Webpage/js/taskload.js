@@ -595,7 +595,6 @@ function addTime(len) {
                 var urlLopp = sessionStorage.key(i).split('?')[1];
                 var t = sessionStorage.getItem(sessionStorage.key(i));
                 var url = window.location.href.split('?')[0] + '?' + urlLopp;
-                sessionStorage.removeItem(sessionStorage.key(i));
                 if (sessionStorage.key(i).match(/pauseTime?/i)) {
                     $.ajax({
                         type: "GET",
@@ -616,6 +615,7 @@ function addTime(len) {
                         }
                     });
                 }
+                sessionStorage.removeItem(sessionStorage.key(i));
             }
         }
     }
