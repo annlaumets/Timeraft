@@ -49,7 +49,9 @@ function loadBoards(data) {
             }
 
             p.textContent = data[i]["Name"];
-
+            if(i == 0) {
+                p.className = "task0";
+            }
 
             function showBoardInfo(board) {
                 var name;
@@ -106,6 +108,7 @@ function loadBoards(data) {
         boardpcontainer3.className = "boardpcontainerplus";
 
         p3.textContent = "+"; //kui veel ühtegi boardi pole tehtud
+        p3.id = "pluss";
         p3.addEventListener("click", function () {
             document.getElementById("form_popup").style.display = "block";
             document.getElementById("popup_newdesc").style.display = "block";
@@ -133,6 +136,7 @@ function loadBoards(data) {
         boardpcontainer2.className = "boardpcontainer";
 
         p2.textContent = "+"; //kui veel ühtegi boardi pole tehtud
+        p2.id = "pluss";
         p2.addEventListener("click", function () {
             document.getElementById("form_popup").style.display = "block";
             document.getElementById("popup_newdesc").style.display = "block";

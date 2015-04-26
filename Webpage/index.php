@@ -51,7 +51,7 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
                 </div>
             </form>
         </div>
-        <input type="image" alt="SIGN IN" onclick="div_show_signin()" src="images/signin.png" />
+        <input type="image" alt="SIGN IN" onclick="div_show_signin()" src="images/signin.png" id="SignInButton"/>
 
         <div id="form_signup"></div>
         <div id="popup_signup">
@@ -59,9 +59,9 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
                 <img id="close_signup" alt="X" src="images/close.png" onclick="div_hide_signup()">
                 <h2>SIGN UP</h2>
                 <br>
-                <input name="name" placeholder="Name" type="text" size="25" required>
-                <input name="email" placeholder="Email" type="email" size="25" required>
-                <input name="password" placeholder="Password" type="password" size="25" required>
+                <input id="signupname" name="name" placeholder="Name" type="text" size="25" required>
+                <input id="signupemail" name="email" placeholder="Email" type="email" size="25" required>
+                <input id="signuppw" name="password" placeholder="Password" type="password" size="25" required>
                 <input onsubmit="div_hide_signup()" name="submit" type="image" alt="REGISTER" src="images/register.png" id="submit_signup">
                 <div class="nupud">
                     <!--<fb:login-button scope="public_profile,email" onclick="checkLoginState();">
@@ -70,7 +70,7 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
                 </div>
             </form>
         </div>
-        <input type="image" alt="SIGN UP" src="images/signup.png" onclick="div_show_signup()"/>
+        <input type="image" alt="SIGN UP" src="images/signup.png" id="SignUpButton" onclick="div_show_signup()"/>
     </section>
 
     <a name=2></a>

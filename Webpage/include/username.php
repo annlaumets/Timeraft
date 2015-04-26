@@ -11,7 +11,7 @@ if($_SESSION['login'] && !empty($session)) {
     echo '<ul>';
     echo '<li><a href="/account.php">PROFILE</a></li>';
     echo '<li><a href="/settings.php">SETTINGS</a></li>';
-    echo '<li><a href="/stats.php">STATISTICS</a></li>';
+    echo '<li><a href="/stats.php" id="stats">STATISTICS</a></li>';
     echo '<hr>';
     echo '<li><a href="/include/logout.php">LOG OUT</a></li>';
     echo '</ul>';

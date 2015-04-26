@@ -27,7 +27,7 @@ $(window).load(function () {
         },
         error: function() {
             document.getElementById("account").innerHTML = sessionStorage.getItem("UserName") + '<ul><li><a href="/account.php">PROFILE</a></li>' +
-            '<li><a href="/settings.php">SETTINGS</a></li><li><a href="/stats.php">STATISTICS</a></li><hr>' +
+            '<li><a href="/settings.php">SETTINGS</a></li><li><a href="/stats.php" id="stats">STATISTICS</a></li><hr>' +
             '<li><a href="/include/logout.php">LOG OUT</a></li></ul>';
         }
     });
