@@ -9,7 +9,6 @@ header('Content-Type: text/html; charset=UTF-8');
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="/lib/jquery-1.11.2.min.js"></script>
-    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- JQuery library -->
     <script type="text/javascript" src="js/showusername.js"></script>
     <title>Timeraft | Help</title>
 </head>
