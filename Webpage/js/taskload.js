@@ -591,33 +591,31 @@ function submitNewTask() {
 function addTime(len) {
     if (typeof window.sessionStorage != "undefined" && len != 0) {
         for (var i = 0; i < sessionStorage.length; i++) {
-            if (sessionStorage.key(i).match(/pauseTime?/i)) {
+            if (sessionStorage.key(i).match(/pauseTime?/i) || sessionStorage.key(i).match(/stopTime?/i)) {
                 var urlLopp = sessionStorage.key(i).split('?')[1];
                 var t = sessionStorage.getItem(sessionStorage.key(i));
                 var url = window.location.href.split('?')[0] + '?' + urlLopp;
-                $.ajax({
-                    type: "GET",
-                    url: "include/addTime.php",
-                    data: {'taskURL': url, 'taskTime': t, 'type': 'pause'},
-                    success: function() {
-                        console.log(sessionStorage.key(i));
-                        sessionStorage.removeItem(sessionStorage.key(i));
-                    }
-                });
-            }
-            else if (sessionStorage.key(i).match(/stopTime?/i)) {
-                var urlLopp = sessionStorage.key(i).split('?')[1];
-                var t = sessionStorage.getItem(sessionStorage.key(i));
-                var url = window.location.href.split('?')[0] + '?' + urlLopp;
-                $.ajax({
-                    type: "GET",
-                    url: "include/addTime.php",
-                    data: {'taskURL': url, 'taskTime': t, 'type': 'stop'},
-                    success: function () {
-                        console.log(sessionStorage.key(i));
-                        sessionStorage.removeItem(sessionStorage.key(i));
-                    }
-                });
+                sessionStorage.removeItem(sessionStorage.key(i));
+                if (sessionStorage.key(i).match(/pauseTime?/i)) {
+                    $.ajax({
+                        type: "GET",
+                        url: "include/addTime.php",
+                        data: {'taskURL': url, 'taskTime': t, 'type': 'pause'},
+                        success: function () {
+                            console.log("Added time in pause.");
+                        }
+                    });
+                }
+                else {
+                    $.ajax({
+                        type: "GET",
+                        url: "include/addTime.php",
+                        data: {'taskURL': url, 'taskTime': t, 'type': 'stop'},
+                        success: function () {
+                            console.log("Added time in stop.");
+                        }
+                    });
+                }
             }
         }
     }
