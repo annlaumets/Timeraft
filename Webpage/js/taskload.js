@@ -591,10 +591,15 @@ function submitNewTask() {
 function addTime(url, len) {
     if (typeof window.sessionStorage != "undefined" && len != 0) {
         for (var i = 0; i < sessionStorage.length; i++) {
-            console.log(sessionStorage.key(i));
-            var abi = sessionStorage.getItem("pauseTime?" + url + "&taskID=" + i);
-            if (!(sessionStorage.getItem("pauseTime?" + url + "&taskID=" + i).empty())) {
-                console.log("Abi: " + abi);
+            //console.log(sessionStorage.key(i));
+            if (sessionStorage.key(i).match(/pauseTime?/i)) {
+                console.log("Läksin pausi...");
+            }
+            else if (sessionStorage.key(i).match(/stopTime?/i)) {
+                console.log("Läksin stoppi...");
+            }
+            else {
+                console.log("Ei läinud kuhugi.");
             }
         }
     }
