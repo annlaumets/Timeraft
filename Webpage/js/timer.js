@@ -27,7 +27,7 @@ window.onload = function() {
 
     document.getElementById('pause2').addEventListener('click', function () {
         if (typeof window.sessionStorage != "undefined") {
-            sessionStorage.setItem("pauseTime" + window.location.href, t);
+            sessionStorage.setItem("pauseTime=" + window.location.href, t);
         }
         clearTimeout(t);
         $.ajax({
@@ -40,14 +40,15 @@ window.onload = function() {
             },
             error: function() {
                 console.log("Pausi error.")
-                console.log("Time: " + sessionStorage.getItem("pauseTime"));
+                console.log("Time: " + sessionStorage.getItem("pauseTime=" + window.location.href));
+                //window.location.href = '/board.php?tasks=' + ;
             }
         })
     });
 
     document.getElementById('stop2').addEventListener('click', function () {
         if (typeof window.sessionStorage != "undefined") {
-            sessionStorage.setItem("stopTime", t);
+            sessionStorage.setItem("stopTime=" +  + window.location.href, t);
         }
         clearTimeout(t);
         console.log(window.location.href);
@@ -60,7 +61,8 @@ window.onload = function() {
             },
             error: function() {
                 console.log("Stopi error.");
-                console.log("Time: " + sessionStorage.getItem("stop"));
+                console.log("Time: " + sessionStorage.getItem("stopTime=" + window.location.href));
+                //window.location.href = '/board.php?tasks=' + ;
             }
         })
     });
