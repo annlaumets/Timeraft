@@ -8,9 +8,10 @@ header('Content-Type: text/html; charset=UTF-8');
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="/lib/jquery-ui-themes-1.11.3/themes/smoothness/jquery-ui.css" media="all">
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>-->
     <script src="/lib/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/lib/jquery-ui-themes-1.11.3/themes/smoothness/jquery-ui.css" media="all">
+    <script src="/lib/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>-->
     <script type="text/javascript" src="js/taskload.js"></script>
     <script type="text/javascript" src="js/getNewTask.js"></script>
     <script type="text/javascript" src="js/showusername.js"></script>

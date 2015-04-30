@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#rev 9
+#rev 25
 
 NETWORK:
 /include/addBoard.php
@@ -50,7 +50,14 @@ CACHE:
 /images/timeraftlogo.png
 /images/timeraftlogo-white.png
 /lib/sanchez/Sanchezregular.otf
+/lib/jquery-ui-themes-1.11.3/themes/smoothness/jquery-ui.css
+/lib/jquery-ui-themes-1.11.3/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+/lib/jquery-ui-themes-1.11.3/themes/smoothness/images/ui-icons_222222_256x240.png
+/lib/jquery-ui-themes-1.11.3/themes/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png
+/lib/jquery-ui-themes-1.11.3/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png
+/lib/jquery-ui-themes-1.11.3/themes/smoothness/images/ui-bg_glass_75_dadada_1x400.png
 /lib/jquery-1.11.2.min.js
+/lib/jquery-ui-1.11.2/jquery-ui.min.js
 /js/accountload.js
 /js/diagramload.js
 /js/scripts.js
