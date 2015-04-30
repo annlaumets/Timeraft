@@ -66,25 +66,25 @@ function loadBoards(data) {
 
                             div_show();
 
-                            n.textContent = JSON.stringify(boarddata[i]["Name"]).replace(/[""]/g,'');
-                            if (JSON.stringify(boarddata[i]["Description"]) == "null") {
+                            n.textContent = boarddata[i]["Name"];
+                            if (boarddata[i]["Description"] == "null") {
                                 d.textContent = "";
                             }
                             else {
-                                d.textContent = JSON.stringify(boarddata[i]["Description"]).replace(/[""]/g, '');
+                                d.textContent = boarddata[i]["Description"];
                             }
                         }
                         else {
                             div_show();
 
                             name = document.createElement("td");
-                            name.textContent = JSON.stringify(boarddata[i]["Name"]).replace(/[""]/g,'');
+                            name.textContent = boarddata[i]["Name"];
                             desc = document.createElement("td");
-                            if (JSON.stringify(boarddata[i]["Description"]) == "null") {
+                            if (boarddata[i]["Description"] == "null") {
                                 desc.textContent = "";
                             }
                             else {
-                                desc.textContent = JSON.stringify(boarddata[i]["Description"]).replace(/[""]/g, '');
+                                desc.textContent = boarddata[i]["Description"];
                             }
 
                             document.getElementsByTagName("tr").item(0).insertBefore(name, document.getElementsByTagName("tr").item(0).childNodes[1]);
@@ -152,8 +152,6 @@ function div_show() {
 }
 
 function div_hide() {
-    document.getElementsByTagName("tr").item(0).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(1).childNodes[1].textContent = null;
     document.getElementById("form_popup").style.display = "none";
     document.getElementById("popup_desc").style.display = "none";
 }

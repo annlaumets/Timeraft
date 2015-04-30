@@ -327,12 +327,6 @@ function showPending(task, id, board) {
 }
 
 function div_hide_start() {
-    document.getElementsByTagName("tr").item(0).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(1).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(2).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(3).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(4).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(5).childNodes[1].textContent = null;
     document.getElementById("form_popup").style.display = "none";
     document.getElementById("popup_start").style.display= "none";
 }
@@ -348,25 +342,11 @@ function div_show_pending() {
 }
 
 function div_hide_pending() {
-    document.getElementsByTagName("tr").item(7).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(8).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(9).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(10).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(11).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(12).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(13).childNodes[1].textContent = null;
     document.getElementById("form_popup").style.display = "none";
     document.getElementById("popup_pending").style.display= "none";
 }
 
 function div_hide_finished() {
-    document.getElementsByTagName("tr").item(15).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(16).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(17).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(18).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(19).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(20).childNodes[1].textContent = null;
-    document.getElementsByTagName("tr").item(21).childNodes[1].textContent = null;
     document.getElementById("form_popup").style.display = "none";
     document.getElementById("popup_finish").style.display= "none";
 }
