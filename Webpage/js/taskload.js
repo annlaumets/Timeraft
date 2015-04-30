@@ -109,25 +109,7 @@ function showToDo(task, id, board) {
                     d.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
                 }
 
-                newDate = new Date(JSON.stringify(taskdata[i]["dueDate"]));
-                if (newDate.getMonth() < 9 || newDate.getDate() < 10) {
-                    if (newDate.getMonth() < 9 && newDate.getDate() < 10) {
-                        dDate.textContent = "0" + newDate.getDate() + "/0" + (newDate.getMonth() + 1)
-                        + "/" + newDate.getFullYear();
-                    }
-                    else if (newDate.getMonth() >= 9 && newDate.getDate() < 10) {
-                        dDate.textContent = "0" + newDate.getDate() + "/" + (newDate.getMonth() + 1)
-                        + "/" + newDate.getFullYear();
-                    }
-                    else {
-                        dDate.textContent = newDate.getDate() + "/0" + (newDate.getMonth() + 1)
-                        + "/" + newDate.getFullYear();
-                    }
-                }
-                else {
-                    dDate.textContent = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear();
-                }
-
+                dDate.textContent = taskdata[i]["dueDate"];
                 st.textContent = "Not started";
                 sd.textContent = "N/A";
                 ed.textContent = "N/A";
@@ -148,24 +130,7 @@ function showToDo(task, id, board) {
                 }
 
                 dueDate = document.createElement("td");
-                newDate = new Date(JSON.stringify(taskdata[i]["dueDate"]));
-                if (newDate.getMonth() < 9 || newDate.getDate() < 10) {
-                    if (newDate.getMonth() < 9 && newDate.getDate() < 10) {
-                        dueDate.textContent = "0" + newDate.getDate() + "/0" + (newDate.getMonth() + 1)
-                        + "/" + newDate.getFullYear();
-                    }
-                    else if (newDate.getMonth() >= 9 && newDate.getDate() < 10) {
-                        dueDate.textContent = "0" + newDate.getDate() + "/" + (newDate.getMonth() + 1)
-                        + "/" + newDate.getFullYear();
-                    }
-                    else {
-                        dueDate.textContent = newDate.getDate() + "/0" + (newDate.getMonth() + 1)
-                        + "/" + newDate.getFullYear();
-                    }
-                }
-                else {
-                    dueDate.textContent = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear();
-                }
+                dueDate.textContent = taskdata[i]["dueDate"];
 
                 status = document.createElement("td");
                 status.textContent = "Not started";
@@ -183,6 +148,7 @@ function showToDo(task, id, board) {
                 document.getElementsByTagName("tr").item(4).insertBefore(startDate, document.getElementsByTagName("tr").item(4).childNodes[2]);
                 document.getElementsByTagName("tr").item(5).insertBefore(endDate, document.getElementsByTagName("tr").item(5).childNodes[2]);
             }
+            break;
         }
     }
     //document.getElementById("form_popup").style.display = "block";

@@ -44,7 +44,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Name:</th></tr>
                 <tr><th>Status:</th></tr>
                 <tr><th>Description:</th></tr>
-                <tr><th>Due date:</th> </tr>
+                <tr><th>Due date:</th></tr>
                 <tr><th>Start Date:</th></tr>
                 <tr><th>End date:</th></tr>
                 <tr><th colspan="1"><input type="image" id="startbutt" src="/images/start.png" alt="START" onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th></tr>

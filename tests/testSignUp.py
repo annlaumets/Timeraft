@@ -58,6 +58,13 @@ def addtask(driver, name, desc, duedate):
     driver.find_element_by_name("DueDate").send_keys(duedate)
     driver.find_element_by_id("submit_newTask").click()
     print("addtask test passed, added task with name: " + name + " desc: "+ desc)
+
+def starttask(driver, taskid, timeamount):
+    driver.find_element_by_id(taskid).click()
+    driver.find_element_by_id("startbutt").click()
+    time.sleep(timeamount)
+    driver.find_element_by_id("pause2").click()
+    print("starttask test passed, added time : " + str(timeamount))
     
 def logout(driver):
     hovelem = driver.find_element_by_id("account")
@@ -73,9 +80,13 @@ pw = "kartul"
 name = "Kartulimees"
 brdname = "midateha"
 brddescr = "labidamees"
-taskname = "ostalabidas"
-taskdesc = "maksa5euuro"
+taskname = "osta labidas"
+taskdesc = "maksa 5 euuro"
 taskdate = "10/10/2020"
+taskname2 = "hakka kaevama"
+taskdesc2 = "kaeva hauda"
+timeamount = 5
+
 ### Taimer variable. With less than 4 seconds some tests failed, because loading was too slow and didn't find elements
 tam = 4
 
@@ -84,11 +95,16 @@ time.sleep(tam)
 logout(driver)
 time.sleep(tam)
 signin(driver, email, pw)
+time.sleep(tam)
 addBoard(driver, brdname, brddescr)
 time.sleep(tam)
 gotoBoard(driver, idi)
 time.sleep(tam)
 addtask(driver, taskname, taskdesc, taskdate)
+time.sleep(tam+3)
+starttask(driver, "Task0", timeamount)
+time.sleep(tam)
+addtask(driver, taskname2, taskdesc2, taskdate)
 time.sleep(tam+3)
 gotoStat(driver)
 time.sleep(tam)
