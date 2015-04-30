@@ -48,6 +48,7 @@ function showBoards(data) {
         for (var i = 0; i < data.length; i++) {
             var p = document.createElement("p");
             p.textContent = JSON.stringify(data[i]["Name"]);
+            p.id = "Task" + i;
 
             var id = data[i]["ID"];
             var boardname = data[i]["boardName"];
@@ -89,7 +90,51 @@ function showToDo(task, id, board) {
         if (taskdata[i]["Name"] == task.replace(/[""]/g, '')) {
             taskID = id.replace(/[""]/g, '');
             boardName = board.replace(/[""]/g, '');
-            if (typeof n == "undefined") {
+
+            if (!(typeof n == "undefined")) {
+                n.textContent = null;
+                d.textContent = null;
+                dDate.textContent = null;
+                st.textContent = null;
+                sd.textContent = null;
+                ed.textContent = null;
+
+                div_show_start();
+
+                n.textContent = JSON.stringify(taskdata[i]["Name"]).replace(/[""]/g, '');
+                if (JSON.stringify(taskdata[i]["Description"]) == "null") {
+                    d.textContent = "";
+                }
+                else {
+                    d.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
+                }
+
+                newDate = new Date(JSON.stringify(taskdata[i]["dueDate"]));
+                if (newDate.getMonth() < 9 || newDate.getDate() < 10) {
+                    if (newDate.getMonth() < 9 && newDate.getDate() < 10) {
+                        dDate.textContent = "0" + newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                        + "/" + newDate.getFullYear();
+                    }
+                    else if (newDate.getMonth() >= 9 && newDate.getDate() < 10) {
+                        dDate.textContent = "0" + newDate.getDate() + "/" + (newDate.getMonth() + 1)
+                        + "/" + newDate.getFullYear();
+                    }
+                    else {
+                        dDate.textContent = newDate.getDate() + "/0" + (newDate.getMonth() + 1)
+                        + "/" + newDate.getFullYear();
+                    }
+                }
+                else {
+                    dDate.textContent = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear();
+                }
+
+                st.textContent = "Not started";
+                sd.textContent = "N/A";
+                ed.textContent = "N/A";
+
+            } else {
+
+                div_show_start();
 
                 name = document.createElement("td");
                 name.textContent = JSON.stringify(taskdata[i]["Name"]).replace(/[""]/g, '');
@@ -138,50 +183,10 @@ function showToDo(task, id, board) {
                 document.getElementsByTagName("tr").item(4).insertBefore(startDate, document.getElementsByTagName("tr").item(4).childNodes[2]);
                 document.getElementsByTagName("tr").item(5).insertBefore(endDate, document.getElementsByTagName("tr").item(5).childNodes[2]);
             }
-            else {
-                n.textContent = null;
-                d.textContent = null;
-                dDate.textContent = null;
-                st.textContent = null;
-                sd.textContent = null;
-                ed.textContent = null;
-
-                n.textContent = JSON.stringify(taskdata[i]["Name"]).replace(/[""]/g, '');
-                if (JSON.stringify(taskdata[i]["Description"]) == "null") {
-                    d.textContent = "";
-                }
-                else {
-                    d.textContent = JSON.stringify(taskdata[i]["Description"]).replace(/[""]/g, '');
-                }
-
-                newDate = new Date(JSON.stringify(taskdata[i]["dueDate"]));
-                if (newDate.getMonth() < 9 || newDate.getDate() < 10) {
-                    if (newDate.getMonth() < 9 && newDate.getDate() < 10) {
-                        dDate.textContent = "0" + newDate.getDate() + "/0" + (newDate.getMonth() + 1)
-                        + "/" + newDate.getFullYear();
-                    }
-                    else if (newDate.getMonth() >= 9 && newDate.getDate() < 10) {
-                        dDate.textContent = "0" + newDate.getDate() + "/" + (newDate.getMonth() + 1)
-                        + "/" + newDate.getFullYear();
-                    }
-                    else {
-                        dDate.textContent = newDate.getDate() + "/0" + (newDate.getMonth() + 1)
-                        + "/" + newDate.getFullYear();
-                    }
-                }
-                else {
-                    dDate.textContent = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear();
-                }
-
-                st.textContent = "Not started";
-                sd.textContent = "N/A";
-                ed.textContent = "N/A";
-
-            }
         }
     }
-    document.getElementById("form_popup").style.display = "block";
-    document.getElementById("popup_start").style.display = "block";
+    //document.getElementById("form_popup").style.display = "block";
+    //document.getElementById("popup_start").style.display = "block";
 }
 
 function showFinish(task, id, board) {
@@ -532,8 +537,19 @@ function showPending(task, id, board) {
 }
 
 function div_hide_start() {
+    document.getElementsByTagName("tr").item(0).childNodes[1].textContent = null;
+    document.getElementsByTagName("tr").item(1).childNodes[1].textContent = null;
+    document.getElementsByTagName("tr").item(2).childNodes[1].textContent = null;
+    document.getElementsByTagName("tr").item(3).childNodes[1].textContent = null;
+    document.getElementsByTagName("tr").item(4).childNodes[1].textContent = null;
+    document.getElementsByTagName("tr").item(5).childNodes[1].textContent = null;
     document.getElementById("form_popup").style.display = "none";
     document.getElementById("popup_start").style.display= "none";
+}
+
+function div_show_start() {
+    document.getElementById("form_popup").style.display = "block";
+    document.getElementById("popup_start").style.display = "block";
 }
 
 function div_hide_pending() {
