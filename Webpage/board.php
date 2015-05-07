@@ -49,7 +49,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Start Date:</th></tr>
                 <tr><th>End date:</th></tr>
                 <tr>
-                    <th><input type="image" src="/images/deleteTask.png" alt="DELETE" onclick="deleteTask(taskURL())"></th>
+                    <th><input type="image" src="/images/delete.png" alt="DELETE" onclick="deleteTask(taskURL())"></th>
                     <th><input type="image" id="startbutt" src="/images/start.png" alt="START" onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th>
                 </tr>
             </table>
