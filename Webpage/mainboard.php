@@ -12,6 +12,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <script type="text/javascript" src="js/showusername.js"></script>
     <script type="text/javascript" src="js/boardload.js"></script>
     <script type="text/javascript" src="js/getNewBoard.js"></script>
+    <script type="text/javascript" src="js/delete.js"></script>
     <title>Timeraft | Main Board</title>
 </head>
 
@@ -40,7 +41,10 @@ header('Content-Type: text/html; charset=UTF-8');
             <table>
                 <tr><th>Name:</th></tr>
                 <tr><th>Description:</th></tr>
-                <tr><th colspan="1"><input type="image" name="tasks" src="/images/showtasks.png" alt="SHOW TASKS" onclick="location.href='/board.php?tasks=' + boardURL()"></th></tr>
+                <tr>
+                    <th><input type="image" name="delBoard" src="/images/delete.png" alt="DELETE BOARD" onclick="deleteBoard(boardURL())"></th>
+                    <th><input type="image" name="tasks" src="/images/showtasks.png" alt="SHOW TASKS" onclick="location.href='/board.php?tasks=' + boardURL()"></th>
+                </tr>
             </table>
         </div>
     </div>
