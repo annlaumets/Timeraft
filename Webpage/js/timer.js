@@ -37,14 +37,14 @@ $(window).load(function() {
             data: {'taskURL': window.location.href, 'taskTime': t, 'type': 'pause'},
             success: function(data) {
                 console.log(data);
-                window.location.href = '/board.php?tasks=' + data;
+                window.location.href = '/board?tasks=' + data;
             },
             error: function() {
                 var urlArray = window.location.href.split('?');
                 var url = urlArray[1].split('&');
                 console.log("Pausi error.");
                 console.log("Time: " + sessionStorage.getItem("pauseTime?" + urlArray[1]));
-                window.location.href = '/board.php?' + url[0];
+                window.location.href = '/board?' + url[0];
             }
         })
     });
@@ -60,14 +60,14 @@ $(window).load(function() {
             url: "include/addTime.php",
             data: {'taskURL': window.location.href, 'taskTime': t, 'type': 'stop'},
             success: function(data) {
-                window.location.href = '/board.php?tasks=' + data;
+                window.location.href = '/board?tasks=' + data;
             },
             error: function() {
                 var urlArray = window.location.href.split('?');
                 var url = urlArray[1].split('&');
                 console.log("Stopi error.");
                 console.log("Time: " + sessionStorage.getItem("stopTime?" + urlArray[1]));
-                window.location.href = '/board.php?' + url[0];
+                window.location.href = '/board?' + url[0];
             }
         })
     });

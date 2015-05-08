@@ -3,7 +3,7 @@ $(window).load(function () {
     var valimine = document.getElementById("boardSelect");
     valimine.addEventListener('change', function() {
         var id = valimine.options[valimine.selectedIndex].value;
-        history.pushState(id, "Test", "/stats.php?board=" + id);
+        history.pushState(id, "Test", "/stats?board=" + id);
         canvas = document.getElementById("boardDiagram");
     });
     var all = document.createElement("option");
@@ -45,7 +45,7 @@ function checkHash() {
             return;
         }
         recentHash = hashArray[1];
-        history.pushState(hashArray[1], "Test", "/stats.php?board=" + hashArray[1]);
+        history.pushState(hashArray[1], "Test", "/stats?board=" + hashArray[1]);
         loadPage(hashArray[1]);
     }
 }

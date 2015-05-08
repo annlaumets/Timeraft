@@ -26,8 +26,8 @@ $(window).load(function () {
             document.getElementById("account").innerHTML = name.replace(/[""]/g, '') + msg.substring(i);
         },
         error: function() {
-            document.getElementById("account").innerHTML = sessionStorage.getItem("UserName") + '<ul><li><a href="/account.php">PROFILE</a></li>' +
-            '<li><a href="/settings.php">SETTINGS</a></li><li><a href="/stats.php" id="stats">STATISTICS</a></li><hr>' +
+            document.getElementById("account").innerHTML = sessionStorage.getItem("UserName") + '<ul><li><a href="/account">PROFILE</a></li>' +
+            '<li><a href="/settings">SETTINGS</a></li><li><a href="/stats" id="stats">STATISTICS</a></li><hr>' +
             '<li><a href="/include/logout.php" id="logoutBtn">LOG OUT</a></li></ul>';
         }
     });
