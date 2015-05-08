@@ -1,0 +1,25 @@
+# Adjust default time zone
+SetEnv TZ Europe/Helsinki
+
+# BEGIN EXPIRES
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/css                              "access plus 1 month"
+ExpiresByType application/javascript                "access plus 1 month"
+ExpiresByType text/javascript                       "access plus 1 month"
+ExpiresByType image/jpeg                            "access plus 1 month"
+ExpiresByType image/png                             "access plus 1 month"
+ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+</IfModule>
+# END EXPIRES
+
+<IfModule mod_rewrite.c>
+    	RewriteEngine On
+    	Options +FollowSymlinks
+    	RewriteBase /
+    	RewriteCond %{REQUEST_FILENAME} !-f
+    	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([^\.]+)$ $1.php [NC,L]
+</IfModule>
+
+AddType text/cache-manifest .appcache

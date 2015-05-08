@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <!DOCTYPE html>
-<html manifest="/cache.manifest">
+<html manifest="/cache.manifest>
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -24,10 +24,10 @@ header('Content-Type: text/html; charset=UTF-8');
     <header>
         <nav>
             <ul>
-                <li><a href="/mainboard.php">BOARDS</a></li>
+                <li><a href="/mainboard">BOARDS</a></li>
                 <li id="account"></li>
 
-                <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
+                <li><a href="/help"><img class="help" alt="HELP" src="images/help.png"></a></li>
             </ul>
         </nav>
         <img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png">
@@ -50,7 +50,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>End date:</th></tr>
                 <tr>
                     <th><input type="image" src="/images/delete.png" alt="DELETE" onclick="deleteTask(taskURL())"></th>
-                    <th><input type="image" id="startbutt" src="/images/start.png" alt="START" onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th>
+                    <th><input type="image" id="startbutt" src="/images/start.png" alt="START" onclick="location.href='/taskrunning?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th>
                 </tr>
             </table>
         </div>
@@ -69,8 +69,8 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>End date:</th></tr>
                 <tr><th>Time spent:</th></tr>
                 <tr>
-                    <th><input type="image" src="/images/deleteTask.png" alt="DELETE" onclick="deleteTask(taskURL())"></th>
-                    <th><input type="image" src="/images/continue.png" alt="CONTINUE" onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th>
+                    <th><input type="image" src="/images/delete.png" alt="DELETE" onclick="deleteTask(taskURL())"></th>
+                    <th><input type="image" src="/images/continue.png" alt="CONTINUE" onclick="location.href='/taskrunning?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th>
                 </tr>
             </table>
         </div>
@@ -88,7 +88,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Start Date:</th></tr>
                 <tr><th>End date:</th></tr>
                 <tr><th>Time spent:</th></tr>
-                <tr><th><input type="image" src="/images/deleteTask.png" alt="DELETE" onclick="deleteTask(taskURL())"></th></tr>
+                <tr><th><input type="image" src="/images/delete.png" alt="DELETE" onclick="deleteTask(taskURL())"></th></tr>
             </table>
         </div>
     </div>

@@ -30,7 +30,7 @@ if (isset($_POST["submit_x"])) {
         $_SESSION['login'] = true;
         $_SESSION['loginUser'] = $email;
         $_SESSION['UserID'] = $id['ID'];
-        header("location: /mainboard.php");
+        header("location: /mainboard");
     } else {
         // Better error handling here ?
         die("Signup error, Andre viga");

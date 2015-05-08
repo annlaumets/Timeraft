@@ -18,9 +18,9 @@ header('Content-Type: text/html; charset=UTF-8');
     <header>
         <nav>
             <ul>
-                <li><a href="/mainboard.php">BOARDS</a></li>
+                <li><a href="/mainboard">BOARDS</a></li>
                 <li id="account"></li>
-                <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
+                <li><a href="/help"><img class="help" alt="HELP" src="images/help.png"></a></li>
             </ul>
         </nav>
         <img class="logo" alt="TIMERAFT" src="/images/timeraftlogo-white.png">
