@@ -27,7 +27,9 @@ function loadTask() {
         dataType: "json",
         data: {'boardURL': window.location.href},
         success: function (data) {
+            taskdata.length = 0;
             taskdata.push.apply(taskdata, data);
+            console.log("Data2: " + taskdata);
             var url = window.location.href.split('?')[1];
             sessionStorage.setItem(url, JSON.stringify(data));
             addTime(data.length);
@@ -43,7 +45,6 @@ function loadTask() {
 }
 
 function showBoards(data) {
-    console.log("Data: " + data);
     if (data.length != 0) {
         for (var i = 0; i < data.length; i++) {
             var p = document.createElement("p");
