@@ -8,8 +8,8 @@ function delete_board($conn, $user_ID, $board_name) {
     $delete->execute();
 }
 
-function delete_task($conn, $user_ID, $taskID) {
-    $delete = $conn->prepare("CALL sp_deleteTask('$user_ID', '$taskID')");
+function delete_task($conn, $taskID) {
+    $delete = $conn->prepare("CALL sp_deleteTask('$taskID')");
     $delete->execute();
 }
 
@@ -21,6 +21,6 @@ if (isset($_POST['type'])) {
         delete_board($conn, $user_ID, $board_name);
     } elseif ($_POST['type'] == 'task' && isset($_POST['name'])) {
         $task_ID = $_POST['name'];
-        delete_task($conn, $user_ID, $task_ID);
+        delete_task($conn, $task_ID);
     }
 }
