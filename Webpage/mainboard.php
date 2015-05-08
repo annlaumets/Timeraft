@@ -42,7 +42,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Name:</th></tr>
                 <tr><th>Description:</th></tr>
                 <tr>
-                    <th><input style="width: 25px" type="image" name="delBoard" src="/images/delete.png" alt="DELETE BOARD" onclick="deleteBoard(boardURL())"></th>
+                    <th><input type="image" name="delBoard" src="/images/delete.png" alt="DELETE BOARD" onclick="deleteBoard(boardURL())"></th>
                     <th><input type="image" name="tasks" src="/images/showtasks.png" alt="SHOW TASKS" onclick="location.href='/board.php?tasks=' + boardURL()"></th>
                 </tr>
             </table>
@@ -56,7 +56,7 @@ header('Content-Type: text/html; charset=UTF-8');
             <table>
                 <tr><th>Name:</th><td><label><input name="name" type="text" size="20" required></label></td></tr>
                 <tr><th>Description:</th><td><label><textarea name="desc" cols="18" rows="4"></textarea></label></td></tr>
-                <tr><td colspan="2"><input name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newBoard"></td></tr>
+                <tr><th colspan="2"><input name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newBoard"></th></tr>
             </table>
         </form>
     </div>

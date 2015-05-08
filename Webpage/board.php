@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <!DOCTYPE html>
-<html manifest="/cache.manifest">
+<html>
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -69,7 +69,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>End date:</th></tr>
                 <tr><th>Time spent:</th></tr>
                 <tr>
-                    <th><input type="image" src="/images/deleteTask.png" alt="DELETE" onclick="deleteTask(taskURL())"></th>
+                    <th><input type="image" src="/images/delete.png" alt="DELETE" onclick="deleteTask(taskURL())"></th>
                     <th><input type="image" src="/images/continue.png" alt="CONTINUE" onclick="location.href='/taskrunning.php?tasks=' + boardURL() + '&amp;taskID=' + taskURL()"></th>
                 </tr>
             </table>
@@ -88,7 +88,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Start Date:</th></tr>
                 <tr><th>End date:</th></tr>
                 <tr><th>Time spent:</th></tr>
-                <tr><th><input type="image" src="/images/deleteTask.png" alt="DELETE" onclick="deleteTask(taskURL())"></th></tr>
+                <tr><th><input type="image" src="/images/delete.png" alt="DELETE" onclick="deleteTask(taskURL())"></th></tr>
             </table>
         </div>
     </div>
