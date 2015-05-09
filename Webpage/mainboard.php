@@ -42,7 +42,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Name:</th></tr>
                 <tr><th>Description:</th></tr>
                 <tr>
-                    <th><input style="width: 25px" type="image" name="delBoard" src="/images/delete.png" alt="DELETE BOARD" onclick="deleteBoard(boardURL())"></th>
+                    <th><input type="image" name="delBoard" src="/images/delete.png" alt="DELETE BOARD" onclick="deleteBoard(boardURL())"></th>
                     <th><input type="image" name="tasks" src="/images/showtasks.png" alt="SHOW TASKS" onclick="location.href='/board?tasks=' + boardURL()"></th>
                 </tr>
             </table>
