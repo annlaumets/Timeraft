@@ -21,9 +21,9 @@ header('Content-Type: text/html; charset=UTF-8');
     <header>
         <nav>
             <ul>
-                <li><a href="/mainboard">BOARDS</a></li>
+                <li><a href="/mainboard.php">BOARDS</a></li>
                 <li id="account"></li>
-                <li><a href="/help"><img class="help" alt="HELP" src="images/help.png"></a></li>
+                <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
             </ul>
         </nav>
         <img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png">
@@ -43,7 +43,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Description:</th></tr>
                 <tr>
                     <th><input type="image" name="delBoard" src="/images/delete.png" alt="DELETE BOARD" onclick="deleteBoard(boardURL())"></th>
-                    <th><input type="image" name="tasks" src="/images/showtasks.png" alt="SHOW TASKS" onclick="location.href='/board?tasks=' + boardURL()"></th>
+                    <th><input type="image" name="tasks" src="/images/showtasks.png" alt="SHOW TASKS" onclick="location.href='/board.php?tasks=' + boardURL()"></th>
                 </tr>
             </table>
         </div>

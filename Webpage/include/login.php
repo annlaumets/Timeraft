@@ -5,7 +5,7 @@ session_start();
 require("db_connection.php");
 
 if (isset($_SESSION['login'])) {
-    header("location: /mainboard");
+    header("location: /mainboard.php");
     exit;
 }
 
@@ -33,7 +33,7 @@ if (isset($_POST["submit_x"])) {
             if ($redirectURL) {
                 header("Location:" . $redirectURL);
             } else {
-                header("Location: /mainboard");
+                header("Location: /mainboard.php");
             }
             exit;
         } else {
