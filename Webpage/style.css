@@ -655,7 +655,6 @@ div.datacontainer {
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
 }
 
 @media (max-width: 550px) {
