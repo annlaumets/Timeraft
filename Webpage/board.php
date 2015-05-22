@@ -7,7 +7,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
     <script src="/lib/jquery-1.11.2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/lib/jquery-ui-themes-1.11.3/themes/smoothness/jquery-ui.css" media="all">
     <script src="/lib/jquery-ui-1.11.2/jquery-ui.min.js"></script>

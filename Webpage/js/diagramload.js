@@ -33,6 +33,7 @@ $(window).load(function () {
             console.log("Diagramload.js boardide lugemine andmebaasist error KAKS.");
         }
     });
+    loadPage(0);
 });
 
 var recentHash = "";
@@ -57,7 +58,6 @@ function loadPage(id) {
         data: {"boardID":id},
         success: function(data) {
             var valimine = document.getElementById("boardSelect");
-            valimine.selectedIndex = id;
 
             var data2 = JSON.parse(data);
             sessionStorage.setItem("Stats?id=" + id, data2);

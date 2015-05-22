@@ -26,6 +26,34 @@ header('Content-Type: text/html; charset=UTF-8');
         <img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png">
     </header>
 </section>
-<div class="main-body"></div>
+
+<div class="main-body">
+    <form id="changeSettings" action="/include/upload.php" method="post" enctype="multipart/form-data">
+        <table id="tableSettings">
+            <tr>
+                <td>Select image to upload:</td>
+                <td><a href="#" onclick="document.getElementById('fileID').click(); return false;" /><img src=""></a>
+                    <input type="file" name="picChange" id="fileID"></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="nameChange"></label></td>
+            </tr>
+            <tr>
+                <td>Biography:</td>
+                <td><input type="text" name="bioChange"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="passwordChange"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" name="Submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <!--nime, parooli ja lühitutvustust-->
+</div>
+
 </body>
 </html>
