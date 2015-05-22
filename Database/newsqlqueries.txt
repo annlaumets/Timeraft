@@ -1,6 +1,27 @@
-DELIMITER //
+DROP PROCEDURE IF EXISTS sp_getUserId;
+CREATE DELIMITER //
+
 CREATE PROCEDURE sp_getUserId(IN in_email VARCHAR(50), OUT out_id INT(11))
 BEGIN
-SELECT ID FROM Users WHERE email = in_email INTO out_id;
+SELECT ID FROM Users WHERE email = in_email AND facebook_uid = null INTO out_id;
 END //
 
+DROP PROCEDURE IF EXISTS sp_delUser;
+
+DELIMITER //
+CREATE PROCEDURE sp_delUser(IN in_email VARCHAR(50))
+BEGIN
+CALL sp_getUserId(in_email, @userid);
+DELETE FROM Task USING Task, Board WHERE Task.Board_ID = Board.ID AND Board.Owner_ID = @userid;
+DELETE FROM Board WHERE Board.Owner_ID = @userid;
+DELETE FROM Users WHERE Id = @userid;
+END //
+
+
+CREATE DELIMITER //
+
+CREATE PROCEDURE sp_updateUserInfo(IN in_userID INT(11), IN in_newName VARCHAR(50), 
+IN in_newPassword VARCHAR(50), IN in_newBio VARCHAR(1000))
+BEGIN
+UPDATE Users SET Name = in_newName, Password = in_newPassword, Bio = in_newBio WHERE ID = in_userID;
+END //
