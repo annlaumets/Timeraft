@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <!DOCTYPE html>
-<html>
+<html manifest="/cache.manifest">
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -56,7 +56,7 @@ header('Content-Type: text/html; charset=UTF-8');
             <table>
                 <tr><th>Name:</th><td><label><input name="name" type="text" size="20" required></label></td></tr>
                 <tr><th>Description:</th><td><label><textarea name="desc" cols="18" rows="4"></textarea></label></td></tr>
-                <tr><th colspan="2"><input name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newBoard"></th></tr>
+                <tr><td colspan="2"><input name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newBoard"></td></tr>
             </table>
         </form>
     </div>

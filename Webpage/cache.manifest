@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#rev 25
+#rev 26
 
 NETWORK:
 /include/addBoard.php
@@ -21,6 +21,7 @@ NETWORK:
 /js/loginproov.js
 /js/getNewBoard.js
 /js/getNewTask.js
+/js/delete.js
 
 
 CACHE:
@@ -47,6 +48,7 @@ CACHE:
 /images/signup.png
 /images/start.png
 /images/stop.png
+/images/delete.png
 /images/timeraftlogo.png
 /images/timeraftlogo-white.png
 /lib/sanchez/Sanchezregular.otf
