@@ -32,7 +32,7 @@ header('Content-Type: text/html; charset=UTF-8');
         <table id="tableSettings">
             <tr>
                 <td>Select image to upload:</td>
-                <td><a href="#" onclick="document.getElementById('fileID').click(); return false;" /><img src=""></a>
+                <td><a href="#" onclick="document.getElementById('fileID').click(); return false;" /><img alt="choose file" src="/images/choosefile.png"></a>
                     <input type="file" name="picChange" id="fileID"></td>
             </tr>
             <tr>
