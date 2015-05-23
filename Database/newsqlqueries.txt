@@ -25,3 +25,18 @@ IN in_newPassword VARCHAR(50), IN in_newBio VARCHAR(1000))
 BEGIN
 UPDATE Users SET Name = in_newName, Password = in_newPassword, Bio = in_newBio WHERE ID = in_userID;
 END //
+
+DROP PROCEDURE IF EXISTS add_user;
+DELIMITER //
+
+CREATE PROCEDURE sp_add_user(IN name varchar(50), 
+IN password varchar(255), IN email varchar(50))
+BEGIN
+insert into Users(Name, Password, Email, Time_Created) 
+values(name, password, email, current_timestamp());
+END //
+
+CREATE PROCEDURE sp_reHash_change_passw(IN in_newPassword varchar(255), IN in_userID INTEGER(11))
+BEGIN
+UPDATE Users SET Password = in_newPassword WHERE ID = in_userID;
+END //

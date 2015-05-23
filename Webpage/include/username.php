@@ -2,8 +2,10 @@
 session_start();
 require("db_connection.php");
 
-$checkUser = $_SESSION['loginUser'];
-$checkStmt = $conn->query("SELECT Name FROM Users WHERE Email = '$checkUser'");
+$sessUserId = $_SESSION['UserID'];
+
+$checkStmt = $conn->prepare("SELECT Name FROM Users WHERE ID = :uid");
+$checkStmt -> execute(array('uid' => $sessUserId));
 $session = $checkStmt->fetch(PDO::FETCH_ASSOC);
 
 if($_SESSION['login'] && !empty($session)) {
