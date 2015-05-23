@@ -1,7 +1,6 @@
 <?php
 // Just a script to go over all lines and update passwords
-
-session_start();
+// Can't run this, have to change location. 
 require("db_connection.php");
 
 function cryptpw($password) {
