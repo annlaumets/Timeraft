@@ -32,7 +32,8 @@ function loadTask() {
             console.log("Data2: " + taskdata);
             var url = window.location.href.split('?')[1];
             sessionStorage.setItem(url, JSON.stringify(data));
-            addTime(data.length);
+            addTime(data.length); //TODO: nii, et lisaks aja ära ja siis võtaks uued andmed.
+            formatDates();
             $("div.boardpcontainer").empty();
             showBoards(data);
         },
@@ -428,6 +429,24 @@ function addTime(len) {
                 }
                 sessionStorage.removeItem(sessionStorage.key(i));
             }
+        }
+    }
+}
+
+function formatDates() {
+    console.log(JSON.stringify(taskdata));
+    for (var j = 0; j < taskdata.length; j++) {
+        var dateDue = new Date(taskdata[j]["dueDate"]);
+        taskdata[j]["dueDate"] = dateDue.getDate() + "/" + (dateDue.getMonth() + 1) + "/" + dateDue.getFullYear();
+        console.log(taskdata[j]["dueDate"]);
+
+        if (taskdata[j]["Task_Type"] == "Pending" || taskdata[j]["Task_Type"] == "Finished") {
+            var dateStart = new Date(taskdata[j]["startDate"]);
+            taskdata[j]["startDate"] = dateStart.getDate() + "/" + (dateStart.getMonth() + 1) + "/" + dateStart.getFullYear();
+        }
+        if (taskdata[j]["Task_Type"] == "Finished") {
+            var dateEnd = new Date(taskdata[j]["endDate"]);
+            taskdata[j]["endDate"] = dateEnd.getDate() + "/" + (dateEnd.getMonth() + 1) + "/" + dateEnd.getFullYear();
         }
     }
 }

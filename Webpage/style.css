@@ -49,11 +49,14 @@ img#mainpage-logo {
 }
 
 .logo {
-    height: 30px;
-    width: auto;
+    height: auto;
+    width: 200px;
+    min-width: 100px;
+    max-width: 250px;
     position: absolute;
     top: 15px;
-    left: 40%;
+    /*left: 40%;*/
+    right: 40%;
 }
 
 /*Navigation menu*/
@@ -79,16 +82,15 @@ nav li:nth-child(1) {
     padding: 21px 80px 20px 25px;
 }
 
-nav li:nth-child(2) {
+nav li:nth-child(3) {
     float: right;
     padding: 21px 25px 20px 30px;
     position: relative;
-
 }
-
-nav li:nth-child(3) {
-    padding: 15px 20px 10px 80px;
+nav li:nth-child(4) {
     float: right;
+    padding: 15px 25px 15px 30px;
+    position: relative;
 }
 
 nav ul {
@@ -189,9 +191,8 @@ p {
     position: fixed;
     left: 50%;
     right: auto;
-    top: 50%;
+    top: 17%;
     margin-left: -125px;
-    margin-top: -125px;
     opacity: 1;
     z-index: 10000;
     display: none;
@@ -399,10 +400,9 @@ div.main-body .board .maincontainer .listplus .boardpcontainerplus{
     position: fixed;
     left: 50%;
     right: auto;
-    top: 50%;
+    top: 17%;
     bottom: auto;
     margin-left: -185px;
-    margin-top: -150px;
     opacity: 1;
     z-index: 1;
     display: none;
@@ -411,7 +411,7 @@ div.main-body .board .maincontainer .listplus .boardpcontainerplus{
 /*Inside popup (defines white background)*/
 div.boarddesc {
     max-width: 350px;
-    min-width: 200px;
+    min-width: 100px;
     padding: 10px 15px;
     border: 2px solid gray;
     border-radius: 10px;
@@ -420,7 +420,7 @@ div.boarddesc {
 
 form#form_newboard, form#form_newtask {
     max-width: 350px;
-    min-width: 200px;
+    min-width: 100px;
     padding: 10px 15px;
     border: 2px solid gray;
     border-radius: 10px;
@@ -429,20 +429,18 @@ form#form_newboard, form#form_newtask {
 
 #form_newtask table, #form_newboard table, div.boarddesc table {
     margin: 0 auto;
-    border: 1px black solid;
     table-layout: fixed;
 }
 
 div.boarddesc table td, div.boarddesc table th {
     padding-top: 5px;
     padding-bottom: 5px;
-    border: 1px black solid;
 }
 
 /*Closing buttons on popups*/
 #popup_desc img#close_desc, #popup_newdesc img#close_newdesc, #popup_start img#close_start,
 #popup_newdesc img#close_newtask, #popup_pending img#close_pend, #popup_finish img#close_finish {
-    width: 5%;
+    width: 19px;
     position: absolute;
     right: -2px;
     top: -2px;
@@ -660,6 +658,8 @@ form#changeSettings {
 
 input#fileID {
     visibility: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 table#tableSettings {
@@ -672,6 +672,11 @@ table#tableSettings {
 
 table#tableSettings tr {
     border: 1px double blue !important;
+}
+
+img#imgChange {
+    padding: 10px;
+    vertical-align: middle;
 }
 
 
@@ -695,7 +700,8 @@ table#tableSettings tr {
     -ms-user-select: none;
 }
 
-@media (max-width: 550px) {
+/* Tekitab probleemi, et headeri section tõmbab imelikult kokku */
+/*@media (max-width: 550px) {
     body {
         box-sizing: border-box;
         transform: translate(0, 0);
@@ -704,7 +710,7 @@ table#tableSettings tr {
         margin: 0;
         left: 0;
     }
-}
+}*/
 
 .h2help {
     font-size: 23px;
@@ -756,6 +762,30 @@ ul#accordion li:nth-of-type(2) {
 }
 ul#accordion li:nth-of-type(3) {
     animation-delay: 1s;
+}
+
+ul#accordion li:nth-of-type(4) {
+     animation-delay: 1.25s;
+}
+
+ul#accordion li:nth-of-type(5) {
+    animation-delay: 1.5s;
+}
+
+ul#accordion li:nth-of-type(6) {
+    animation-delay: 1.75s;
+}
+
+ul#accordion li:nth-of-type(7) {
+    animation-delay: 2s;
+}
+
+ul#accordion li:nth-of-type(8) {
+    animation-delay: 2.25s;
+}
+
+ul#accordion li:nth-of-type(9) {
+    animation-delay: 2.5s;
 }
 
 ul#accordion li i {
@@ -820,4 +850,18 @@ ul#accordion li input.helpinput[type=checkbox]:checked ~ i:after {
         transform-origin: top center;
         transform: rotateX(0deg);
     }
+}
+
+/*--- Statictics diagram ---*/
+canvas#diagramCanvas {
+    margin: 50px auto 20px auto;
+    padding: 5px;
+}
+
+select#boardSelect {
+    margin: 10px auto 20px auto;
+    padding: 5px;
+    font-family: "Sanchez", serif;
+    /*border: 1px black solid;*/
+    border-radius: 8px;
 }

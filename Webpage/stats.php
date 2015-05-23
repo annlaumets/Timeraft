@@ -19,19 +19,18 @@ header('Content-Type: text/html; charset=UTF-8');
         <nav>
             <ul>
                 <li><a href="/mainboard.php" id="gotoMain">BOARDS</a></li>
+                <img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png">
                 <li id="account"></li>
-
                 <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
             </ul>
         </nav>
-        <img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png">
     </header>
 </section>
 
 <div class="main-body">
-    <select id="boardSelect">
-    </select>
-    <canvas id="diagramCanvas" height="400" width="400" style="float: left"></canvas>
+    <canvas id="diagramCanvas" height="400" width="400"></canvas>
+    <br>
+    <select id="boardSelect"></select>
 </div>
 
 </body>

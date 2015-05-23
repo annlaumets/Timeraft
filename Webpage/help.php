@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <!DOCTYPE html>
-<html manifest="/cache.manifest">
+<html>
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -19,11 +19,11 @@ header('Content-Type: text/html; charset=UTF-8');
         <nav>
             <ul>
                 <li><a href="/mainboard.php">BOARDS</a></li>
+                <img class="logo" alt="TIMERAFT" src="/images/timeraftlogo-white.png">
                 <li id="account"></li>
                 <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
             </ul>
         </nav>
-        <img class="logo" alt="TIMERAFT" src="/images/timeraftlogo-white.png">
     </header>
 </section>
 
