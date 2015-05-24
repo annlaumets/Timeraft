@@ -87,7 +87,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Start Date:</th></tr>
                 <tr><th>End date:</th></tr>
                 <tr><th>Time spent:</th></tr>
-                <tr><th colspan="2"><input type="image" src="/images/delete.png" alt="DELETE" onclick="deleteTask(taskURL())"></th></tr>
+                <tr><td><input type="image" src="/images/delete.png" alt="DELETE" onclick="deleteTask(taskURL())"></td></tr>
             </table>
         </div>
     </div>
@@ -97,13 +97,13 @@ header('Content-Type: text/html; charset=UTF-8');
         <form accept-charset="utf-8" action="/include/addTask.php" id="form_newtask" method="post" name="form_task">
             <img id="close_newtask" alt="X" src="images/close.png" onclick="div_hide_new()">
             <table>
-                <tr><th>Name:</th><td><label><input name="name" type="text" size="20" required></label></td></tr>
-                <tr><th>Description:</th><td><label><textarea name="desc" cols="18" rows="4"></textarea></label></td></tr>
-                <tr><th>Due date:</th><td><label><input type="text" name="DueDate" id="datepick" required></label></td></tr>
+                <tr><th>Name:</th><td><input name="name" type="text" size="20" required></td></tr>
+                <tr><th>Description:</th><td><textarea name="desc" cols="18" rows="4"></textarea></td></tr>
+                <tr><th>Due date:</th><td><input type="text" name="DueDate" id="datepick" required></td></tr>
                 <tr><td colspan="2"><input name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newTask"></td></tr>
+                <tr><td><input type="hidden" name="tasks"
+                               value="<?php if (isset($_GET['tasks'])) echo htmlspecialchars($_GET['tasks']); ?>"></td></tr>
             </table>
-            <input type="hidden" name="tasks"
-                   value="<?php if (isset($_GET['tasks'])) echo htmlspecialchars($_GET['tasks']); ?>">
         </form>
     </div>
 
