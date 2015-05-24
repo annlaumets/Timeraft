@@ -14,18 +14,18 @@ if (isset($_POST)) {
     $loginStmt->execute(array('uid' => $_SESSION['UserID']));
     $result = $loginStmt->fetch(PDO::FETCH_ASSOC);
 
-    if (password_verify($_POST['oldPassword'], $result['Password'])){
-        if ($_POST['newPassword1']=="") {
+    if (password_verify($_POST['oldpw'], $result['Password'])){
+        if ($_POST['newpw1']=="") {
             $cpass = $result['Password'];
         } else {
-            if ($_POST['newPassword1']===$_POST['newPassword2']){
-                $cpass = cryptpw($_POST['newPassword1']);
+            if ($_POST['newpw1']===$_POST['newpw2']){
+                $cpass = cryptpw($_POST['newpw1']);
             } else {
                 die("newPassword1 and newPassword2 are not equal.");
             }
         }
         $user_ID = $_SESSION['UserID'];
-        updateUserInfo($conn, $user_ID, $_POST['userId'], $_POST['newName'], $cpass, $_POST['newBio']);
+        updateUserInfo($conn, $user_ID, $_POST['nameChange'], $cpass, $_POST['bioChange']);
     } else {
         die("Old password was wrong");
     }
