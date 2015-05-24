@@ -15,21 +15,21 @@ function cryptpw($password) {
 function updateUserInfo($conn, $userID, $newName, $newPassword, $newBio, $filePath) {
     $updateStmt = $conn->prepare("CALL sp_updateUserInfo(:userId, :newName, :newPw, :newBio, :filepath)");
     $updateStmt->execute(array('userId' => $userID, 'newName' => $newName, 'newPw' => $newPassword, 'newBio' => $newBio, 'filepath' => $filePath));
-    file_put_contents("file4.txt", $userID. $newName. $newPassword. $newBio. $filePath, FILE_APPEND);
+    file_put_contents("file4.txt", $filePath, FILE_APPEND);
 }
 
 function uploadFile($file) {
     // Praegu toetame ainult png faile. Lisaks määrame nimeks userid + .png
     // Peab uurima, kas see turvaline või mitte -> Eeldus, et pigem on
     file_put_contents("file.txt", $file["name"], FILE_APPEND);
-    $target_dir = "/var/www/uploads/";
-    $target_file = $target_dir . $_SESSION['UserID'].'png';
+    $target_dir = "/var/www/html/timeraft/Webpage/images/uploads/";
+    $target_file = $target_dir . $_SESSION['UserID'].'.png';
     $uploadOk = 1;
-    $imageFileType = pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION);
+    $imageFileType = pathinfo($_FILES["fileChange"]["name"],PATHINFO_EXTENSION);
     // Check if image file is a actual image or fake image
-    if(!empty($_FILES["uploaded_file"]) && ($_FILES['uploaded_file']['error'] == 0)) {
-        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-        $check2 = is_image($_FILES["fileToUpload"]["tmp_name"]);
+    if(!empty($_FILES["fileChange"]) && ($_FILES['fileChange']['error'] == 0)) {
+        $check = getimagesize($_FILES["fileChange"]["tmp_name"]);
+        $check2 = is_image($_FILES["fileChange"]["tmp_name"]);
         if($check !== false && $check2 !== false) {
             echo "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
@@ -40,12 +40,13 @@ function uploadFile($file) {
     }
 
     // Check file size - 1million Byte on siis limiit hetkel
-    if ($_FILES["fileToUpload"]["size"] > 1000000) {
+    if ($_FILES["fileChange"]["size"] > 1000000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
     // Allow certain file formats, doublecheck, but its ok
-    if($imageFileType != "png") {
+    if($imageFileType != "png" && $imageFileType != "PNG") {
+        file_put_contents("file3.txt", "imagefiletype: ". $imageFileType, FILE_APPEND);
         echo "Sorry, only PNG files are allowed.";
         $uploadOk = 0;
     }
@@ -54,11 +55,13 @@ function uploadFile($file) {
         echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+        if (move_uploaded_file($_FILES["fileChange"]["tmp_name"], $target_file)) {
+            echo "The file ". basename( $_FILES["fileChange"]["name"]). " has been uploaded.";
+            file_put_contents("file3.txt", $target_file, FILE_APPEND);
             return $target_file;
         } else {
             echo "Sorry, there was an error uploading your file.";
+            die();
         }
     }
 }
@@ -89,10 +92,11 @@ if (isset($_POST)) {
                 die("newPassword1 and newPassword2 are not equal.");
             }
         }
-        file_put_contents("file2.txt", $result["Filepath"], FILE_APPEND);
+        file_put_contents("file2.txt", $_FILES["fileChange"]["name"], FILE_APPEND);
         $user_ID = $_SESSION['UserID'];
-        if ($_FILES["picChange"]["name"] !== "") {
-            $newFile = uploadFile($_FILES["fileToUpload"]);
+        if ($_FILES["fileChange"]["name"] !== "") {
+            echo $_FILES["fileChange"]["name"];
+            $newFile = uploadFile($_FILES["fileChange"]);
         } else {
             $newFile = $result["Filepath"];
         }
