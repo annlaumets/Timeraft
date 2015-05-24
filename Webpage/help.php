@@ -96,10 +96,34 @@ header('Content-Type: text/html; charset=UTF-8');
         <li>
             <input class="helpinput" type="checkbox" checked>
             <i></i>
+            <h2 class="h2help">How do I continue a task?</h2>
+            <p class="phelp">1. Make sure you are on your selected board's task page<br>
+                2. Click on a task in "Pending" column that you want to continue<br>
+                3. Click "Continue" button</p>
+        </li>
+        <li>
+            <input class="helpinput" type="checkbox" checked>
+            <i></i>
             <h2 class="h2help">How do I finish a task?</h2>
             <p class="phelp">1. Make sure you are on a timer page<br>
                 2. Click on a stop (square) button<br>
                 3. You will be redirected back to your task page and the stopped task should be in the "Finished" column</p>
+        </li>
+        <li>
+            <input class="helpinput" type="checkbox" checked>
+            <i></i>
+            <h2 class="h2help">Where do I see my stats?</h2>
+            <p class="phelp">1. Point your cursor on your name in upper right corner<br>
+                2. From the drop-down menu select "Statistics"<br>
+                3. On your stats page you will see a pie chart for all boards you have. To see stats for a specific board choose the one you want from the drop-down menu under the chart</p>
+        </li>
+        <li>
+            <input class="helpinput" type="checkbox" checked>
+            <i></i>
+            <h2 class="h2help">How do I change my password/name/... ?</h2>
+            <p class="phelp">1. Point your cursor on your name in upper right corner<br>
+                2. From the drop-down menu select "Settings"<br>
+                3. Make all the changes you want and click "Change account" button</p>
         </li>
     </ul>
 </div>
