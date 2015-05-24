@@ -9,9 +9,9 @@ $(window).load(function() {
         data: {settings: true},
         success: function (data) {
             console.log(data);
-            document.getElementById("nameChange").value = data['Name'];
+            document.getElementById("nameID").value = data['Name'];
             if (data['Bio'] != null) {
-                document.getElementById("bioChange").value = data['Bio'];
+                document.getElementById("bioID").value = data['Bio'];
             }
         }
     })

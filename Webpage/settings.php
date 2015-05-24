@@ -26,16 +26,19 @@ header('Content-Type: text/html; charset=UTF-8');
             </ul>
         </nav>
     </header>
-</section>
+</section>;
 
 <div class="main-body">
     <form id="changeSettings" action="/include/updateUserInfo.php" method="post" enctype="multipart/form-data">
         <table id="tableSettings">
             <tr>
                 <td>Select image to upload:</td>
-                <td><a href="#" onclick="document.getElementById('fileID').click(); return false;">
-                    <img id="imgChange" alt="choose file" src="/images/choosefile.png"></a>
-                    <input type="file" name="picChange" id="fileID"></td>
+                <td><div id="picUpload">
+                        <input type="file" id="fileID" name="fileChange">
+                    </div>
+                    <input type="image" id="imgClicktoUpload" src="/images/choosefile.png" alt="Choose file"
+                        onclick="document.getElementById('fileID').click(); return false;">
+                </td>
             </tr>
             <tr>
                 <td>Name:</td>
@@ -53,11 +56,14 @@ header('Content-Type: text/html; charset=UTF-8');
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input type="password" name="oldpw" id="oldpwID"
+                <td colspan="2">To apply changes, please type in your password. <br>
+                    In case you want to change the password, type in your old password. <br>
+                    <br>
+                    <input type="password" name="oldpw" id="oldpwID"
                                        placeholder="Please insert old password" required="required"></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="image" name="Submit" value="Submit" src="/images/changeaccount.png"></td>
+                <td colspan="2"><input type="image" name="Submit" src="/images/changeaccount.png" alt="Change account"></td>
             </tr>
         </table>
     </form>

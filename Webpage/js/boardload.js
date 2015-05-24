@@ -37,6 +37,18 @@ function loadBoards(data) {
 
             list.className = "list";
             boardpcontainer.className = "boardpcontainer";
+            if (window.innerWidth < 340) {
+                document.body.getElementsByClassName("maincontainer").item(0).style.paddingTop = "125px";
+                document.body.getElementsByClassName("maincontainer").item(1).style.paddingTop = "125px";
+            }
+            else if (window.innerWidth < 526 && window.innerHeight >=340) {
+                document.body.getElementsByClassName("maincontainer").item(0).style.paddingTop = "50px";
+                document.body.getElementsByClassName("maincontainer").item(1).style.paddingTop = "50px";
+            }
+            else {
+                document.body.getElementsByClassName("maincontainer").item(0).style.paddingTop = "10px";
+                document.body.getElementsByClassName("maincontainer").item(1).style.paddingTop = "10px";
+            }
 
             if (i < data.length / 2) {
                 document.body.getElementsByClassName("maincontainer").item(0).appendChild(list);

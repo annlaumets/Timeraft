@@ -66,8 +66,8 @@ function loadPage(id) {
             var width = window.innerWidth;
             var height = window.innerHeight;
             console.log("Width: " + width + ", Height: " + height);
-            canvas.width  = width / 2.25;
-            canvas.height = height / 1.25;
+            canvas.width  = width / 3;
+            canvas.height = height / 1.5;
 
             var sum = 0;
             for (var i = 0; i < data2.length; i++) {

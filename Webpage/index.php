@@ -20,8 +20,8 @@ header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
         <a href=#1><img class="logo-main" alt="TIMERAFT" src="images/timeraftlogo-white.png"/></a>
         <nav>
             <ul class="ul2">
-                <li class="li2"><a href=#2>FEATURES</a></li>
-                <li class="li2"><a href=#3>ABOUT US</a></li>
+                <li id="li2"><a href=#2>FEATURES</a></li>
+                <li id="li3"><a href=#3>ABOUT US</a></li>
             </ul>
         </nav>
     </header>
