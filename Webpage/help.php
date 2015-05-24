@@ -64,31 +64,42 @@ header('Content-Type: text/html; charset=UTF-8');
             <input class="helpinput" type="checkbox" checked>
             <i></i>
             <h2 class="h2help">How do I add a new task?</h2>
-            <p class="phelp">...</p>
+            <p class="phelp">1. Make sure you are on your selected board's task page<br>
+                2. Locate the plus ("+") button next to "To do" and click it<br>
+                3. In a pop-up form fill out the fields. You have to add a task name and choose due date, description is not required<br>
+                4. Click "Create" button</p>
         </li>
         <li>
             <input class="helpinput" type="checkbox" checked>
             <i></i>
             <h2 class="h2help">How do I delete a task?</h2>
-            <p class="phelp">...</p>
+            <p class="phelp">1. Make sure you are on your selected board's task page<br>
+                2. Click on a task you want to delete<br>
+                3. In a pop-up form click "Delete" button</p>
         </li>
         <li>
             <input class="helpinput" type="checkbox" checked>
             <i></i>
             <h2 class="h2help">How do I start a task?</h2>
-            <p class="phelp">...</p>
+            <p class="phelp">1. Make sure you are on your selected board's task page<br>
+                2. Click on a task you want to start in a "To do" column<br>
+                3. In a pop-up form click "Start" button. You will be redirected to another page</p>
         </li>
         <li>
             <input class="helpinput" type="checkbox" checked>
             <i></i>
             <h2 class="h2help">How do I pause a task?</h2>
-            <p class="phelp">...</p>
+            <p class="phelp">1. Make sure you are on a timer page<br>
+                2. Click on a pause ("II") button<br>
+                3. You will be redirected back to your task page and the paused task should be in the "Pending" column</p>
         </li>
         <li>
             <input class="helpinput" type="checkbox" checked>
             <i></i>
             <h2 class="h2help">How do I finish a task?</h2>
-            <p class="phelp">...</p>
+            <p class="phelp">1. Make sure you are on a timer page<br>
+                2. Click on a stop (square) button<br>
+                3. You will be redirected back to your task page and the stopped task should be in the "Finished" column</p>
         </li>
     </ul>
 </div>
