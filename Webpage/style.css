@@ -788,6 +788,18 @@ ul#accordion li:nth-of-type(9) {
     animation-delay: 2.5s;
 }
 
+ul#accordion li:nth-of-type(10) {
+    animation-delay: 2.75s;
+}
+
+ul#accordion li:nth-of-type(11) {
+    animation-delay: 3s;
+}
+
+ul#accordion li:nth-of-type(12) {
+    animation-delay: 3.25s;
+}
+
 ul#accordion li i {
     position: absolute;
     transform: translate(-6px, 0);
