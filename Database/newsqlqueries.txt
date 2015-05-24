@@ -40,3 +40,15 @@ CREATE PROCEDURE sp_reHash_change_passw(IN in_newPassword varchar(255), IN in_us
 BEGIN
 UPDATE Users SET Password = in_newPassword WHERE ID = in_userID;
 END //
+
+ALTER TABLE Users ADD Filepath VARCHAR(50);
+
+DROP PROCEDURE IF EXISTS sp_updateUserInfo;
+DELIMITER //
+CREATE PROCEDURE sp_updateUserInfo(IN in_userID INT(11), IN in_newName VARCHAR(50), 
+IN in_newPassword VARCHAR(50), IN in_newBio VARCHAR(1000), IN in_filepath VARCHAR(50))
+BEGIN
+UPDATE Users SET Name = in_newName, Password = in_newPassword, 
+Bio = in_newBio, Filepath = in_filepath WHERE ID = in_userID;
+END //
+
