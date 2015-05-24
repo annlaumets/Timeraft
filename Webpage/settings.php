@@ -19,7 +19,7 @@ header('Content-Type: text/html; charset=UTF-8');
         <nav>
             <ul>
                 <li><a href="/mainboard.php">BOARDS</a></li>
-                <img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png">
+                <li><img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png"></li>
                 <li id="account"></li>
                 <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
             </ul>
@@ -32,25 +32,28 @@ header('Content-Type: text/html; charset=UTF-8');
         <table id="tableSettings">
             <tr>
                 <td>Select image to upload:</td>
-                <td><a href="#" onclick="document.getElementById('fileID').click(); return false;" />
+                <td><a href="#" onclick="document.getElementById('fileID').click(); return false;">
                     <img id="imgChange" alt="choose file" src="/images/choosefile.png"></a>
                     <input type="file" name="picChange" id="fileID"></td>
             </tr>
             <tr>
                 <td>Name:</td>
-                <td><input type="text" name="nameChange"></label></td>
+                <td><input type="text" name="nameChange" id="nameID"></td>
             </tr>
             <tr>
                 <td>Biography:</td>
-                <td><input type="text" name="bioChange"></td>
+                <td><textarea name="bioChange" id="bioID" wrap="soft"></textarea></td>
             </tr>
             <tr>
                 <td>Password:</td>
                 <td>
-                    <input type="password" name="oldpw1">
-                    <input type="password" name="oldpw2">
-                    <input type="password" name="newpw">
+                    <input type="password" name="newpw1" id="newpwID" placeholder="New password" size="22">
+                    <input type="password" name="newpw2" id="newpw2ID" placeholder="Re-type new password" size="22">
                 </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="password" name="oldpw" id="oldpwID"
+                                       placeholder="Please insert old password" required="required"></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="image" name="Submit" value="Submit" src="/images/changeaccount.png"></td>

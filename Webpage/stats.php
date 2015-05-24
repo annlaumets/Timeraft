@@ -28,7 +28,7 @@ header('Content-Type: text/html; charset=UTF-8');
 </section>
 
 <div class="main-body">
-    <canvas id="diagramCanvas" height="400" width="400"></canvas>
+    <canvas id="diagramCanvas"></canvas>
     <br>
     <select id="boardSelect"></select>
 </div>

@@ -4,7 +4,6 @@ $(window).load(function () {
     valimine.addEventListener('change', function() {
         var id = valimine.options[valimine.selectedIndex].value;
         history.pushState(id, "Test", "/stats.php?board=" + id);
-        canvas = document.getElementById("boardDiagram");
     });
     var all = document.createElement("option");
     all.textContent = "All boards";
@@ -57,14 +56,18 @@ function loadPage(id) {
         url: "/include/boardStats.php",
         data: {"boardID":id},
         success: function(data) {
-            var valimine = document.getElementById("boardSelect");
-
             var data2 = JSON.parse(data);
             sessionStorage.setItem("Stats?id=" + id, data2);
 
             canvas = document.getElementById("diagramCanvas");
             ctx = canvas.getContext("2d");
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            console.log("Width: " + width + ", Height: " + height);
+            canvas.width  = width / 2.25;
+            canvas.height = height / 1.25;
 
             var sum = 0;
             for (var i = 0; i < data2.length; i++) {
@@ -143,9 +146,18 @@ function drawSegmentLabel(data, canvas, context, i) {
 
     context.textAlign = "right";
     var fontSize = Math.floor(canvas.height / 50);
-    context.font = fontSize + "pt Helvetica";
+    context.font = fontSize + "pt Sanchez";
 
     context.fillText(data[i].Name, dx, dy);
 
     context.restore();
 }
+
+/*$(window).resize(function() {
+    console.log("Midagi MUUUUTUUUUUUS!!!!!");
+    var hashSuur = window.location.search.substring(1);
+    var hashArray = hashSuur.split('=');
+    if (hashArray[1]) {
+        loadPage(hashArray[1]);
+    }
+});*/
