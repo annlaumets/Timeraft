@@ -46,9 +46,10 @@ ALTER TABLE Users ADD Filepath VARCHAR(50);
 DROP PROCEDURE IF EXISTS sp_updateUserInfo;
 DELIMITER //
 CREATE PROCEDURE sp_updateUserInfo(IN in_userID INT(11), IN in_newName VARCHAR(50), 
-IN in_newPassword VARCHAR(50), IN in_newBio VARCHAR(1000), IN in_filepath VARCHAR(50))
+IN in_newPassword VARCHAR(255), IN in_newBio VARCHAR(1000), IN in_filepath VARCHAR(50))
 BEGIN
 UPDATE Users SET Name = in_newName, Password = in_newPassword, 
 Bio = in_newBio, Filepath = in_filepath WHERE ID = in_userID;
 END //
+
 

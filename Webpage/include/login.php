@@ -24,12 +24,15 @@ if (isset($_POST["submit_x"])) {
     $result = $loginStmt->fetch(PDO::FETCH_ASSOC);
     if ($result) {
         if (password_verify($pass, $result['Password'])) {
+            /*
             if (password_needs_rehash($result['Password'], PASSWORD_DEFAULT, ['cost' => 11])) {
                 $cpass = password_hash($pass, PASSWORD_DEFAULT, ['cost' => 11]);
                 $rehashSttmt = $conn -> prepare("CALL sp_reHash_change_passw(:cpass, :id);");
                 $rehashSttmt -> execute(array('cpass' => $cpass, 'id' => $result['ID']));
                 file_put_contents("rehashing.txt", "Just did a rehash to: ".$email, FILE_APPEND);
             }
+            Don't need this right now.
+            */
             session_regenerate_id(true);
             $_SESSION['login'] = true;
             $_SESSION['loginUser'] = $email;

@@ -12,9 +12,10 @@ function cryptpw($password) {
     return $hash = password_hash($password, PASSWORD_DEFAULT, $options);
 }
 
-function updateUserInfo($conn, $userID, $newName, $newPassword, $newBio, $fileLoc) {
-    $delete = $conn->prepare("CALL sp_updateUserInfo(:userId, :newName, :newPw, :newBio)");
-    $delete->execute(array('userId' => $userID, 'newName' => $newName, 'newPw' => $newPassword, 'newBio' => $newBio));
+function updateUserInfo($conn, $userID, $newName, $newPassword, $newBio, $filePath) {
+    $updateStmt = $conn->prepare("CALL sp_updateUserInfo(:userId, :newName, :newPw, :newBio, :filepath)");
+    $updateStmt->execute(array('userId' => $userID, 'newName' => $newName, 'newPw' => $newPassword, 'newBio' => $newBio, 'filepath' => $filePath));
+    file_put_contents("file4.txt", $userID. $newName. $newPassword. $newBio. $filePath, FILE_APPEND);
 }
 
 function uploadFile($file) {
@@ -88,13 +89,16 @@ if (isset($_POST)) {
                 die("newPassword1 and newPassword2 are not equal.");
             }
         }
+        file_put_contents("file2.txt", $result["Filepath"], FILE_APPEND);
         $user_ID = $_SESSION['UserID'];
-        if (isset($_FILES)) {
+        if ($_FILES["picChange"]["name"] !== "") {
             $newFile = uploadFile($_FILES["fileToUpload"]);
         } else {
             $newFile = $result["Filepath"];
         }
         updateUserInfo($conn, $user_ID, $_POST['nameChange'], $cpass, $_POST['bioChange'], $newFile);
+        header("Location: /settings.php");
+        exit;
     } else {
         die("Old password was wrong");
     }
