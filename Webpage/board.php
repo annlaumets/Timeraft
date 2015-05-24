@@ -99,7 +99,7 @@ header('Content-Type: text/html; charset=UTF-8');
             <table>
                 <tr><th>Name:</th><td><label><input name="name" type="text" size="20" required></label></td></tr>
                 <tr><th>Description:</th><td><label><textarea name="desc" cols="18" rows="4"></textarea></label></td></tr>
-                <tr><th>Due date:</th><td><label><input type="text" name="DueDate" id="datepick"></label></td></tr>
+                <tr><th>Due date:</th><td><label><input type="text" name="DueDate" id="datepick" required></label></td></tr>
                 <tr><td colspan="2"><input name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newTask"></td></tr>
             </table>
             <input type="hidden" name="tasks"

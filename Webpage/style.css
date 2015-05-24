@@ -644,6 +644,7 @@ input#fileID {
 div#picUpload {
     overflow: hidden;
     height: 0;
+    width: 0;
 }
 
 table#tableSettings {
