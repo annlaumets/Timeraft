@@ -25,7 +25,7 @@ header('Content-Type: text/html; charset=UTF-8');
         <nav>
             <ul>
                 <li><a href="/mainboard.php">BOARDS</a></li>
-                <img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png">
+                <li><img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png"></li>
                 <li id="account"></li>
                 <li><a href="/help.php"><img class="help" alt="HELP" src="images/help.png"></a></li>
             </ul>
@@ -87,7 +87,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Start Date:</th></tr>
                 <tr><th>End date:</th></tr>
                 <tr><th>Time spent:</th></tr>
-                <tr><th><input type="image" src="/images/delete.png" alt="DELETE" onclick="deleteTask(taskURL())"></th></tr>
+                <tr><th colspan="2"><input type="image" src="/images/delete.png" alt="DELETE" onclick="deleteTask(taskURL())"></th></tr>
             </table>
         </div>
     </div>
@@ -100,7 +100,7 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr><th>Name:</th><td><label><input name="name" type="text" size="20" required></label></td></tr>
                 <tr><th>Description:</th><td><label><textarea name="desc" cols="18" rows="4"></textarea></label></td></tr>
                 <tr><th>Due date:</th><td><label><input type="text" name="DueDate" id="datepick"></label></td></tr>
-                <tr><td colspan="1"><input name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newTask"></td></tr>
+                <tr><td colspan="2"><input name="submit" alt="CREATE" type="image" src="images/create.png" id="submit_newTask"></td></tr>
             </table>
             <input type="hidden" name="tasks"
                    value="<?php if (isset($_GET['tasks'])) echo htmlspecialchars($_GET['tasks']); ?>">

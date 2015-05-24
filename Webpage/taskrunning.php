@@ -19,7 +19,7 @@ include("include/session.php");
         <nav>
             <ul>
                 <li><a href="/mainboard.php">BOARDS</a></li>
-                <img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png">
+                <li><img class="logo" alt="TIMERAFT" src="images/timeraftlogo-white.png"></li>
                 <li id="account"></li>
                 <li><a href="/help.php"><img class="help" src="images/help.png" alt="HELP"></a></li>
             </ul>
