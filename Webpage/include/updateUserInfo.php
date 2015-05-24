@@ -2,7 +2,15 @@
 
 session_start();
 require("db_connection.php");
-include "login.php";
+
+function cryptpw($password) {
+    // Change these options for more security, right now generating new salt automatically
+    $options = [
+        // 'salt' => custom_function_for_salt(), //write your own code to generate a suitable salt
+        'cost' => 11 // the default cost is 10
+    ];
+    return $hash = password_hash($password, PASSWORD_DEFAULT, $options);
+}
 
 function updateUserInfo($conn, $userID, $newName, $newPassword, $newBio, $fileLoc) {
     $delete = $conn->prepare("CALL sp_updateUserInfo(:userId, :newName, :newPw, :newBio)");
