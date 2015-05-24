@@ -26,13 +26,12 @@ $(window).load(function() {
                     h4abi.parentNode.insertBefore(array[i], h4abi.nextSibling);
                 }
 
-                //SIIN TULEB MUUTA, ET ÕIGE PILT OLEKS!
-                /*if (data["picture"].length != 0) {
-                    document.getElementById('profile').src = data["picture"];
+                if (data["Filepath"].length != 0) {
+                    document.getElementById('profile').src = data["Filepath"];
                 }
                 else {
                     document.getElementById('profile').src = "../images/placeholder.png";
-                }*/
+                }
 
                 sessionStorage.setItem("AccountName", name.textContent);
                 sessionStorage.setItem("AccountEmail", email.textContent);
