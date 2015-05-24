@@ -4,12 +4,13 @@ header('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <!DOCTYPE html>
-<html manifest="/cache.manifest">
+<html>
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="/lib/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="js/showusername.js"></script>
+    <script type="text/javascript" src="js/populatefields.js"></script>
     <title>Timeraft | Settings</title>
 </head>
 
@@ -38,11 +39,11 @@ header('Content-Type: text/html; charset=UTF-8');
             </tr>
             <tr>
                 <td>Name:</td>
-                <td><input type="text" name="nameChange"></label></td>
+                <td><input type="text" name="nameChange" id="nameChange"</label></td>
             </tr>
             <tr>
                 <td>Biography:</td>
-                <td><input type="text" name="bioChange"></td>
+                <td><input type="text" name="bioChange" id="bioChange"></td>
             </tr>
             <tr>
                 <td>Password:</td>
