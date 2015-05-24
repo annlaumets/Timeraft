@@ -236,7 +236,6 @@ form {
     min-width: 100px;
     display: block;
     margin: 10px auto;
-    align-items: center;
 }
 
 #popup_singin h2, #popup_singup h2 {
