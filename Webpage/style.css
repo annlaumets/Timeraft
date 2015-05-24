@@ -609,7 +609,7 @@ div.imgcontainer img {
     margin: 0 auto;
 }
 
-img.profile {
+img#profile {
     width: 75%;
     height: auto;
     min-width: 100px;

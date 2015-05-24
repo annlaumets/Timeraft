@@ -31,7 +31,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <div class="main-body">
     <div class="accountcontainer">
         <div class="imgcontainer">
-            <img class="profile" alt="PROFILE PICTURE" src="/images/placeholder.png">
+            <img id="profile" alt="PROFILE PICTURE" src="">
         </div>
         <div class="datacontainer">
             <h4>Name:</h4>
