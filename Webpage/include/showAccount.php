@@ -15,6 +15,8 @@ if (isset($_SESSION['UserID'])){
         $loginStmt = $conn->prepare("CALL sp_getBio(:userID)");
         $loginStmt->execute(array('userID' => $userId));
         $result = $loginStmt->fetch(PDO::FETCH_ASSOC);
+        $result["Filepath"] = str_split($result["Filepath"],29);
+        $result["Filepath"] = $result["Filepath"][1];
         echo json_encode($result);
     }
 }
