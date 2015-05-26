@@ -1,7 +1,7 @@
 $(window).load(function() {
     $.ajax({
             type: "GET",
-            url: "/include/showaccount.php",
+            url: "/include/showAccount.php",
             dataType: "json",
             success: function(data) {
                 var name = document.createElement("p");

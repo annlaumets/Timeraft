@@ -1,27 +1,28 @@
 CACHE MANIFEST
 
-#rev 28
+#rev 29
 
 NETWORK:
-/include/addBoard.php
-/include/addTask.php
-/include/addTime.php
-/include/boardStats.php
-/include/db_connection.php
-/include/login.php
-/include/login-callback.php
-/include/logout.php
-/include/polling.php
-/include/session.php
-/include/showaccount.php
-/include/showboards.php
-/include/showtasks.php
-/include/signup.php
-/include/username.php
-/js/loginproov.js
-/js/getNewBoard.js
-/js/getNewTask.js
-/js/delete.js
+*
+#/include/addBoard.php
+#/include/addTask.php
+#/include/addTime.php
+#/include/boardStats.php
+#/include/db_connection.php
+#/include/login.php
+#/include/login-callback.php
+#/include/logout.php
+#/include/polling.php
+#/include/session.php
+#/include/showaccount.php
+#/include/showboards.php
+#/include/showtasks.php
+#/include/signup.php
+#/include/username.php
+#/js/loginproov.js
+#/js/getNewBoard.js
+#/js/getNewTask.js
+#/js/delete.js
 
 
 CACHE:

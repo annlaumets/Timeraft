@@ -4,7 +4,7 @@
 $(window).load(function() {
     $.ajax({
         type: "GET",
-        url: "/include/showaccount.php",
+        url: "/include/showAccount.php",
         dataType: "json",
         data: {settings: true},
         success: function (data) {
