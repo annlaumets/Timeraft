@@ -55,13 +55,27 @@ function uploadFile($file) {
         echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["fileChange"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["fileChange"]["name"]). " has been uploaded.";
-            file_put_contents("file3.txt", $target_file, FILE_APPEND);
-            return $target_file;
+        // If no such file exists
+        if (!(file_exists($target_file))) {
+            // Proceed with upload
+            if (move_uploaded_file($_FILES["fileChange"]["tmp_name"], $target_file)) {
+                echo "The file " . basename($_FILES["fileChange"]["name"]) . " has been uploaded.";
+                file_put_contents("file3.txt", $target_file, FILE_APPEND);
+                return $target_file;
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+                die();
+            }
         } else {
-            echo "Sorry, there was an error uploading your file.";
-            die();
+            unlink($target_file);
+            if (move_uploaded_file($_FILES["fileChange"]["tmp_name"], $target_file)) {
+                echo "The file " . basename($_FILES["fileChange"]["name"]) . " has been uploaded.";
+                file_put_contents("file3.txt", $target_file, FILE_APPEND);
+                return $target_file;
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+                die();
+            }
         }
     }
 }
