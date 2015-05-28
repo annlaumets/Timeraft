@@ -7,6 +7,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <html manifest="/cache.manifest">
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="/lib/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="js/showusername.js"></script>

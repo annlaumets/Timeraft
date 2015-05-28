@@ -26,6 +26,11 @@ header{
     z-index: 2;
 }
 
+nav#main-nav {
+    min-width: 250px;
+    max-width: 100%;
+}
+
 img.logo-main{
     float: left;
     /*height: 25px;*/
