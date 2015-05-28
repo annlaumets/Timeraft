@@ -7,6 +7,7 @@ include "include/fblogintest.php";
 <html manifest="/cache.manifest">
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="/lib/jquery-1.11.2.min.js"></script> <!-- JQuery library -->
     <script type="text/javascript" src="js/scripts.js" async></script>
