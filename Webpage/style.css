@@ -169,7 +169,7 @@ nav ul #account ul a {
 }
 
 nav#main-nav ul li.with-line {
-    border-top: 2px grey dotted;
+    border-top: 1px #5fd873 solid;
 }
 
 img.help {
@@ -976,7 +976,7 @@ nav#mobile-nav ul #account2 ul a {
 }
 
 nav#mobile-nav ul li.with-line {
-    border-top: 2px grey dotted;
+    border-top: 1px #5fd873 solid;
 }
 
 @media screen and (max-width: 560px) {
