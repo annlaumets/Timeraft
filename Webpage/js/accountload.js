@@ -4,6 +4,7 @@ $(window).load(function() {
             url: "/include/showAccount.php",
             dataType: "json",
             success: function(data) {
+                console.log(JSON.stringify(data));
                 var name = document.createElement("p");
                 var email = document.createElement("p");
                 var bio = document.createElement("p");
@@ -26,7 +27,7 @@ $(window).load(function() {
                     h4abi.parentNode.insertBefore(array[i], h4abi.nextSibling);
                 }
 
-                if (data["Filepath"].length != 0) {
+                if (data["Filepath"] != null) {
                     document.getElementById('profile').src = data["Filepath"];
                 }
                 else {
@@ -38,7 +39,9 @@ $(window).load(function() {
                 sessionStorage.setItem("AccountBio", bio.textContent);
                 sessionStorage.setItem("AccountTime", totalTime.textContent);
             },
-            error: function() {
+            error: function(data) {
+                alert("JSJUSJISJId");
+                console.log(JSON.stringify(data));
                 var name = document.createElement("p");
                 var email = document.createElement("p");
                 var bio = document.createElement("p");

@@ -15,8 +15,11 @@ if (isset($_SESSION['UserID'])){
         $loginStmt = $conn->prepare("CALL sp_getBio(:userID)");
         $loginStmt->execute(array('userID' => $userId));
         $result = $loginStmt->fetch(PDO::FETCH_ASSOC);
-        $result["Filepath"] = str_split($result["Filepath"],30);
-        $result["Filepath"] = $result["Filepath"][1];
+        if ($result["Filepath"]!="") {
+            $result["Filepath"] = str_split($result["Filepath"],30);
+            $result["Filepath"] = $result["Filepath"][1];
+        }
+        file_put_contents("profile.txt", $result['Email'], FILE_APPEND);
         echo json_encode($result);
     }
 }
