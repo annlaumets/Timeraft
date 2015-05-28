@@ -9,10 +9,13 @@ if (isset($_GET['boardURL'])) {
     $boardName = $getName['tasks'];
     $ownerID = $_SESSION['UserID'];
 
-    $getID = $conn->prepare("SELECT ID FROM Board WHERE Name = :boardName AND Owner_ID = :ownerID");
-    $getID->execute(array('boardName' => $boardName, 'ownerID' => $ownerID));
-    $result = $getID->fetch(PDO::FETCH_ASSOC);
-    $boardID = $result['ID'];
+    $stm = $conn->prepare("CALL sp_getBoardID(:boardName, :ownerID, @out_boardID)");
+    $stm->bindParam(':boardName', $boardName, PDO::PARAM_STR);
+    $stm->bindParam(':ownerID', $ownerID, PDO::PARAM_INT);
+    $stm->execute();
+    $stm->closeCursor();
+    $r = $conn->query("SELECT @out_boardID")->fetch(PDO::FETCH_ASSOC);
+    $boardID = $r['@out_boardID'];
 
     //file_put_contents('error.txt', $boardID, FILE_APPEND | LOCK_EX);
     $array = $conn->prepare("CALL sp_getTaskPerBoard('$boardID')");

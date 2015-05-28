@@ -22,6 +22,8 @@ if (isset($_POST["submit_x"])) {
     $loginStmt = $conn->prepare("SELECT ID, Password FROM Users WHERE Email = :email");
     $loginStmt->execute(array('email' => $email));
     $result = $loginStmt->fetch(PDO::FETCH_ASSOC);
+    $userID = $result['ID'];
+
     if ($result) {
         if (password_verify($pass, $result['Password'])) {
             /*
@@ -36,10 +38,11 @@ if (isset($_POST["submit_x"])) {
             session_regenerate_id(true);
             $_SESSION['login'] = true;
             $_SESSION['loginUser'] = $email;
-            $_SESSION['UserID'] = $result['ID'];
+            $_SESSION['UserID'] = $userID;
 
-            $updateLastVisited = $conn->prepare("Update Users SET Time_Last_Visited = now() WHERE ID = :uid");
-            $updateLastVisited -> execute(array('uid' => $result['ID']));
+            $updateLastVisited = $conn->prepare("CALL sp_lastVisit('$userID')");
+            $updateLastVisited->execute();
+
             if ($redirectURL) {
                 header("Location:" . $redirectURL);
             } else {
