@@ -45,17 +45,6 @@ function showBoards(data) {
             var boardpcontainer = document.createElement("div");
             boardpcontainer.className = "boardpcontainer";
 
-            if (window.innerWidth < 340) {
-                console.log("Lähen siia");
-                document.body.getElementsByClassName("board").item(0).style.paddingTop = "125px";
-            }
-            else if (window.innerWidth < 526 && window.innerHeight >=340) {
-                document.body.getElementsByClassName("board").item(0).style.paddingTop = "50px";
-            }
-            else {
-                document.body.getElementsByClassName("board").item(0).style.paddingTop = "10px";
-            }
-
             if (data[i]["Task_Type"] == "ToDo") {
                 document.body.getElementsByClassName("boardpcontainer").item(0).appendChild(p);
                 p.addEventListener("click", showToDo.bind(null, p.textContent, id, boardname));

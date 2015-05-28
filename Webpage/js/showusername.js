@@ -16,19 +16,13 @@ $(window).load(function () {
         type: "GET",
         url: "/include/username.php",
         success: function (msg) {
-            var name = "";
-            var i = 0;
-            while (msg[i] != "<") {
-                name += (msg[i]);
-                i++;
-            }
-            sessionStorage.setItem("UserName", name);
-            document.getElementById("account").innerHTML = name.replace(/[""]/g, '') + msg.substring(i);
+            sessionStorage.setItem("UserName", msg);
+            document.getElementById("account2").innerHTML += msg;
+            document.getElementById("account").innerHTML += msg;
         },
         error: function() {
-            document.getElementById("account").innerHTML = sessionStorage.getItem("UserName") + '<ul><li><a href="/account.php">PROFILE</a></li>' +
-            '<li><a href="/settings.php">SETTINGS</a></li><li><a href="/stats.php" id="stats">STATISTICS</a></li><hr>' +
-            '<li><a href="/include/logout.php" id="logoutBtn">LOG OUT</a></li></ul>';
+            document.getElementById("account2").innerHTML += sessionStorage.getItem("UserName");
+            document.getElementById("account").innerHTML += sessionStorage.getItem("UserName");
         }
     });
     if (!!document.getElementById("datepick")) {

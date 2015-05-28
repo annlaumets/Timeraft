@@ -168,6 +168,10 @@ nav ul #account ul a {
     color: #000000;
 }
 
+nav#main-nav ul li.with-line {
+    border-top: 2px grey dotted;
+}
+
 img.help {
     height: 25px;
     width: auto;
@@ -893,6 +897,107 @@ select#boardSelect {
     border-radius: 8px;
 }
 
+/*-- Mobile navigation menu --*/
+nav#mobile-nav li:nth-child(1) {
+    float: left;
+    min-width: 100px;
+    height: auto;
+    width: 150px;
+}
+
+nav#mobile-nav li:nth-child(2) {
+    float: right;
+    padding: 21px 5px 21px 5px;
+    margin: 0;
+    min-width: 100px;
+    width: auto;
+    max-width: 200px;
+}
+
+nav#mobile-nav ul {
+    list-style: none;
+    position: relative;
+}
+
+nav#mobile-nav ul ul {
+    display: none;
+}
+
+nav#mobile-nav ul #account2 {
+    min-width: 100px;
+}
+
+nav#mobile-nav ul #account2:hover {
+    background-color: #DEB887;
+    position: relative;
+}
+
+nav#mobile-nav ul #account2 a {
+    display: block;
+    padding: 15px 5px;
+    color: #000000;
+    text-decoration: none;
+}
+
+nav#mobile-nav ul #account2:hover ul {
+    display: block;
+    vertical-align: top;
+}
+
+nav#mobile-nav ul #account2 ul {
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    padding: 0;
+    background-color: #88e297;
+}
+
+nav#mobile-nav ul #account2 ul li {
+    padding: 0;
+    width: 100%;
+    vertical-align: top;
+    text-align: center;
+    white-space: nowrap;
+}
+
+nav#mobile-nav ul #account2 ul li:hover {
+    background-color: #DEB887;
+    position: relative;
+    width: 100%;
+    padding: 0;
+
+}
+
+nav#mobile-nav ul #account2 ul a {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+}
+
+nav#mobile-nav ul li.with-line {
+    border-top: 2px grey dotted;
+}
+
+@media screen and (max-width: 560px) {
+    nav#mobile-nav {
+        visibility: visible;
+    }
+
+    nav#main-nav {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 561px) {
+    nav#mobile-nav, nav#mobile-nav ul, nav#mobile-nav ul li {
+        display: none;
+    }
+
+    nav#main-nav {
+        visibility: visible;
+    }
+}
 
 @font-face {
     font-family: 'Sanchez';
