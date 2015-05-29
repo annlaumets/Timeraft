@@ -19,7 +19,6 @@ if (isset($_SESSION['UserID'])){
             $result["Filepath"] = str_split($result["Filepath"],30);
             $result["Filepath"] = $result["Filepath"][1];
         }
-        file_put_contents("profile.txt", $result['Email'], FILE_APPEND);
         echo json_encode($result);
     }
 }

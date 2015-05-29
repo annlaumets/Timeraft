@@ -59,21 +59,22 @@ if ($session) {
     $checkstmt->execute(array('fuid' => $fuid));
 
     $checkRes = $checkstmt->fetch(PDO::FETCH_ASSOC);
+    $userID = $checkRes['ID'];
 
-    if (count($checkRes) != 0) {
+    if ($userID != null) {
         $logoutUrl = $helper->getLogoutUrl($session, 'http://timeraft.cloudapp.net');
         session_regenerate_id(true);
         $_SESSION['login'] = true;
         $_SESSION['loginUser'] = $femail;
-        $_SESSION['UserID'] = $checkRes['ID'];
+        $_SESSION['UserID'] = $userID;
         $_SESSION['logOut'] = $logoutUrl;
         header("Refresh: 0; /mainboard.php");
     } else {
         $fbstmt = $conn->prepare("CALL sp_reg_fbemail('$fname','$fuid', '$femail')");
         $fbstmt->execute();
+
         $checkstmt = $conn->prepare("SELECT ID FROM Users WHERE facebook_uid = :fuid");
         $checkstmt->execute(array('fuid' => $fuid));
-
         $checkRes = $checkstmt->fetch(PDO::FETCH_ASSOC);
 
         $logoutUrl = $helper->getLogoutUrl($session, 'http://timeraft.cloudapp.net');
