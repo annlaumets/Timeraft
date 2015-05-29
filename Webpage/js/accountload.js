@@ -28,10 +28,10 @@ $(window).load(function() {
                 }
 
                 if (data["Filepath"] != null) {
-                    document.getElementById('profile').src = data["Filepath"];
+                    document.getElementById('profile').src = data["Filepath"] + "?" + new Date().getTime();
                 }
                 else {
-                    document.getElementById('profile').src = "../images/placeholder.png";
+                    document.getElementById('profile').src = "../images/placeholder.png?" + new Date().getTime();
                 }
 
                 sessionStorage.setItem("AccountName", name.textContent);
