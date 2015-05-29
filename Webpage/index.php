@@ -1,17 +1,15 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8'); //et näitaks täpitähti :D
-include "include/fblogintest.php";
+include ("include/fblogintest.php");
 ?>
-
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="/lib/jquery-1.11.2.min.js"></script> <!-- JQuery library -->
+<!--    <script src="/lib/jquery-1.11.2.min.js"></script> -->
     <script type="text/javascript" src="js/scripts.js" async></script>
-    <script type="text/javascript" src="js/loginproov.js" async></script>
     <title>Timeraft</title>
 </head>
 

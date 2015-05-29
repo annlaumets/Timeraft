@@ -10,7 +10,7 @@ session_start();
 require("db_connection.php");
 
 // Autoload the required files
-require_once($_SERVER['DOCUMENT_ROOT'].'\lib\facebook-php-sdk-v4-4.0-dev\autoload.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/lib/facebook-php-sdk-v4-4.0-dev/autoload.php');
 
 use Facebook\FacebookSDKException;
 use Facebook\FacebookSession;

@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once($_SERVER['DOCUMENT_ROOT'].'\lib\facebook-php-sdk-v4-4.0-dev\autoload.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/lib/facebook-php-sdk-v4-4.0-dev/autoload.php');
 
 if (isset($_SESSION['logOut'])) {
     session_destroy();
