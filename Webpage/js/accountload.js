@@ -31,7 +31,7 @@ $(window).load(function() {
                     document.getElementById('profile').src = data["Filepath"] + "?" + new Date().getTime();
                 }
                 else {
-                    document.getElementById('profile').src = "../images/placeholder.png?" + new Date().getTime();
+                    document.getElementById('profile').src = "../images/placeholder.png";
                 }
 
                 sessionStorage.setItem("AccountName", name.textContent);
