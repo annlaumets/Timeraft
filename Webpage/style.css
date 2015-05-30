@@ -239,7 +239,7 @@ form {
     padding-right: 0;
 }
 
-#submit_signin, #submit_signup {
+#submit_signin, #submit_signup, #fblogin, #fbsignup {
     height: auto;
     width: 35%;
     min-width: 100px;
@@ -294,19 +294,6 @@ form {
 a {
     text-decoration: none;
     color: black;
-}
-
-/*Login buttons for FB and Google*/
-.nupud {
-    display: inline-block;
-    padding: 10px 20px;
-}
-
-.nupud .fb-login-button {
-    display: block;
-    float: left;
-    margin-right: 10px;
-    margin-left: 10px;
 }
 
 form input {

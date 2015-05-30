@@ -45,12 +45,8 @@ include ("include/fblogintest.php");
                 <input name="password" placeholder="Password" type="password" size="25" required>
                 <input type="hidden" name="redirect" value="<?php if(isset($_GET['redirect'])) echo htmlspecialchars($_GET['redirect']); ?>">
                 <input onsubmit="div_hide_signin()" name="submit"  type="image" alt="LOG IN" src="images/login.png" id="submit_signin">
-                <div class="nupud">
-                    <a href="<?php echo $loginUrl; ?>">
-                    <button type="button">Logi sisse</button></a>
-                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
-                    <div id="status"></div>
-                </div>
+                <a href="<?php echo $loginUrl; ?>">
+                    <img src="images/fblogin.png" alt="SIGN IN WITH FACEBOOK" id="fblogin"></a>
             </form>
         </div>
         <input type="image" alt="SIGN IN" onclick="div_show_signin()" src="images/signin.png" id="SignInButton"/>
@@ -65,12 +61,8 @@ include ("include/fblogintest.php");
                 <input id="signupemail" name="email" placeholder="Email" type="email" size="25" required>
                 <input id="signuppw" name="password" placeholder="Password" type="password" size="25" required>
                 <input onsubmit="div_hide_signup()" name="submit" type="image" alt="REGISTER" src="images/register.png" id="submit_signup">
-                <div class="nupud">
-                    <!--<fb:login-button scope="public_profile,email" onclick="checkLoginState();">
-                    </fb:login-button>-->
-                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
-                    <div class="status"></div>
-                </div>
+                <a href="<?php echo $loginUrl; ?>">
+                    <img src="images/fbsignup.png" alt="SIGN UP WITH FACEBOOK" id="fbsignup"></a>
             </form>
         </div>
         <input type="image" alt="SIGN UP" src="images/signup.png" id="SignUpButton" onclick="div_show_signup()"/>
